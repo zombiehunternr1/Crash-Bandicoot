@@ -1,0 +1,74 @@
+﻿
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class Movement : MonoBehaviour
+{
+    public float Speed;
+    public float JumpForce;
+    public float JumpHeightFloat;
+
+    private bool IsGrounded = true;
+    private Rigidbody Rb;
+    private Vector2 InputValue;
+    private Vector3 JumpHeight;
+    
+    //Gets the Rigidbody of the player and sets the jumpheight of the player.
+    private void Awake()
+    {
+        Rb = GetComponent<Rigidbody>();
+        JumpHeight = new Vector3(0.0f, JumpHeightFloat, 0.0f);
+    }
+
+    //Keeps updating the direction everytime the player gives an input.
+    void FixedUpdate()
+    {
+        Direction();
+    }
+
+    //This function handles the movement of the character and which way it must face according to the player's input.
+    private void Direction()
+    {
+        //Gets the direction of the players input
+        Vector3 direction = new Vector3(InputValue.x, 0, InputValue.y);
+
+        Vector3 velocity = direction * Speed;
+        Rb.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
+        Vector3 facingrotation = Vector3.Normalize(new Vector3(InputValue.x, 0, InputValue.y));
+
+        //This condition prevents from spamming "Look rotation viewing vector is zero" when not moving.
+        if (facingrotation != Vector3.zero)
+        {
+            transform.forward = facingrotation;
+        }
+    }
+
+    //Once the player collides with something the Boolean IsGrounded will be set to true so the player can jump again.
+    private void OnCollisionEnter(Collision other)
+    {
+        IsGrounded = true;
+    }
+
+    //This function checks if the player is grounded, if so that means the player is not in the air and can jump.
+    //Once the player jumps the boolean IsGrounded will be set to false.
+    private void Jumping()
+    {
+        if (IsGrounded)
+        {
+            Rb.AddForce(JumpHeight * JumpForce, ForceMode.Impulse);
+            IsGrounded = false;
+        }
+    }
+
+    private void OnJump()
+    {
+        Jumping();
+    }
+
+    private void OnMove(InputValue val)
+    {
+        InputValue = val.Get<Vector2>();
+    }
+}
