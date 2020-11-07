@@ -5,14 +5,21 @@ using UnityEngine;
 
 public class CollisionSideDetection : MonoBehaviour
 {
-    //Checks if the player collides with any gameobject
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(ReturnDirection(collision.gameObject, this.gameObject));
-    }
-
     //Enums to help check which side the player hit a certain object.
     private enum HitDirection { None, Top, Bottom, Forward, Back, Left, Right }
+
+    public GameEvent CrateHit;
+
+    //Checks if the player collides with any gameobject that has the script crate attached to it.
+    void OnCollisionEnter(Collision collision)
+    {
+        //Checks if the collision is with an object that has the Crate script attached to it.
+        //If so so it calls the enum function HitDirection.
+        if(collision.transform.GetComponent<Crate>() != null)
+        {
+            ReturnDirection(collision.gameObject, this.gameObject);
+        }     
+    }
 
     //This Enum function checks which side the player hits a certain object and returns this information.
     private HitDirection ReturnDirection(GameObject Object, GameObject ObjectHit)
@@ -32,6 +39,7 @@ public class CollisionSideDetection : MonoBehaviour
                 if (MyNormal == MyRayHit.transform.up)
                 {
                     hitDirection = HitDirection.Top;
+                    CrateHit.Raise();
                 }
                 if (MyNormal == -MyRayHit.transform.up)
                 {
