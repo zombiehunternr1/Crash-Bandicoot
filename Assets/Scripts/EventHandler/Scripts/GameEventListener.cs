@@ -8,13 +8,11 @@ public class GameEventListener : MonoBehaviour
     [SerializeField] private GameEvent _gameEvent;
     [SerializeField] private UnityEvent _response;
 
-    // Start is called before the first frame update
     void OnEnable()
     {
         _gameEvent.RegisterListener(this);
     }
 
-    // Update is called once per frame
     void OnDisable()
     {
         _gameEvent.UnregisterListener(this);

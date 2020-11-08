@@ -526,8 +526,8 @@ GameObject:
   - component: {fileID: 963221376}
   - component: {fileID: 963221375}
   - component: {fileID: 963221379}
-  - component: {fileID: 963221380}
   - component: {fileID: 963221374}
+  - component: {fileID: 963221380}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Untagged
@@ -646,11 +646,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 963221373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90749240303c2b24e8c1aea0adbdc041, type: 3}
+  m_Script: {fileID: 11500000, guid: 72e9521e68e659a4cbffcd04f6d2d34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 11400000, guid: d8fa0743c8ad85948abccc68d71264e8, type: 2}
-  _response:
+  _gameEventInt: {fileID: 11400000, guid: d8fa0743c8ad85948abccc68d71264e8, type: 2}
+  _responseInt:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963221374}

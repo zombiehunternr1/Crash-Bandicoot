@@ -6,6 +6,6 @@ public class Crate : MonoBehaviour
 {
     public void CrateHit()
     {
-        Debug.Log("Hoi");
+        Debug.Log("Hallo");
     }
 }
