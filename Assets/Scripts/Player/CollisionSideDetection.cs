@@ -10,7 +10,7 @@ public class CollisionSideDetection : MonoBehaviour
 
     private int value;
 
-    public GameEventInt CrateHit;
+    public GameEventInt Hit;
 
     //Checks if the player collides with any gameobject that has the script crate attached to it.
     void OnCollisionEnter(Collision collision)
@@ -42,37 +42,37 @@ public class CollisionSideDetection : MonoBehaviour
                 {
                     hitDirection = HitDirection.Top;
                     value = Convert.ToInt32(hitDirection);
-                    CrateHit.RaiseInt(value);
+                    Hit.RaiseInt(value);
                 }
                 if (MyNormal == -MyRayHit.transform.up)
                 {
                     hitDirection = HitDirection.Bottom;
                     value = Convert.ToInt32(hitDirection);
-                    CrateHit.RaiseInt(value);
+                    Hit.RaiseInt(value);
                 }
                 if (MyNormal == MyRayHit.transform.forward)
                 {
                     hitDirection = HitDirection.Forward;
                     value = Convert.ToInt32(hitDirection);
-                    CrateHit.RaiseInt(value);
+                    Hit.RaiseInt(value);
                 }
                 if (MyNormal == -MyRayHit.transform.forward)
                 {
                     hitDirection = HitDirection.Back;
                     value = Convert.ToInt32(hitDirection);
-                    CrateHit.RaiseInt(value);
+                    Hit.RaiseInt(value);
                 }
                 if (MyNormal == MyRayHit.transform.right)
                 {
                     hitDirection = HitDirection.Right;
                     value = Convert.ToInt32(hitDirection);
-                    CrateHit.RaiseInt(value);
+                    Hit.RaiseInt(value);
                 }
                 if (MyNormal == -MyRayHit.transform.right)
                 {
                     hitDirection = HitDirection.Left;
                     value = Convert.ToInt32(hitDirection);
-                    CrateHit.RaiseInt(value);
+                    Hit.RaiseInt(value);
                 }
             }
         }

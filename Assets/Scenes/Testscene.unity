@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7ea11c29646fe468496a80ff8e1c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CrateHit: {fileID: 11400000, guid: d8fa0743c8ad85948abccc68d71264e8, type: 2}
+  Hit: {fileID: 11400000, guid: d8fa0743c8ad85948abccc68d71264e8, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
