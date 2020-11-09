@@ -11,33 +11,24 @@ public class Crate : MonoBehaviour
     public void CrateHit()
     {
         value = side.value;
-        if (value == 1)
+
+        switch (value)
         {
-            Debug.Log("Hit top");
-        }
-        if (value == 2)
-        {
-            Debug.Log("Hit bottom");
-        }
-        if (value == 3)
-        {
-            Debug.Log("Hit forward");
-        }
-        if (value == 4)
-        {
-            Debug.Log("Hit back");
-        }
-        if (value == 5)
-        {
-            Debug.Log("Hit left");
-        }
-        if (value == 6)
-        {
-            Debug.Log("Hit right");
-        }
-        if(value == 7)
-        {
-            Debug.Log("Spin attack");
+            case 1: print("I'm the top side");
+                break;
+            case 2: print("I'm the bottom side");
+                break;
+            case 3: print("I'm the forward side");
+                break;
+            case 4: print("I'm the back side");
+                break;
+            case 5: print("I'm the left side");
+                break;
+            case 6: print("I'm the right side");
+                break;
+            case 7: print("I'm the spin attack");
+                break;
+
         }
     }
 }
