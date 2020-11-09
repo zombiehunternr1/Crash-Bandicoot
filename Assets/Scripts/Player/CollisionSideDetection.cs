@@ -8,6 +8,7 @@ public class CollisionSideDetection : MonoBehaviour
     //Enums to help check which side the player hit a certain object or with his attack.
     private enum HitDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
 
+    [HideInInspector]
     public int value;
 
     public GameEventInt Hit;
