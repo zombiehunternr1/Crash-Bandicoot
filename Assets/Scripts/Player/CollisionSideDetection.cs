@@ -5,21 +5,39 @@ using UnityEngine;
 
 public class CollisionSideDetection : MonoBehaviour
 {
-    //Enums to help check which side the player hit a certain object.
-    private enum HitDirection { None, Top, Bottom, Forward, Back, Left, Right }
+    //Enums to help check which side the player hit a certain object or with his attack.
+    private enum HitDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
 
-    private int value;
+    public int value;
 
     public GameEventInt Hit;
+
+    private BoxCollider SpinAttack;
+
+    void Start()
+    {
+        SpinAttack = GetComponentInChildren<BoxCollider>();
+    }
 
     //Checks if the player collides with any gameobject that has the script crate attached to it.
     void OnCollisionEnter(Collision collision)
     {
         //Checks if the collision is with an object that has the Crate script attached to it.
-        //If so so it calls the enum function HitDirection.
+        //If so so it checks if the player did a spinattack when colliding.
+        //If so it sets the int value to the enum Spin, else it means the player only hit one of the sides of the object.
         if(collision.transform.GetComponent<Crate>() != null)
         {
-            ReturnDirection(collision.gameObject, this.gameObject);
+            if (!SpinAttack.enabled)
+            {
+                ReturnDirection(collision.gameObject, this.gameObject);
+            }
+            else
+            {
+                HitDirection SpinAttack = HitDirection.Spin;
+                value = Convert.ToInt32(SpinAttack);
+                Hit.RaiseInt(value);
+            }
+            
         }     
     }
 

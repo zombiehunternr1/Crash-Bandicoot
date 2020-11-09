@@ -414,6 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7ea11c29646fe468496a80ff8e1c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 0
   Hit: {fileID: 11400000, guid: d8fa0743c8ad85948abccc68d71264e8, type: 2}
 --- !u!1 &963194225
 GameObject:
@@ -547,6 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63340e2b01ba11348ba275b3a65b3de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  side: {fileID: 734840110}
 --- !u!65 &963221375
 BoxCollider:
   m_ObjectHideFlags: 0
