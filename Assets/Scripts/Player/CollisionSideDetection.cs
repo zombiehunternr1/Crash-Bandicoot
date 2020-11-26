@@ -37,8 +37,7 @@ public class CollisionSideDetection : MonoBehaviour
                 HitDirection SpinAttack = HitDirection.Spin;
                 value = Convert.ToInt32(SpinAttack);
                 Hit.RaiseInt(value);
-            }
-            
+            }         
         }     
     }
 

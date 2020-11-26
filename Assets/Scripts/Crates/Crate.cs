@@ -14,21 +14,69 @@ public class Crate : MonoBehaviour
 
         switch (value)
         {
-            case 1: print("I'm the top side");
+            //Top
+            case 1:
+                Top();
                 break;
-            case 2: print("I'm the bottom side");
+            //Botom
+            case 2:
+                Bottom();
                 break;
-            case 3: print("I'm the forward side");
+            //Forward
+            case 3:
+                Forward();
                 break;
-            case 4: print("I'm the back side");
+            //Back
+            case 4:
+                Back();
                 break;
-            case 5: print("I'm the left side");
+            //Left
+            case 5:
+                Left();
                 break;
-            case 6: print("I'm the right side");
+            //Right
+            case 6:
+                Right();
                 break;
-            case 7: print("I'm the spin attack");
+            //Spin
+            case 7:
+                Attack();
                 break;
-
         }
+    }
+
+    void Top()
+    {
+        Debug.Log("Top");
+    }
+
+    void Bottom()
+    {
+        Debug.Log("Bottom");
+    }
+
+    void Forward()
+    {
+        Debug.Log("Forward");
+    }
+
+    void Back()
+    {
+        Debug.Log("Back");
+    }
+
+    void Left()
+    {
+        Debug.Log("Left");
+    }
+
+    void Right()
+    {
+        Debug.Log("Right");
+    }
+
+    void Attack()
+    {
+        Debug.Log("Spin");
     }
 }
