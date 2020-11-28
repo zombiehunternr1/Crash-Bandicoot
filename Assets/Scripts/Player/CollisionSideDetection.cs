@@ -6,12 +6,12 @@ using UnityEngine;
 public class CollisionSideDetection : MonoBehaviour
 {
     //Enums to help check which side the player hit a certain object or with his attack.
-    private enum HitDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
+    private enum HitPlayerDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
 
     [HideInInspector]
-    public int value;
+    public int SideHitValue;
 
-    public GameEventInt Hit;
+    public GameEventInt PlayerHit;
 
     private BoxCollider SpinAttack;
 
@@ -26,7 +26,7 @@ public class CollisionSideDetection : MonoBehaviour
         //Checks if the collision is with an object that has the Crate script attached to it.
         //If so so it checks if the player did a spinattack when colliding.
         //If so it sets the int value to the enum Spin, else it means the player only hit one of the sides of the object.
-        if(collision.transform.GetComponent<Crate>() != null)
+        if(collision.transform.GetComponent<CrateBase>() != null)
         {
             if (!SpinAttack.enabled)
             {
@@ -34,17 +34,17 @@ public class CollisionSideDetection : MonoBehaviour
             }
             else
             {
-                HitDirection SpinAttack = HitDirection.Spin;
-                value = Convert.ToInt32(SpinAttack);
-                Hit.RaiseInt(value);
+                HitPlayerDirection SpinAttack = HitPlayerDirection.Spin;
+                SideHitValue = Convert.ToInt32(SpinAttack);
+                PlayerHit.RaiseInt(SideHitValue);
             }         
         }     
     }
 
     //This Enum function checks which side the player hits a certain object and returns this information.
-    private HitDirection ReturnDirection(GameObject Object, GameObject ObjectHit)
+    private HitPlayerDirection ReturnDirection(GameObject Object, GameObject ObjectHit)
     {
-        HitDirection hitDirection = HitDirection.None;
+        HitPlayerDirection hitDirection = HitPlayerDirection.None;
         RaycastHit MyRayHit;
         Vector3 direction = (Object.transform.position - ObjectHit.transform.position).normalized;
         Ray MyRay = new Ray(ObjectHit.transform.position, direction);
@@ -58,39 +58,39 @@ public class CollisionSideDetection : MonoBehaviour
 
                 if (MyNormal == MyRayHit.transform.up)
                 {
-                    hitDirection = HitDirection.Top;
-                    value = Convert.ToInt32(hitDirection);
-                    Hit.RaiseInt(value);
+                    hitDirection = HitPlayerDirection.Top;
+                    SideHitValue = Convert.ToInt32(hitDirection);
+                    PlayerHit.RaiseInt(SideHitValue);
                 }
                 if (MyNormal == -MyRayHit.transform.up)
                 {
-                    hitDirection = HitDirection.Bottom;
-                    value = Convert.ToInt32(hitDirection);
-                    Hit.RaiseInt(value);
+                    hitDirection = HitPlayerDirection.Bottom;
+                    SideHitValue = Convert.ToInt32(hitDirection);
+                    PlayerHit.RaiseInt(SideHitValue);
                 }
                 if (MyNormal == MyRayHit.transform.forward)
                 {
-                    hitDirection = HitDirection.Forward;
-                    value = Convert.ToInt32(hitDirection);
-                    Hit.RaiseInt(value);
+                    hitDirection = HitPlayerDirection.Forward;
+                    SideHitValue = Convert.ToInt32(hitDirection);
+                    PlayerHit.RaiseInt(SideHitValue);
                 }
                 if (MyNormal == -MyRayHit.transform.forward)
                 {
-                    hitDirection = HitDirection.Back;
-                    value = Convert.ToInt32(hitDirection);
-                    Hit.RaiseInt(value);
+                    hitDirection = HitPlayerDirection.Back;
+                    SideHitValue = Convert.ToInt32(hitDirection);
+                    PlayerHit.RaiseInt(SideHitValue);
                 }
                 if (MyNormal == MyRayHit.transform.right)
                 {
-                    hitDirection = HitDirection.Right;
-                    value = Convert.ToInt32(hitDirection);
-                    Hit.RaiseInt(value);
+                    hitDirection = HitPlayerDirection.Right;
+                    SideHitValue = Convert.ToInt32(hitDirection);
+                    PlayerHit.RaiseInt(SideHitValue);
                 }
                 if (MyNormal == -MyRayHit.transform.right)
                 {
-                    hitDirection = HitDirection.Left;
-                    value = Convert.ToInt32(hitDirection);
-                    Hit.RaiseInt(value);
+                    hitDirection = HitPlayerDirection.Left;
+                    SideHitValue = Convert.ToInt32(hitDirection);
+                    PlayerHit.RaiseInt(SideHitValue);
                 }
             }
         }

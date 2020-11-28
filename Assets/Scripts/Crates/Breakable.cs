@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crate : MonoBehaviour
+public class Breakable : MonoBehaviour
 {
-    public CollisionSideDetection side;
+    int CrateValue;
 
-    int value;
-
-    public void CrateHit()
+    public void CrateAction(CrateBase Crate)
     {
-        value = side.value;
+        CrateValue = Crate.CrateSide;
 
-        switch (value)
+        switch (CrateValue)
         {
             //Top
             case 1:
@@ -43,40 +41,41 @@ public class Crate : MonoBehaviour
                 Attack();
                 break;
         }
+           
     }
 
     void Top()
     {
-        Debug.Log("Top");
+        Debug.Log("Hit breakable Top");
     }
 
     void Bottom()
     {
-        Debug.Log("Bottom");
+        Debug.Log("Hit breakable Bottom");
     }
 
     void Forward()
     {
-        Debug.Log("Forward");
+        Debug.Log("Hit breakable Forward");
     }
 
     void Back()
     {
-        Debug.Log("Back");
+        Debug.Log("Hit breakable Back");
     }
 
     void Left()
     {
-        Debug.Log("Left");
+        Debug.Log("Hit breakable Left");
     }
 
     void Right()
     {
-        Debug.Log("Right");
+        Debug.Log("Hit breakable Right");
     }
 
     void Attack()
     {
-        Debug.Log("Spin");
+        Debug.Log("Spin attack breakable");
     }
 }

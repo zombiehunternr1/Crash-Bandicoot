@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Movement : MonoBehaviour
+public class PlayerActions : MonoBehaviour
 {
     public float Speed;
     public float JumpForce;
@@ -14,10 +14,14 @@ public class Movement : MonoBehaviour
     private Rigidbody Rb;
     private Vector2 InputValue;
     private Vector3 JumpHeight;
-    
-    //Gets the Rigidbody of the player and sets the jumpheight of the player.
+
+    private BoxCollider SpinCollider;
+    private bool IsSpinning;
+
+    //Gets the Rigidbody of the player, the box collider of the spin attack and sets the jumpheight of the player.
     private void Awake()
     {
+        SpinCollider = GetComponentInChildren<BoxCollider>();
         Rb = GetComponent<Rigidbody>();
         JumpHeight = new Vector3(0.0f, JumpHeightFloat, 0.0f);
     }
@@ -70,5 +74,23 @@ public class Movement : MonoBehaviour
     private void OnMove(InputValue val)
     {
         InputValue = val.Get<Vector2>();
+    }
+
+    //Once the player presses the attack button the Coroutine SpinAttack will start.
+    private void OnSpin()
+    {
+        StartCoroutine(SpinAttack());
+    }
+
+    IEnumerator SpinAttack()
+    {
+        if (!IsSpinning)
+        {
+            IsSpinning = true;
+            SpinCollider.enabled = true;
+            yield return new WaitForSeconds(1);
+            SpinCollider.enabled = false;
+            IsSpinning = false;
+        }
     }
 }
