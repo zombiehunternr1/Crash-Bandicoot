@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    int CrateValue;
+    [HideInInspector]
+    public int CrateValue;
 
     public void CrateAction(int CrateSide)
     {

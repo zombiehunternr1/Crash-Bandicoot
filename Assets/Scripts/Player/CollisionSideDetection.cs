@@ -10,8 +10,9 @@ public class CollisionSideDetection : MonoBehaviour
 
     [HideInInspector]
     public int SideHitValue;
+    public CrateBase Crate;
 
-    public GameEventInt PlayerHit;
+    //public GameEventInt PlayerHit;
 
     private BoxCollider SpinAttack;
 
@@ -35,8 +36,8 @@ public class CollisionSideDetection : MonoBehaviour
             else
             {
                 HitPlayerDirection SpinAttack = HitPlayerDirection.Spin;
-                SideHitValue = Convert.ToInt32(SpinAttack);
-                PlayerHit.RaiseInt(SideHitValue);
+                SideHitValue = Convert.ToInt32(SpinAttack);;
+                Crate.CrateDirectionHit(SideHitValue);
             }         
         }     
     }
@@ -60,37 +61,38 @@ public class CollisionSideDetection : MonoBehaviour
                 {
                     hitDirection = HitPlayerDirection.Top;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    PlayerHit.RaiseInt(SideHitValue);
+                    Crate.CrateSide = SideHitValue;
+                    Crate.CrateDirectionHit(SideHitValue);
                 }
                 if (MyNormal == -MyRayHit.transform.up)
                 {
                     hitDirection = HitPlayerDirection.Bottom;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    PlayerHit.RaiseInt(SideHitValue);
+                    Crate.CrateDirectionHit(SideHitValue);
                 }
                 if (MyNormal == MyRayHit.transform.forward)
                 {
                     hitDirection = HitPlayerDirection.Forward;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    PlayerHit.RaiseInt(SideHitValue);
+                    Crate.CrateDirectionHit(SideHitValue);
                 }
                 if (MyNormal == -MyRayHit.transform.forward)
                 {
                     hitDirection = HitPlayerDirection.Back;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    PlayerHit.RaiseInt(SideHitValue);
+                    Crate.CrateDirectionHit(SideHitValue);
                 }
                 if (MyNormal == MyRayHit.transform.right)
                 {
                     hitDirection = HitPlayerDirection.Right;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    PlayerHit.RaiseInt(SideHitValue);
+                    Crate.CrateDirectionHit(SideHitValue);
                 }
                 if (MyNormal == -MyRayHit.transform.right)
                 {
                     hitDirection = HitPlayerDirection.Left;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    PlayerHit.RaiseInt(SideHitValue);
+                    Crate.CrateDirectionHit(SideHitValue);
                 }
             }
         }

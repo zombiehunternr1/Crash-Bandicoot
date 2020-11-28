@@ -9,13 +9,10 @@ public class CrateBase : MonoBehaviour
     public int CrateSide;
 
     private enum CrateDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
-    int SideValue;
 
-    public void CrateDirectionHit(CollisionSideDetection PlayerHit)
+    public void CrateDirectionHit(int PlayerSideHit)
     {
-        SideValue = PlayerHit.SideHitValue;
-
-        switch (SideValue)
+        switch (PlayerSideHit)
         {
             //Top
             case 1:
@@ -50,7 +47,7 @@ public class CrateBase : MonoBehaviour
 
     void Top()
     {
-        CrateSide = Convert.ToInt32(CrateDirection.Top);
+        CrateSide = Convert.ToInt32(CrateDirection.Top);    
     }
 
     void Bottom()
