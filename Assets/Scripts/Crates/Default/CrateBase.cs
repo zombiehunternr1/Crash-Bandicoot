@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class CrateBase : MonoBehaviour
 {
-    [HideInInspector]
+    //[HideInInspector]
     public int CrateSide;
 
     private enum CrateDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
+
+    void Start()
+    {
+        CrateSide = Convert.ToInt32(CrateDirection.None);
+    }
 
     public void CrateDirectionHit(int PlayerSideHit)
     {
@@ -47,7 +52,8 @@ public class CrateBase : MonoBehaviour
 
     void Top()
     {
-        CrateSide = Convert.ToInt32(CrateDirection.Top);    
+        CrateSide = Convert.ToInt32(CrateDirection.Top);
+        Debug.Log(CrateSide);
     }
 
     void Bottom()

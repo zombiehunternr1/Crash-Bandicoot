@@ -32,11 +32,12 @@ public class CollisionSideDetection : MonoBehaviour
             if (!SpinAttack.enabled)
             {
                 ReturnDirection(collision.gameObject, this.gameObject);
+                Crate.CrateDirectionHit(SideHitValue);
             }
             else
             {
                 HitPlayerDirection SpinAttack = HitPlayerDirection.Spin;
-                SideHitValue = Convert.ToInt32(SpinAttack);;
+                SideHitValue = Convert.ToInt32(SpinAttack);
                 Crate.CrateDirectionHit(SideHitValue);
             }         
         }     
@@ -88,7 +89,6 @@ public class CollisionSideDetection : MonoBehaviour
                     SideHitValue = Convert.ToInt32(hitDirection);
                 }
             }
-            Crate.CrateDirectionHit(SideHitValue);
         }
         return hitDirection;
     }
