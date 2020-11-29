@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
-    int CrateValue;
+    [HideInInspector]
+    public int CrateValue;
 
-    public void CrateAction(CrateBase Crate)
+    public void CrateAction(int CrateSide)
     {
-        CrateValue = Crate.CrateSide;
+        CrateValue = CrateSide;
 
         switch (CrateValue)
         {

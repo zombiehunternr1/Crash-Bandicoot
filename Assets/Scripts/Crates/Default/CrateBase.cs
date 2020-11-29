@@ -10,10 +10,12 @@ public class CrateBase : CollisionSideDetection
 
     private enum CrateDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
     private Interactable Interact;
+    private Breakable Break;
 
     void Awake()
     {
         Interact = GetComponent<Interactable>();
+        Break = GetComponent<Breakable>();
     }
 
     public void CrateDirectionHit(int PlayerSideHit)
@@ -58,6 +60,10 @@ public class CrateBase : CollisionSideDetection
         {
             Interact.CrateAction(CrateSide);
         }
+        if (Break)
+        {
+            Break.CrateAction(CrateSide);
+        }
     }
 
     void Bottom()
@@ -66,6 +72,10 @@ public class CrateBase : CollisionSideDetection
         if (Interact)
         {
             Interact.CrateAction(CrateSide);
+        }
+        if (Break)
+        {
+            Break.CrateAction(CrateSide);
         }
     }
 
@@ -76,6 +86,10 @@ public class CrateBase : CollisionSideDetection
         {
             Interact.CrateAction(CrateSide);
         }
+        if (Break)
+        {
+            Break.CrateAction(CrateSide);
+        }
     }
 
     void Back()
@@ -84,6 +98,10 @@ public class CrateBase : CollisionSideDetection
         if (Interact)
         {
             Interact.CrateAction(CrateSide);
+        }
+        if (Break)
+        {
+            Break.CrateAction(CrateSide);
         }
     }
 
@@ -94,6 +112,10 @@ public class CrateBase : CollisionSideDetection
         {
             Interact.CrateAction(CrateSide);
         }
+        if (Break)
+        {
+            Break.CrateAction(CrateSide);
+        }
     }
 
     void Right()
@@ -103,6 +125,10 @@ public class CrateBase : CollisionSideDetection
         {
             Interact.CrateAction(CrateSide);
         }
+        if (Break)
+        {
+            Break.CrateAction(CrateSide);
+        }
     }
 
     void Attack()
@@ -111,6 +137,10 @@ public class CrateBase : CollisionSideDetection
         if (Interact)
         {
             Interact.CrateAction(CrateSide);
+        }
+        if (Break)
+        {
+            Break.CrateAction(CrateSide);
         }
     }
 }
