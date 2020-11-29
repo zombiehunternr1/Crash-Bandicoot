@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrateBase : CollisionSideDetection
+public class EnemyBase : CollisionSideDetection
 {
     //[HideInInspector]
-    public int CrateSide;
+    public int EnemySide;
 
-    private enum CrateDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
+    private enum EnemyDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
 
-    public void CrateDirectionHit(int PlayerSideHit)
+    public void EnemyDirectionHit(int PlayerSideHit)
     {
         switch (PlayerSideHit)
         {
@@ -47,44 +47,44 @@ public class CrateBase : CollisionSideDetection
 
     void Top()
     {
-        Debug.Log("Crate");
-        CrateSide = Convert.ToInt32(CrateDirection.Top);
-        Debug.Log(CrateSide);
+        Debug.Log("Enemy");
+        EnemySide = Convert.ToInt32(EnemyDirection.Top);
+        Debug.Log(EnemySide);
     }
 
     void Bottom()
     {
-        CrateSide = Convert.ToInt32(CrateDirection.Bottom);
-        Debug.Log(CrateSide);
+        EnemySide = Convert.ToInt32(EnemyDirection.Bottom);
+        Debug.Log(EnemySide);
     }
 
     void Forward()
     {
-        CrateSide = Convert.ToInt32(CrateDirection.Forward);
-        Debug.Log(CrateSide);
+        EnemySide = Convert.ToInt32(EnemyDirection.Forward);
+        Debug.Log(EnemySide);
     }
 
     void Back()
     {
-        CrateSide = Convert.ToInt32(CrateDirection.Back);
-        Debug.Log(CrateSide);
+        EnemySide = Convert.ToInt32(EnemyDirection.Back);
+        Debug.Log(EnemySide);
     }
 
     void Left()
     {
-        CrateSide = Convert.ToInt32(CrateDirection.Left);
-        Debug.Log(CrateSide);
+        EnemySide = Convert.ToInt32(EnemyDirection.Left);
+        Debug.Log(EnemySide);
     }
 
     void Right()
     {
-        CrateSide = Convert.ToInt32(CrateDirection.Right);
-        Debug.Log(CrateSide);
+        EnemySide = Convert.ToInt32(EnemyDirection.Right);
+        Debug.Log(EnemySide);
     }
 
     void Attack()
     {
-        CrateSide = Convert.ToInt32(CrateDirection.Spin);
-        Debug.Log(CrateSide);
+        EnemySide = Convert.ToInt32(EnemyDirection.Spin);
+        Debug.Log(EnemySide);
     }
 }

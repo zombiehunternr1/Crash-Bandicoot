@@ -10,33 +10,51 @@ public class CollisionSideDetection : MonoBehaviour
 
     [HideInInspector]
     public int SideHitValue;
-    public CrateBase Crate;
+    private CrateBase Crate;
+    private EnemyBase Enemy;
+
+    void Start()
+    {
+        Crate = GetComponent<CrateBase>();
+        Enemy = GetComponent<EnemyBase>();
+    }
 
     private BoxCollider SpinAttack;
 
-    //Checks if the player collides with any gameobject that has the script crate attached to it.
+    //Checks if the player collides with it.
     void OnCollisionEnter(Collision collision)
     {
+        //gets the boxcollider of the player and stores it in SpinAttack.
         SpinAttack = collision.gameObject.GetComponentInChildren<BoxCollider>();
-        //Checks if the collision is with an object that has the Crate script attached to it.
         //If so so it checks if the player did a spinattack when colliding.
         //If so it sets the int value to the enum Spin, else it means the player only hit one of the sides of the object.
         if (collision.transform.GetComponent<PlayerActions>() != null)
         {
-            if(gameObject.GetComponent<CrateBase>() != null)
+            if (!SpinAttack.enabled)
             {
-                if (!SpinAttack.enabled)
+                ReturnDirection(collision.gameObject, this.gameObject);
+                if (Crate)
                 {
-                    ReturnDirection(collision.gameObject, this.gameObject);
                     Crate.CrateDirectionHit(SideHitValue);
                 }
-                else
+                if (Enemy)
                 {
-                    HitPlayerDirection SpinAttack = HitPlayerDirection.Spin;
-                    SideHitValue = Convert.ToInt32(SpinAttack);
+                    Enemy.EnemyDirectionHit(SideHitValue);
+                }
+            }
+            else
+            {
+                HitPlayerDirection SpinAttack = HitPlayerDirection.Spin;
+                SideHitValue = Convert.ToInt32(SpinAttack);
+                if (Crate)
+                {
                     Crate.CrateDirectionHit(SideHitValue);
                 }
-            }                    
+                if (Enemy)
+                {
+                    Enemy.EnemyDirectionHit(SideHitValue);
+                }
+            }                            
         }     
     }
 
