@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7323325632699059505}
   - component: {fileID: 7323325632699059661}
   - component: {fileID: 7323325632699059504}
-  - component: {fileID: 7323325632699059658}
+  - component: {fileID: 7032837764175134457}
   m_Layer: 0
   m_Name: BaseCrate
   m_TagString: Untagged
@@ -125,8 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CrateSide: 0
-  CrateHit: {fileID: 11400000, guid: 8eadaad4d618ea742befb4967544faf8, type: 2}
---- !u!114 &7323325632699059658
+--- !u!114 &7032837764175134457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,21 +134,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7323325632699059507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72e9521e68e659a4cbffcd04f6d2d34c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d7ea11c29646fe468496a80ff8e1c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameEventInt: {fileID: 11400000, guid: d8fa0743c8ad85948abccc68d71264e8, type: 2}
-  _responseInt:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7323325632699059504}
-        m_MethodName: CrateDirectionHit
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: CollisionSideDetection, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  SideHitValue: 0
+  Crate: {fileID: 7323325632699059504}

@@ -59,30 +59,36 @@ public class CrateBase : MonoBehaviour
     void Bottom()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Bottom);
+        Debug.Log(CrateSide);
     }
 
     void Forward()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Forward);
+        Debug.Log(CrateSide);
     }
 
     void Back()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Back);
+        Debug.Log(CrateSide);
     }
 
     void Left()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Left);
+        Debug.Log(CrateSide);
     }
 
     void Right()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Right);
+        Debug.Log(CrateSide);
     }
 
     void Attack()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Spin);
+        Debug.Log(CrateSide);
     }
 }

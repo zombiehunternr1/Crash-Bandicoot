@@ -219,18 +219,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1379602904187475177}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &734840110 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1379602903479472583, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1379602904187475177}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7ea11c29646fe468496a80ff8e1c79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,18 +411,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1788613089 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 946989764574262241, guid: 3952a24899dffa04bb4570dd99e7db43,
-    type: 3}
-  m_PrefabInstance: {fileID: 1849856329}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63340e2b01ba11348ba275b3a65b3de4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1849856329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,7 +421,7 @@ PrefabInstance:
     - target: {fileID: 946989764574262045, guid: 3952a24899dffa04bb4570dd99e7db43,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.02
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 946989764574262045, guid: 3952a24899dffa04bb4570dd99e7db43,
         type: 3}
@@ -480,7 +456,7 @@ PrefabInstance:
     - target: {fileID: 946989764574262045, guid: 3952a24899dffa04bb4570dd99e7db43,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 946989764574262045, guid: 3952a24899dffa04bb4570dd99e7db43,
         type: 3}
@@ -501,26 +477,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InteractableCrate
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _responseInt.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _responseInt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1788613089}
-    - target: {fileID: 0}
-      propertyPath: _responseInt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CrateDirectionHit
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _responseInt.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _responseInt.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3952a24899dffa04bb4570dd99e7db43, type: 3}
@@ -586,12 +542,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1379602903479472583, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
-        type: 3}
-      propertyPath: Crate
-      value: 
-      objectReference: {fileID: 7323325632699059504, guid: 2183681edca0f3c4ba9b89b9059b1e78,
-        type: 3}
     - target: {fileID: 1379602903479472589, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
         type: 3}
       propertyPath: m_Name
@@ -599,104 +549,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e, type: 3}
---- !u!114 &4424339931136885261 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7429339607544868054, guid: 5e9ad691289468b49a76d77a1f483947,
-    type: 3}
-  m_PrefabInstance: {fileID: 6520148737804611291}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63340e2b01ba11348ba275b3a65b3de4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &6520148737804611291
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: _responseInt.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _responseInt.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 734840110}
-    - target: {fileID: 0}
-      propertyPath: _responseInt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4424339931136885261}
-    - target: {fileID: 0}
-      propertyPath: _responseInt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CrateDirectionHit
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _responseInt.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: CollisionSideDetection, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544867882, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429339607544868053, guid: 5e9ad691289468b49a76d77a1f483947,
-        type: 3}
-      propertyPath: m_Name
-      value: BreakableCrate
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5e9ad691289468b49a76d77a1f483947, type: 3}

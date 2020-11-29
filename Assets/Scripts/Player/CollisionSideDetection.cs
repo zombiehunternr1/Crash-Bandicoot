@@ -12,34 +12,31 @@ public class CollisionSideDetection : MonoBehaviour
     public int SideHitValue;
     public CrateBase Crate;
 
-    //public GameEventInt PlayerHit;
-
     private BoxCollider SpinAttack;
-
-    void Start()
-    {
-        SpinAttack = GetComponentInChildren<BoxCollider>();
-    }
 
     //Checks if the player collides with any gameobject that has the script crate attached to it.
     void OnCollisionEnter(Collision collision)
     {
+        SpinAttack = collision.gameObject.GetComponentInChildren<BoxCollider>();
         //Checks if the collision is with an object that has the Crate script attached to it.
         //If so so it checks if the player did a spinattack when colliding.
         //If so it sets the int value to the enum Spin, else it means the player only hit one of the sides of the object.
-        if(collision.transform.GetComponent<CrateBase>() != null)
+        if (collision.transform.GetComponent<PlayerActions>() != null)
         {
-            if (!SpinAttack.enabled)
+            if(gameObject.GetComponent<CrateBase>() != null)
             {
-                ReturnDirection(collision.gameObject, this.gameObject);
-                Crate.CrateDirectionHit(SideHitValue);
-            }
-            else
-            {
-                HitPlayerDirection SpinAttack = HitPlayerDirection.Spin;
-                SideHitValue = Convert.ToInt32(SpinAttack);
-                Crate.CrateDirectionHit(SideHitValue);
-            }         
+                if (!SpinAttack.enabled)
+                {
+                    ReturnDirection(collision.gameObject, this.gameObject);
+                    Crate.CrateDirectionHit(SideHitValue);
+                }
+                else
+                {
+                    HitPlayerDirection SpinAttack = HitPlayerDirection.Spin;
+                    SideHitValue = Convert.ToInt32(SpinAttack);
+                    Crate.CrateDirectionHit(SideHitValue);
+                }
+            }                    
         }     
     }
 
@@ -48,8 +45,8 @@ public class CollisionSideDetection : MonoBehaviour
     {
         HitPlayerDirection hitDirection = HitPlayerDirection.None;
         RaycastHit MyRayHit;
-        Vector3 direction = (Object.transform.position - ObjectHit.transform.position).normalized;
-        Ray MyRay = new Ray(ObjectHit.transform.position, direction);
+        Vector3 direction = (ObjectHit.transform.position - Object.transform.position).normalized;
+        Ray MyRay = new Ray(Object.transform.position, direction);
 
         if (Physics.Raycast(MyRay, out MyRayHit))
         {
