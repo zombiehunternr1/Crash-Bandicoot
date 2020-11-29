@@ -61,40 +61,34 @@ public class CollisionSideDetection : MonoBehaviour
                 {
                     hitDirection = HitPlayerDirection.Top;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    Crate.CrateSide = SideHitValue;
-                    Crate.CrateDirectionHit(SideHitValue);
                 }
                 if (MyNormal == -MyRayHit.transform.up)
                 {
                     hitDirection = HitPlayerDirection.Bottom;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    Crate.CrateDirectionHit(SideHitValue);
                 }
                 if (MyNormal == MyRayHit.transform.forward)
                 {
                     hitDirection = HitPlayerDirection.Forward;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    Crate.CrateDirectionHit(SideHitValue);
                 }
                 if (MyNormal == -MyRayHit.transform.forward)
                 {
                     hitDirection = HitPlayerDirection.Back;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    Crate.CrateDirectionHit(SideHitValue);
                 }
                 if (MyNormal == MyRayHit.transform.right)
                 {
                     hitDirection = HitPlayerDirection.Right;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    Crate.CrateDirectionHit(SideHitValue);
                 }
                 if (MyNormal == -MyRayHit.transform.right)
                 {
                     hitDirection = HitPlayerDirection.Left;
                     SideHitValue = Convert.ToInt32(hitDirection);
-                    Crate.CrateDirectionHit(SideHitValue);
                 }
             }
+            Crate.CrateDirectionHit(SideHitValue);
         }
         return hitDirection;
     }
