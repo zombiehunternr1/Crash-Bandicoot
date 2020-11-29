@@ -5,10 +5,16 @@ using UnityEngine;
 
 public class CrateBase : CollisionSideDetection
 {
-    //[HideInInspector]
+    [HideInInspector]
     public int CrateSide;
 
     private enum CrateDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
+    private Interactable Interact;
+
+    void Awake()
+    {
+        Interact = GetComponent<Interactable>();
+    }
 
     public void CrateDirectionHit(int PlayerSideHit)
     {
@@ -48,42 +54,63 @@ public class CrateBase : CollisionSideDetection
     void Top()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Top);
-        Debug.Log(CrateSide);
+        if (Interact)
+        {
+            Interact.CrateAction(CrateSide);
+        }
     }
 
     void Bottom()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Bottom);
-        Debug.Log(CrateSide);
+        if (Interact)
+        {
+            Interact.CrateAction(CrateSide);
+        }
     }
 
     void Forward()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Forward);
-        Debug.Log(CrateSide);
+        if (Interact)
+        {
+            Interact.CrateAction(CrateSide);
+        }
     }
 
     void Back()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Back);
-        Debug.Log(CrateSide);
+        if (Interact)
+        {
+            Interact.CrateAction(CrateSide);
+        }
     }
 
     void Left()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Left);
-        Debug.Log(CrateSide);
+        if (Interact)
+        {
+            Interact.CrateAction(CrateSide);
+        }
     }
 
     void Right()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Right);
-        Debug.Log(CrateSide);
+        if (Interact)
+        {
+            Interact.CrateAction(CrateSide);
+        }
     }
 
     void Attack()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Spin);
-        Debug.Log(CrateSide);
+        if (Interact)
+        {
+            Interact.CrateAction(CrateSide);
+        }
     }
 }
