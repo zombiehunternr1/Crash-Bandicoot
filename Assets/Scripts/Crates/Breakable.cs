@@ -7,6 +7,13 @@ public class Breakable : MonoBehaviour
     [HideInInspector]
     public int CrateValue;
 
+    private Bounce Bouncing;
+
+    void Awake()
+    {
+        Bouncing = GetComponent<Bounce>();
+    }
+
     public void CrateAction(int CrateSide)
     {
         CrateValue = CrateSide;
@@ -47,12 +54,18 @@ public class Breakable : MonoBehaviour
 
     void Top()
     {
-        Debug.Log("Hit breakable Top");
+        if (Bouncing)
+        {
+            Bouncing.Up();
+        }
     }
 
     void Bottom()
     {
-        Debug.Log("Hit breakable Bottom");
+        if (Bouncing)
+        {
+            Bouncing.Down();
+        }
     }
 
     void Forward()

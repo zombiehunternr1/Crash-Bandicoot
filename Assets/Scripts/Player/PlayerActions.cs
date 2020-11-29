@@ -9,6 +9,7 @@ public class PlayerActions : MonoBehaviour
     public float Speed;
     public float JumpForce;
     public float JumpHeightFloat;
+    public float Bounce;
 
     private bool IsGrounded = true;
     private Rigidbody Rb;
@@ -57,13 +58,18 @@ public class PlayerActions : MonoBehaviour
 
     //This function checks if the player is grounded, if so that means the player is not in the air and can jump.
     //Once the player jumps the boolean IsGrounded will be set to false.
-    private void Jumping()
+    public void Jumping()
     {
         if (IsGrounded)
         {
             Rb.AddForce(JumpHeight * JumpForce, ForceMode.Impulse);
             IsGrounded = false;
         }
+    }
+    //This function gives a downwards momentem when the player hits something from below.
+    public void Pushdown()
+    {
+        Rb.AddForce(Bounce * -transform.up, ForceMode.Impulse);
     }
 
     private void OnJump()

@@ -7,6 +7,13 @@ public class Interactable : MonoBehaviour
     [HideInInspector]
     public int CrateValue;
 
+    private Bounce Bouncing;
+
+    void Awake()
+    {
+        Bouncing = GetComponent<Bounce>();
+    }
+
     public void CrateAction(int CrateSide)
     {
         CrateValue = CrateSide;
@@ -30,12 +37,18 @@ public class Interactable : MonoBehaviour
 
     void Top()
     {
-        Debug.Log("Hit Interactable Top");
+        if (Bouncing)
+        {
+            Bouncing.Up();
+        }
     }
 
     void Bottom()
     {
-        Debug.Log("Hit Interactable Bottom");
+        if (Bouncing)
+        {
+            Bouncing.Down();
+        }
     }
 
     void Attack()
