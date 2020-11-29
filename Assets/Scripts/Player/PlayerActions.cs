@@ -22,7 +22,7 @@ public class PlayerActions : MonoBehaviour
     //Gets the Rigidbody of the player, the box collider of the spin attack and sets the jumpheight of the player.
     private void Awake()
     {
-        SpinCollider = GetComponentInChildren<BoxCollider>();
+        SpinCollider = GetComponent<BoxCollider>();
         Rb = GetComponent<Rigidbody>();
         JumpHeight = new Vector3(0.0f, JumpHeightFloat, 0.0f);
     }

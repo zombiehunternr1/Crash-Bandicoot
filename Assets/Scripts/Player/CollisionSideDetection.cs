@@ -24,14 +24,15 @@ public class CollisionSideDetection : MonoBehaviour
     //Checks if the player collides with it.
     void OnCollisionEnter(Collision collision)
     {
-        //gets the boxcollider of the player and stores it in SpinAttack.
-        SpinAttack = collision.gameObject.GetComponentInChildren<BoxCollider>();
         //checks if the player is colliding.
         //If so it checks ifthe player did a spin attack when colliding.
         //If not than the player just either walked or jumped when colliding.
         //Afterwards it checks if the player collided with either an crate or an enemy.
         if (collision.transform.GetComponent<PlayerActions>() != null)
         {
+            //gets the boxcollider of the player and stores it in SpinAttack.
+            SpinAttack = collision.gameObject.GetComponent<BoxCollider>();
+
             if (!SpinAttack.enabled)
             {
                 ReturnDirection(collision.gameObject, this.gameObject);
