@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: 1499209970636859036}
   - component: {fileID: 1353298981013194002}
   - component: {fileID: 8457188765167861353}
+  - component: {fileID: 1091619646}
   m_Layer: 0
-  m_Name: BreakableCrate
+  m_Name: BounceCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,3 +168,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+--- !u!114 &1091619646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604052226237247545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc2eb1a0e84c8b409189a6a70f7dbef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
-    [HideInInspector]
-    public int CrateValue;
-
     private Bounce Bouncing;
+    private BreakAmount BreakOverTime;
+    private int JumpAmount;
 
     void Awake()
     {
         Bouncing = GetComponent<Bounce>();
+        BreakOverTime = GetComponent<BreakAmount>();
     }
 
     public void CrateAction(int CrateSide)
     {
-        CrateValue = CrateSide;
-
-        switch (CrateValue)
+        switch (CrateSide)
         {
             //Top
             case 1:
@@ -54,9 +52,11 @@ public class Breakable : MonoBehaviour
 
     void Top()
     {
+        Debug.Log("Hoi");
         if (Bouncing)
         {
-            Bouncing.Up();
+            Bouncing.Up();            
+            BreakOverTime.BreakOverTime(JumpAmount);
         }
     }
 
@@ -65,6 +65,7 @@ public class Breakable : MonoBehaviour
         if (Bouncing)
         {
             Bouncing.Down();
+            BreakOverTime.BreakOverTime(JumpAmount);
         }
     }
 

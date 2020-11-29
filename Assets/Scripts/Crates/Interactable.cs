@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [HideInInspector]
-    public int CrateValue;
-
     private Bounce Bouncing;
 
     void Awake()
@@ -16,9 +13,7 @@ public class Interactable : MonoBehaviour
 
     public void CrateAction(int CrateSide)
     {
-        CrateValue = CrateSide;
-
-        switch (CrateValue)
+        switch (CrateSide)
         {
             //Top
             case 1:
