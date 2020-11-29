@@ -47,7 +47,6 @@ public class EnemyBase : CollisionSideDetection
 
     void Top()
     {
-        Debug.Log("Enemy");
         EnemySide = Convert.ToInt32(EnemyDirection.Top);
         Debug.Log(EnemySide);
     }

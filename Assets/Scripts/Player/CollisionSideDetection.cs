@@ -26,8 +26,10 @@ public class CollisionSideDetection : MonoBehaviour
     {
         //gets the boxcollider of the player and stores it in SpinAttack.
         SpinAttack = collision.gameObject.GetComponentInChildren<BoxCollider>();
-        //If so so it checks if the player did a spinattack when colliding.
-        //If so it sets the int value to the enum Spin, else it means the player only hit one of the sides of the object.
+        //checks if the player is colliding.
+        //If so it checks ifthe player did a spin attack when colliding.
+        //If not than the player just either walked or jumped when colliding.
+        //Afterwards it checks if the player collided with either an crate or an enemy.
         if (collision.transform.GetComponent<PlayerActions>() != null)
         {
             if (!SpinAttack.enabled)

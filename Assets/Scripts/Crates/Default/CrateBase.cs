@@ -47,7 +47,6 @@ public class CrateBase : CollisionSideDetection
 
     void Top()
     {
-        Debug.Log("Crate");
         CrateSide = Convert.ToInt32(CrateDirection.Top);
         Debug.Log(CrateSide);
     }
