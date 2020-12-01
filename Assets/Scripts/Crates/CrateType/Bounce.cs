@@ -8,11 +8,11 @@ public class Bounce : MonoBehaviour
 
     public void Up()
     {
-        Player.GetComponent<PlayerActions>().Jumping();
+        Player.GetComponent<PlayerActions>().BounceUp();
     }
 
     public void Down()
     {
-        Player.GetComponent<PlayerActions>().Pushdown();
+        Player.GetComponent<PlayerActions>().BounceDown();
     }
 }

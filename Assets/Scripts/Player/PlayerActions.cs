@@ -67,9 +67,16 @@ public class PlayerActions : MonoBehaviour
         }
     }
     //This function gives a downwards momentem when the player hits something from below.
-    public void Pushdown()
+    public void BounceDown()
     {
-        Rb.AddForce(Bounce * -transform.up, ForceMode.Impulse);
+        Rb.velocity = new Vector3(Rb.velocity.x, 0);
+        Rb.AddForce(new Vector3(0,-400));
+    }
+
+    public void BounceUp()
+    {
+        Rb.velocity = new Vector3(Rb.velocity.x, 0);
+        Rb.AddForce(new Vector3(0, 400));
     }
 
     private void OnJump()
