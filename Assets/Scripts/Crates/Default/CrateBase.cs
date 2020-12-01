@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrateBase : CollisionSideDetection
+public class CrateBase : MonoBehaviour
 {
     [HideInInspector]
     public int CrateSide;

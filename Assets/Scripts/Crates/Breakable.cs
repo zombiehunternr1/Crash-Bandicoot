@@ -52,9 +52,9 @@ public class Breakable : MonoBehaviour
 
     void Top()
     {
-        Debug.Log("Hoi");
         if (Bouncing)
         {
+            JumpAmount++;
             Bouncing.Up();            
             BreakOverTime.BreakOverTime(JumpAmount);
         }
@@ -64,6 +64,7 @@ public class Breakable : MonoBehaviour
     {
         if (Bouncing)
         {
+            JumpAmount++;
             Bouncing.Down();
             BreakOverTime.BreakOverTime(JumpAmount);
         }

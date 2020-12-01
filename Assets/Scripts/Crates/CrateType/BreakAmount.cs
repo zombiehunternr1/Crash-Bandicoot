@@ -7,48 +7,42 @@ public class BreakAmount : MonoBehaviour
     int TotalBounce = 5;
     float StartTime = 0f;
     float MaxTime = 5f;
-    bool Activated;
+    bool Activated = false;
 
 
     public void BreakOverTime(int BounceCount)
     {
         if (!Activated)
         {
-            StartTime = 0;
             StartCoroutine(Timer());
-            Activated = true;
         }
 
-        if(BounceCount < TotalBounce)
-        {           
+        if (StartTime > MaxTime)
+        {
+            //Give player apples and break crate
+        }
+        else if(BounceCount < TotalBounce)
+        {
             //Give player apples
-            //reset timer to 0
-            Debug.Log(BounceCount);
+            StartTime = 0f;
         }
         else if (BounceCount >= TotalBounce)
         {
+            StopCoroutine(Timer());
             //Give player apples and break crate
-            Debug.Log("Crate broken");
-        }
-        if (StartTime >= MaxTime)
-        {
-            //Give player apples and break crate
-            Debug.Log("Time expired");
-        }     
+            //Destroy crate.
+        }         
     }
 
     IEnumerator Timer()
     {
         if (!Activated)
         {
-            while (StartTime <= MaxTime)
+            Activated = true;
+            while (StartTime < MaxTime)
             {
                 StartTime += Time.deltaTime;
                 yield return StartTime;
-                if(StartTime >= MaxTime)
-                {
-                    Activated = true;
-                }
             }
         }    
     }
