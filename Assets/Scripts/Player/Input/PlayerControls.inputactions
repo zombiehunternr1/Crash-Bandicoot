@@ -14,12 +14,12 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Jump",
+                    "name": "JumpPressed",
                     "type": "Button",
                     "id": "9a8acd57-534a-4770-a00a-bc1721673d7b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "Spin",
@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "JumpReleased",
+                    "type": "Button",
+                    "id": "5f2273ab-bfa8-4215-b5fa-2ed65f98e9aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 }
             ],
             "bindings": [
@@ -148,7 +156,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "JumpPressed",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -159,7 +167,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "JumpPressed",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -182,6 +190,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Spin",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f049a835-8faa-4ac9-ada2-aa457571a44f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpReleased",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0bd0dd45-6772-4275-8b04-61cdad642d88",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpReleased",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

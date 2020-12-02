@@ -10,14 +10,22 @@ public class PlayerActions : MonoBehaviour
     public float JumpForce;
     public float JumpHeightFloat;
     public float Bounce;
+    public float GroundCheckRadius;
+    public float FallingCutoff;
+    public LayerMask GroundMask;
+    public Transform GroundChecker;
 
-    private bool IsGrounded = true;
+    private bool IsGrounded;
+    private bool HasDoubleJumped;
+    private bool HoldingJump;
     private Rigidbody Rb;
     private Vector2 InputValue;
     private Vector3 JumpHeight;
-
     private BoxCollider SpinCollider;
     private bool IsSpinning;
+    private float JumpingCooldown = .1f;
+    private float CurrentJumpingCooldown;
+    private float FallingMovement;
 
     //Gets the Rigidbody of the player, the box collider of the spin attack and sets the jumpheight of the player.
     private void Awake()
@@ -33,13 +41,39 @@ public class PlayerActions : MonoBehaviour
         Direction();
     }
 
+    void Update()
+    {
+        IsGrounded = Physics.CheckSphere(GroundChecker.position, GroundCheckRadius, GroundMask);
+
+        if (CurrentJumpingCooldown >= 0)
+        {
+            CurrentJumpingCooldown -= Time.deltaTime;
+        }
+        if (IsGrounded)
+        {
+            FallingMovement = 1; 
+        }
+        else
+        {
+            if(FallingMovement >= 0)
+            {
+                FallingMovement -= FallingCutoff * Time.deltaTime;
+            }          
+        }
+    }
+
+    private void ResetJumpingCooldown()
+    {
+        CurrentJumpingCooldown = JumpingCooldown;
+    }
+
     //This function handles the movement of the character and which way it must face according to the player's input.
     private void Direction()
     {
         //Gets the direction of the players input
         Vector3 direction = new Vector3(InputValue.x, 0, InputValue.y);
 
-        Vector3 velocity = direction * Speed;
+        Vector3 velocity = direction * Speed * FallingMovement;
         Rb.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
         Vector3 facingrotation = Vector3.Normalize(new Vector3(InputValue.x, 0, InputValue.y));
 
@@ -50,20 +84,30 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    //Once the player collides with something the Boolean IsGrounded will be set to true so the player can jump again.
-    private void OnCollisionEnter(Collision other)
-    {
-        IsGrounded = true;
-    }
-
     //This function checks if the player is grounded, if so that means the player is not in the air and can jump.
-    //Once the player jumps the boolean IsGrounded will be set to false.
     public void Jumping()
     {
-        if (IsGrounded)
+        if (CurrentJumpingCooldown > 0)
         {
+            return;
+        }
+        if (IsGrounded || !HasDoubleJumped)
+        {
+            if(Rb.velocity.y < 0)
+            {
+                Rb.velocity = new Vector3(Rb.velocity.x, 0, Rb.velocity.z);
+            }
+            if (IsGrounded)
+            {
+                HasDoubleJumped = false;
+            }
+            else
+            {
+                HasDoubleJumped = true;
+            }
             Rb.AddForce(JumpHeight * JumpForce, ForceMode.Impulse);
-            IsGrounded = false;
+            ResetJumpingCooldown();
+            FallingMovement = 1;
         }
     }
     //This function gives a downwards momentem when the player hits something from below.
@@ -75,13 +119,28 @@ public class PlayerActions : MonoBehaviour
 
     public void BounceUp()
     {
+        float JumpHeight = 400f;
+
+        if (HoldingJump)
+        {
+            JumpHeight = 475f;
+            ResetJumpingCooldown();
+        }
         Rb.velocity = new Vector3(Rb.velocity.x, 0);
-        Rb.AddForce(new Vector3(0, 400));
+        Rb.AddForce(new Vector3(0, JumpHeight));
+        HasDoubleJumped = false;
+        FallingMovement = 1;
     }
 
-    private void OnJump()
+    private void OnJumpPressed()
     {
+        HoldingJump = true;
         Jumping();
+    }
+
+    private void OnJumpReleased()
+    {
+        HoldingJump = false;
     }
 
     private void OnMove(InputValue val)
@@ -106,4 +165,12 @@ public class PlayerActions : MonoBehaviour
             IsSpinning = false;
         }
     }
+
+   /* Testing purposes only. Remove at final build!!!
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(GroundChecker.position, GroundCheckRadius);
+    }
+    */
 }

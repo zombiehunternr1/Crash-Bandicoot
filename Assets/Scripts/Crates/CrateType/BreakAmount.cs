@@ -43,7 +43,7 @@ public class BreakAmount : MonoBehaviour
             {
                 StartTime += Time.deltaTime;
                 yield return StartTime;
-            }
+            }           
         }    
     }
 }
