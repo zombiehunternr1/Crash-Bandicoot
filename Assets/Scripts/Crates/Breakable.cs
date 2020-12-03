@@ -6,14 +6,19 @@ public class Breakable : MonoBehaviour
 {
     private Bounce Bouncing;
     private BreakAmount BreakOverTime;
+    private Tnt TntCrate;
     private int JumpAmount;
     private CrateBase Crate;
+    private bool HasBounced = false;
+    
 
     void Awake()
     {
         Crate = GetComponent<CrateBase>();
         Bouncing = GetComponent<Bounce>();
         BreakOverTime = GetComponent<BreakAmount>();
+        TntCrate = GetComponent<Tnt>();
+
     }
 
     public void CrateAction(int CrateSide)
@@ -48,8 +53,7 @@ public class Breakable : MonoBehaviour
             case 7:
                 Attack();
                 break;
-        }
-           
+        }          
     }
 
     void Top()
@@ -65,6 +69,15 @@ public class Breakable : MonoBehaviour
             }
             Bouncing.Up();
             return;
+        }
+        if (TntCrate)
+        {
+            if (!HasBounced)
+            {
+                TntCrate.Activate();
+                Crate.BounceUp();
+                HasBounced = true;
+            }          
         }
         else
         {
