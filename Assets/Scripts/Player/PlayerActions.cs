@@ -43,6 +43,7 @@ public class PlayerActions : MonoBehaviour
         Direction();
     }
 
+    //Checks if the player is colliding with an object or is still falling down.
     void Update()
     {
         IsGrounded = Physics.CheckSphere(GroundChecker.position, GroundCheckRadius, GroundMask);
@@ -64,6 +65,7 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
+    //Resets the jumpingcooldown so the player is able to perform a double jump again.
     private void ResetJumpingCooldown()
     {
         CurrentJumpingCooldown = JumpingCooldown;
@@ -86,7 +88,7 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    //This function checks if the player is grounded, if so that means the player is not in the air and can jump.
+    //This function lets the player either jump or double jump depending if the player is allowed to or not.
     public void Jumping()
     {
         bool DoubleJumpCollision = Physics.CheckSphere(GroundChecker.position, DoubleJumpCheckRadius, DoubleJumpMask);
@@ -121,6 +123,8 @@ public class PlayerActions : MonoBehaviour
         Rb.AddForce(new Vector3(0,-400));
     }
 
+    //This function gets called when the player is jumping on an object that you bounce up from.
+    //Depending if the player is holding the jump button the players height will vary.
     public void BounceUp()
     {
         float JumpHeight = 400f;
@@ -136,12 +140,13 @@ public class PlayerActions : MonoBehaviour
         FallingMovement = 1;
     }
 
+    //Once the player presses the jump button HoldingJump will be set to true and the Jumping function will be called.
     private void OnJumpPressed()
     {
         HoldingJump = true;
         Jumping();
     }
-
+    //Once the player isn't pressing the jump button anymore HoldingJump will be set to false.
     private void OnJumpReleased()
     {
         HoldingJump = false;

@@ -9,8 +9,7 @@ public class Breakable : MonoBehaviour
     private Tnt TntCrate;
     private int JumpAmount;
     private CrateBase Crate;
-    private bool HasBounced = false;
-    
+    private bool HasBounced = false;  
 
     void Awake()
     {
@@ -18,7 +17,6 @@ public class Breakable : MonoBehaviour
         Bouncing = GetComponent<Bounce>();
         BreakOverTime = GetComponent<BreakAmount>();
         TntCrate = GetComponent<Tnt>();
-
     }
 
     public void CrateAction(int CrateSide)
