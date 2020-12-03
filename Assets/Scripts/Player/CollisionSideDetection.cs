@@ -58,7 +58,11 @@ public class CollisionSideDetection : MonoBehaviour
                     Enemy.EnemyDirectionHit(SideHitValue);
                 }
             }                            
-        }     
+        }
+        if(collision.transform.GetComponent<CrateBase>() != null)
+        {
+            Crate.Bounce();
+        }
     }
 
     //This Enum function checks which side the player hits a certain object and returns this information.

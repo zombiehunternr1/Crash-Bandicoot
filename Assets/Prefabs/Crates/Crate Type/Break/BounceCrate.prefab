@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1353298981013194002}
   - component: {fileID: 8457188765167861353}
   - component: {fileID: 1091619646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BounceCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604052226237247545}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 55c003a5efaeeb24cadf715c957ce1f0, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -114,7 +114,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1604052226237247546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63340e2b01ba11348ba275b3a65b3de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SideHitValue: 0
   CrateSide: 0
 --- !u!114 &1499209970636859036
 MonoBehaviour:
@@ -141,7 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec850f4b477892445a7827f102dbc927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CrateValue: 0
 --- !u!114 &1353298981013194002
 MonoBehaviour:
   m_ObjectHideFlags: 0

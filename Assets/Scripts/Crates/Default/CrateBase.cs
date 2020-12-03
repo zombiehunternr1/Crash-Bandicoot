@@ -11,9 +11,11 @@ public class CrateBase : MonoBehaviour
     private enum CrateDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
     private Interactable Interact;
     private Breakable Break;
+    private Rigidbody Rb;
 
     void Awake()
     {
+        Rb = GetComponent<Rigidbody>();
         Interact = GetComponent<Interactable>();
         Break = GetComponent<Breakable>();
     }
@@ -142,5 +144,11 @@ public class CrateBase : MonoBehaviour
         {
             Break.CrateAction(CrateSide);
         }
+    }
+
+    public void Bounce()
+    {
+        Rb.velocity = new Vector3(Rb.velocity.x, 0);
+        Rb.AddForce(new Vector3(0, 400));
     }
 }

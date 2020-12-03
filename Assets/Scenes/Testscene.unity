@@ -428,11 +428,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BounceCrate
       objectReference: {fileID: 0}
-    - target: {fileID: 1604052226237247545, guid: 6a0dcc87053c229459974626d148bcf1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1604052226237247686, guid: 6a0dcc87053c229459974626d148bcf1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -512,6 +507,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379602903479472577, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1379602903479472579, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
         type: 3}
@@ -598,6 +598,16 @@ PrefabInstance:
       propertyPath: JumpHeightFloat
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1379602903479472588, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
+        type: 3}
+      propertyPath: DoubleJumpCheckRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379602903479472588, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
+        type: 3}
+      propertyPath: DoubleJumpMask.m_Bits
+      value: 1536
+      objectReference: {fileID: 0}
     - target: {fileID: 1379602903479472589, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
         type: 3}
       propertyPath: m_Name
@@ -608,9 +618,40 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1379602903479472590, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379602903479472590, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379602903479472590, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379602903479472590, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379602903479472590, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 0f65c70e2f42e194fa7f884e793236a1,
+        type: 2}
     - target: {fileID: 1379602903479472591, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
         type: 3}
       propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379602903479472591, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
+        type: 3}
+      propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1379602905497793076, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,

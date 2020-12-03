@@ -11,8 +11,10 @@ public class PlayerActions : MonoBehaviour
     public float JumpHeightFloat;
     public float Bounce;
     public float GroundCheckRadius;
+    public float DoubleJumpCheckRadius;
     public float FallingCutoff;
     public LayerMask GroundMask;
+    public LayerMask DoubleJumpMask;
     public Transform GroundChecker;
 
     private bool IsGrounded;
@@ -87,11 +89,13 @@ public class PlayerActions : MonoBehaviour
     //This function checks if the player is grounded, if so that means the player is not in the air and can jump.
     public void Jumping()
     {
+        bool DoubleJumpCollision = Physics.CheckSphere(GroundChecker.position, DoubleJumpCheckRadius, DoubleJumpMask);
+
         if (CurrentJumpingCooldown > 0)
         {
             return;
         }
-        if (IsGrounded || !HasDoubleJumped)
+        if (IsGrounded || (!HasDoubleJumped && !DoubleJumpCollision))
         {
             if(Rb.velocity.y < 0)
             {
@@ -166,11 +170,13 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-   /* Testing purposes only. Remove at final build!!!
+    /*//Testing purposes only. Remove at final build!!!
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(GroundChecker.position, GroundCheckRadius);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(GroundChecker.position, DoubleJumpCheckRadius);
     }
     */
 }
