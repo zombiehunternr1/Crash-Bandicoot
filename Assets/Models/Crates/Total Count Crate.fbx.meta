@@ -1,20 +1,14 @@
 fileFormatVersion: 2
-guid: 7ec9f1f1754c659458dfa9d04cd404d7
+guid: 85532cb375667b6478b8e8dc5d5903f7
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable:
-  - first:
-      74: 518792697260917357
-    second: Diamond|Diamond|Take 001|BaseLayer
-  - first:
-      74: -4009586865045653520
-    second: Diamond|LIghts|Take 001|BaseLayer
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Crystal
-    second: {fileID: 2100000, guid: 1a8266d4e4053494c8115848853b499e, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: 3c8597facd3fc6842b858bc9bebfc0ea, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -80,7 +74,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
