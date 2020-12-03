@@ -146,9 +146,15 @@ public class CrateBase : MonoBehaviour
         }
     }
 
-    public void Bounce()
+    public void BounceUp()
     {
         Rb.velocity = new Vector3(Rb.velocity.x, 0);
         Rb.AddForce(new Vector3(0, 400));
+    }
+
+    public void BounceDown()
+    {
+        Rb.velocity = new Vector3(Rb.velocity.x, 0);
+        Rb.AddForce(new Vector3(0, -400));
     }
 }

@@ -5,10 +5,13 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     private Bounce Bouncing;
+    private CrateBase Crate;
+    private bool HasBounced = false;
 
     void Awake()
     {
         Bouncing = GetComponent<Bounce>();
+        Crate = GetComponent<CrateBase>();
     }
 
     public void CrateAction(int CrateSide)
@@ -35,6 +38,14 @@ public class Interactable : MonoBehaviour
         if (Bouncing)
         {
             Bouncing.Up();
+        }
+        else
+        {
+            if (!HasBounced)
+            {
+                Crate.BounceUp();
+                HasBounced = true;
+            }            
         }
     }
 

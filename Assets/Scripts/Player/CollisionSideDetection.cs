@@ -61,7 +61,7 @@ public class CollisionSideDetection : MonoBehaviour
         }
         if(collision.transform.GetComponent<CrateBase>() != null)
         {
-            Crate.Bounce();
+            Crate.BounceUp();
         }
     }
 
