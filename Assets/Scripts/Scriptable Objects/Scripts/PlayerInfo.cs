@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (fileName="Playerinfo", menuName ="SO/Player")]
+[CreateAssetMenu (fileName="Playerinfo", menuName ="ScriptableObjects/Player")]
 public class PlayerInfo : ScriptableObject
 {
     public int Lives;

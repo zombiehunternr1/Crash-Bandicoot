@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BreakAmount : MonoBehaviour
 {
+    public GameEvent CrateDestroyed;
+
     int TotalBounce = 5;
     float StartTime = 0f;
     float MaxTime = 5f;
@@ -22,6 +24,8 @@ public class BreakAmount : MonoBehaviour
 
         if (StartTime > MaxTime)
         {
+            CrateDestroyed.Raise();
+            gameObject.SetActive(false);
             //Give player apples and break crate
         }
         else if(BounceCount < TotalBounce)
@@ -32,8 +36,9 @@ public class BreakAmount : MonoBehaviour
         else if (BounceCount >= TotalBounce)
         {
             StopCoroutine(Timer());
+            CrateDestroyed.Raise();
+            gameObject.SetActive(false);
             //Give player apples and break crate
-            //Destroy crate.
         }         
     }
     //Sets the activated boolean to true so the coroutine can't be called again once the player jumps on the crate again.

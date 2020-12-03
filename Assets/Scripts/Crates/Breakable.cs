@@ -75,7 +75,9 @@ public class Breakable : MonoBehaviour
                 TntCrate.Activate();
                 Crate.BounceUp();
                 HasBounced = true;
-            }          
+                return;
+            }
+            return;
         }
         else
         {
@@ -90,6 +92,18 @@ public class Breakable : MonoBehaviour
             JumpAmount++;
             Bouncing.Down();
             BreakOverTime.BreakOverTime(JumpAmount);
+            return;
+        }
+        if (TntCrate)
+        {
+            if (!HasBounced)
+            {
+                TntCrate.Activate();
+                Crate.BounceDown();
+                HasBounced = true;
+                return;
+            }
+            return;
         }
         else
         {
