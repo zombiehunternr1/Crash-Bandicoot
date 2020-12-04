@@ -41,6 +41,13 @@ public class BreakAmount : MonoBehaviour
             //Give player apples and break crate
         }         
     }
+
+    //Once this function gets called it has been hit by either an explosion or an enemy.
+    public void BreakCrate()
+    {
+        CrateDestroyed.Raise();
+        gameObject.SetActive(false);
+    }
     //Sets the activated boolean to true so the coroutine can't be called again once the player jumps on the crate again.
     //Keeps looping until the StartTime is higher then the MaxTime.
     IEnumerator Timer()

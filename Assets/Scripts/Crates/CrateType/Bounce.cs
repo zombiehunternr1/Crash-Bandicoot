@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bounce : MonoBehaviour
 {
     public GameObject Player;
+    public GameEvent CrateDestroyed;
 
     //Once this function gets called it bounces the player up.
     public void Up()
@@ -15,5 +16,12 @@ public class Bounce : MonoBehaviour
     public void Down()
     {
         Player.GetComponent<PlayerActions>().BounceDown();
+    }
+
+    //Once this function gets called it raises the crate destroyed event and disables the gameobject.
+    public void breakCrate()
+    {
+        CrateDestroyed.Raise();
+        gameObject.SetActive(false);
     }
 }

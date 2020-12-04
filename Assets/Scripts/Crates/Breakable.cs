@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
+    public GameEvent DestroyedCrate;
+
     private Bounce Bouncing;
     private BreakAmount BreakOverTime;
     private Tnt TntCrate;
@@ -51,6 +53,9 @@ public class Breakable : MonoBehaviour
             case 7:
                 Attack();
                 break;
+            case 8:
+                EntityOrEffect();
+                break;
         }          
     }
 
@@ -68,7 +73,7 @@ public class Breakable : MonoBehaviour
             Bouncing.Up();
             return;
         }
-        if (TntCrate)
+        else if (TntCrate)
         {
             if (!HasBounced)
             {
@@ -82,6 +87,8 @@ public class Breakable : MonoBehaviour
         else
         {
             Crate.BounceUp();
+            DestroyedCrate.Raise();
+            StartCoroutine(DelayDeactivating());
         }
     }
 
@@ -94,7 +101,7 @@ public class Breakable : MonoBehaviour
             BreakOverTime.BreakOverTime(JumpAmount);
             return;
         }
-        if (TntCrate)
+        else if (TntCrate)
         {
             if (!HasBounced)
             {
@@ -108,6 +115,8 @@ public class Breakable : MonoBehaviour
         else
         {
             Crate.BounceDown();
+            DestroyedCrate.Raise();
+            StartCoroutine(DelayDeactivating());
         }
     }
 
@@ -134,5 +143,33 @@ public class Breakable : MonoBehaviour
     void Attack()
     {
         Debug.Log("Spin attack breakable");
+    }
+
+    void EntityOrEffect()
+    {
+        if (TntCrate)
+        {
+            TntCrate.ExplodeCrate();
+        }
+        else if (BreakOverTime)
+        {
+            BreakOverTime.BreakCrate();
+        }
+        else if (Bouncing)
+        {
+            Bouncing.breakCrate();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            DestroyedCrate.Raise();
+        }
+    }
+
+    //This coroutine lets the player bounce of the crate before getting deactivated.
+    private IEnumerator DelayDeactivating()
+    {
+        yield return new WaitForSeconds(.1f);
+        gameObject.SetActive(false);
     }
 }
