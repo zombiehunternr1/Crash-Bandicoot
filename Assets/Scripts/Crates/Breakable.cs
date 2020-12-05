@@ -175,6 +175,16 @@ public class Breakable : MonoBehaviour
         {
             NitroCrate.ExplodeCrate();
         }
+        else if (Bouncing)
+        {
+            if (BreakOverTime)
+            {
+                BreakOverTime.BreakCrate();
+            }
+            DestroyedCrate.Raise();
+            gameObject.SetActive(false);
+        }
+
         else
         {
             DestroyedCrate.Raise();
