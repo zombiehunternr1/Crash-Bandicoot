@@ -175,6 +175,11 @@ public class Breakable : MonoBehaviour
         {
             NitroCrate.ExplodeCrate();
         }
+        else
+        {
+            DestroyedCrate.Raise();
+            gameObject.SetActive(false);
+        }
     }
 
     void EntityOrEffect()
@@ -195,11 +200,6 @@ public class Breakable : MonoBehaviour
         else if (Bouncing)
         {
             Bouncing.breakCrate();
-        }
-        else
-        {
-            gameObject.SetActive(false);
-            DestroyedCrate.Raise();
         }
     }
 

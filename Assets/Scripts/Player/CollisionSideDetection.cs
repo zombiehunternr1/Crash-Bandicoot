@@ -28,6 +28,8 @@ public class CollisionSideDetection : MonoBehaviour
         //If so it checks ifthe player did a spin attack when colliding.
         //If not than the player just either walked or jumped when colliding.
         //Afterwards it checks if the player collided with either an crate or an enemy.
+        //In either crate or enemy we check if the gameobject is still active. If not it means the player has already interacted with it.
+        //This is to prevent double firing the same event.
         if (collision.transform.GetComponent<PlayerActions>() != null)
         {
             //gets the boxcollider of the player and stores it in SpinAttack.
@@ -51,11 +53,17 @@ public class CollisionSideDetection : MonoBehaviour
                 SideHitValue = Convert.ToInt32(SpinAttack);
                 if (Crate)
                 {
-                    Crate.CrateDirectionHit(SideHitValue);
+                    if (Crate.gameObject.activeSelf)
+                    {
+                        Crate.CrateDirectionHit(SideHitValue);
+                    }                  
                 }
                 if (Enemy)
                 {
-                    Enemy.EnemyDirectionHit(SideHitValue);
+                    if (Enemy.gameObject.activeSelf)
+                    {
+                        Enemy.EnemyDirectionHit(SideHitValue);
+                    }                  
                 }
             }                            
         }
