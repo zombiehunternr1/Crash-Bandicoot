@@ -181,8 +181,11 @@ public class Breakable : MonoBehaviour
             {
                 BreakOverTime.BreakCrate();
             }
-            DestroyedCrate.Raise();
-            gameObject.SetActive(false);
+            else
+            {
+                DestroyedCrate.Raise();
+                gameObject.SetActive(false);
+            }
         }
 
         else
