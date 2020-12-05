@@ -165,3 +165,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  CrateDestroyed: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}

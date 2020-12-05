@@ -5,14 +5,17 @@ using UnityEngine;
 public class Breakable : MonoBehaviour
 {
     public GameEvent DestroyedCrate;
+    [HideInInspector]
+    public bool HasBounced = false;
+    [HideInInspector]
+    public int JumpAmount;
 
     private Bounce Bouncing;
     private BreakAmount BreakOverTime;
     private Tnt TntCrate;
     private Nitro NitroCrate;
-    private int JumpAmount;
-    private CrateBase Crate;
-    private bool HasBounced = false;  
+    
+    private CrateBase Crate; 
 
     void Awake()
     {

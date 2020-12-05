@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 7801260841705954367}
   - component: {fileID: 7801260841705954364}
   - component: {fileID: 5850652278574716138}
+  - component: {fileID: 5500665371165550839}
   m_Layer: 0
   m_Name: Total Count Crate
   m_TagString: Untagged
@@ -190,6 +191,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7801260841705954364}
         m_MethodName: AddCrate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5500665371165550839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801260841705954365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90749240303c2b24e8c1aea0adbdc041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 2786c6c203f9e1144bc5dcb34ea8f653, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7801260841705954364}
+        m_MethodName: ResetCurrentAmount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -5,46 +5,57 @@ using UnityEngine;
 public class BreakAmount : MonoBehaviour
 {
     public GameEvent CrateDestroyed;
+    [HideInInspector]
+    public bool Activated = false;
 
     int TotalBounce = 5;
     float StartTime = 0f;
     float MaxTime = 5f;
-    bool Activated = false;
 
     //Checks if the player already jumped on top of the crate.
     //If not it starts the Timer coroutine.
-    //If the player hasn't jump the maximum amount on the crate it gives the player Woompa fruit and resets the timer.
-    //If the player has reached the maximum amount the Timer coroutine will stop and the crate will break.
     public void BreakOverTime(int BounceCount)
     {
         if (!Activated)
         {
+            //Checks if the starttime is greater or equal to the maxtime.
+            //If so it means the crates were reset so the player should be allowed to jump on it again like it was the players first time.
+            if(StartTime >= MaxTime)
+            {
+                StartTime = 0f;               
+            }
             StartCoroutine(Timer());
         }
-
+        //Checks if the starttime is greater the the maxtime. If so this means the player has exceeded the allowed time to jump on the crate.
+        //That means the player will bounce of the crate, the cratedestroyed event will be raised, the gameobject will be deactivated and gives the player some Woompa fruit.
         if (StartTime > MaxTime)
         {
             CrateDestroyed.Raise();
             gameObject.SetActive(false);
-            //Give player apples and break crate
+            //Give player Woompa fruit and break crate
         }
+        //Checks if the bouncecount is smaller then the totalbounce. If so that means the player jumped on the crate again in the allowed timespan.
+        //This will reset the startTime back to 0 and give the player some Woompa Fruit.
         else if(BounceCount < TotalBounce)
         {
-            //Give player apples
+            //Give player Woompa fruit
             StartTime = 0f;
         }
+        //Checks if the BounceCount is greater or equal to the TotalBounce. If so this means the player has jumped the allowed maximum times on the crate.
+        //This will bounce the player of the crate and then stop the Timer coroutine, raises the CrateDestroyed event, disables the gameobject and gives the player some Woompa fruit.
         else if (BounceCount >= TotalBounce)
         {
             StopCoroutine(Timer());
             CrateDestroyed.Raise();
             gameObject.SetActive(false);
-            //Give player apples and break crate
+            //Give player Woompa fruit and break crate
         }         
     }
 
     //Once this function gets called it has been hit by either an explosion or an enemy.
     public void BreakCrate()
     {
+        StopCoroutine(Timer());
         CrateDestroyed.Raise();
         gameObject.SetActive(false);
     }
@@ -54,7 +65,7 @@ public class BreakAmount : MonoBehaviour
     {
         Activated = true;
         while (StartTime < MaxTime)
-        {
+        {            
             StartTime += Time.deltaTime;
             yield return StartTime;
         }          

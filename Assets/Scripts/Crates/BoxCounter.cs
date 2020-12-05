@@ -10,6 +10,10 @@ public class BoxCounter : MonoBehaviour
     public GameObject Gem;
     public GameObject Parent;
 
+    private Breakable BreakableCrate;
+    private BreakAmount BreakAmountCrate;
+    private Nitro NitroCrate;
+    private Tnt TntCrate;
     private int CurrentCrates;
     private List<Breakable> TotalCrates = new List<Breakable>();
     private Breakable[] CratesInLevel;
@@ -52,25 +56,60 @@ public class BoxCounter : MonoBehaviour
     public void AddCrate()
     {
         CurrentCrates++;
-        UpdateUI();
+        UpdateSpawnGemUI();
     }
 
     //This function updates the UI text that is being displayed on the total count crate.
-    private void UpdateUI()
+    private void UpdateSpawnGemUI()
     {
         BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
     }
 
     //Once this function gets called it checks which crates were inactive.
     //foreach crate that is inactive it descreases the current crate count by one and sets the crate back to enabled.
+    //Afterwards we call the function UpdateUI;
     public void ResetCurrentAmount()
     {
-        foreach(Breakable crate in CratesInLevel)
+        foreach(Breakable crate in TotalCrates)
         {
-            if (crate.enabled == false)
+            if (!crate.isActiveAndEnabled)
             {
+                if (crate.GetComponent<Breakable>())
+                {
+                    BreakableCrate = crate.GetComponent<Breakable>();
+                    BreakableCrate.HasBounced = false;
+                    BreakableCrate.JumpAmount = 0;
+                }
+                if (crate.GetComponent<BreakAmount>())
+                {
+                    BreakAmountCrate = crate.GetComponent<BreakAmount>();
+                    BreakAmountCrate.Activated = false;
+                }
+                if (crate.GetComponent<Nitro>())
+                {
+                    NitroCrate = crate.GetComponent<Nitro>();
+                    NitroCrate.HasExploded = false;
+                }
+                if (crate.GetComponent<Tnt>())
+                {
+                    TntCrate = crate.GetComponent<Tnt>();
+                    TntCrate.ResetCountdown();
+                }
                 CurrentCrates--;
-                crate.enabled = true;
+                crate.gameObject.SetActive(true);
+            }           
+        }
+        UpdateSpawnGemUI();
+    }
+
+    //If this function gets called it means the player has reached a checkpoint meaning all the crates he broke before in this level are now permanently added to the CurrentCrates.
+    public void CheckPointReached()
+    {
+        foreach (Breakable crate in TotalCrates)
+        {
+            if (!crate.isActiveAndEnabled)
+            {
+                Destroy(crate);
             }
         }
     }

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Nitro : MonoBehaviour
 {
+    [HideInInspector]
+    public bool HasExploded = false;
     public GameEvent CrateDestroyed;
     public ParticleSystem ExplosionEffect;
     private ParticleSystem Explode;
     private Transform Crate;
-    private bool HasExploded = false;
 
     void Start()
     {
