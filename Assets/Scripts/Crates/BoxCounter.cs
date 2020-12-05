@@ -65,39 +65,47 @@ public class BoxCounter : MonoBehaviour
         BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
     }
 
-    //Once this function gets called it checks which crates were inactive.
+    //Once this function gets called it checks if the totalcrates list has crates in it.
+    //If it doesn't it skills the whole reset progress. If it does it checks if the crate is disabled.
     //foreach crate that is inactive it descreases the current crate count by one and sets the crate back to enabled.
     //Afterwards we call the function UpdateUI;
     public void ResetCurrentAmount()
     {
         foreach(Breakable crate in TotalCrates)
         {
-            if (!crate.isActiveAndEnabled)
+            if(crate != null)
             {
-                if (crate.GetComponent<Breakable>())
+                if (!crate.isActiveAndEnabled)
                 {
-                    BreakableCrate = crate.GetComponent<Breakable>();
-                    BreakableCrate.HasBounced = false;
-                    BreakableCrate.JumpAmount = 0;
+                    if (!crate.GetComponent<CheckPoint>())
+                    {
+                        if (crate.GetComponent<Breakable>())
+                        {
+                            BreakableCrate = crate.GetComponent<Breakable>();
+                            BreakableCrate.HasBounced = false;
+                            BreakableCrate.JumpAmount = 0;
+                        }
+                        if (crate.GetComponent<BreakAmount>())
+                        {
+                            BreakAmountCrate = crate.GetComponent<BreakAmount>();
+                            BreakAmountCrate.Activated = false;
+                        }
+                        if (crate.GetComponent<Nitro>())
+                        {
+                            NitroCrate = crate.GetComponent<Nitro>();
+                            NitroCrate.HasExploded = false;
+                        }
+                        if (crate.GetComponent<Tnt>())
+                        {
+                            TntCrate = crate.GetComponent<Tnt>();
+                            TntCrate.ResetCountdown();
+                        }
+                        CurrentCrates--;
+                        crate.gameObject.SetActive(true);
+
+                    }
                 }
-                if (crate.GetComponent<BreakAmount>())
-                {
-                    BreakAmountCrate = crate.GetComponent<BreakAmount>();
-                    BreakAmountCrate.Activated = false;
-                }
-                if (crate.GetComponent<Nitro>())
-                {
-                    NitroCrate = crate.GetComponent<Nitro>();
-                    NitroCrate.HasExploded = false;
-                }
-                if (crate.GetComponent<Tnt>())
-                {
-                    TntCrate = crate.GetComponent<Tnt>();
-                    TntCrate.ResetCountdown();
-                }
-                CurrentCrates--;
-                crate.gameObject.SetActive(true);
-            }           
+            }          
         }
         UpdateSpawnGemUI();
     }
@@ -109,7 +117,10 @@ public class BoxCounter : MonoBehaviour
         {
             if (!crate.isActiveAndEnabled)
             {
-                Destroy(crate);
+                if (!crate.GetComponent<CheckPoint>())
+                {
+                    Destroy(crate.gameObject);
+                }
             }
         }
     }

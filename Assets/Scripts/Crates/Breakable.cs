@@ -14,7 +14,7 @@ public class Breakable : MonoBehaviour
     private BreakAmount BreakOverTime;
     private Tnt TntCrate;
     private Nitro NitroCrate;
-    
+    private CheckPoint CheckpointCrate;
     private CrateBase Crate; 
 
     void Awake()
@@ -24,6 +24,7 @@ public class Breakable : MonoBehaviour
         BreakOverTime = GetComponent<BreakAmount>();
         TntCrate = GetComponent<Tnt>();
         NitroCrate = GetComponent<Nitro>();
+        CheckpointCrate = GetComponent<CheckPoint>();
     }
 
     public void CrateAction(int CrateSide)
@@ -187,7 +188,10 @@ public class Breakable : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
-
+        else if (CheckpointCrate)
+        {
+            CheckpointCrate.SetCheckpoint();
+        }
         else
         {
             DestroyedCrate.Raise();

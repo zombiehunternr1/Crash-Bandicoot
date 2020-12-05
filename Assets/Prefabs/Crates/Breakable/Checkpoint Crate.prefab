@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1801363950488579362}
   - component: {fileID: 1801363950488579363}
   - component: {fileID: 1801363950488579360}
+  - component: {fileID: 2966771521018484193}
   m_Layer: 0
   m_Name: Checkpoint Crate
   m_TagString: Untagged
@@ -139,6 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
+  HasBounced: 0
+  JumpAmount: 0
 --- !u!114 &1801363950488579360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +155,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SideHitValue: 0
+--- !u!114 &2966771521018484193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801363950488579361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fad045b7c49b3b44b1f7e474d1c254f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CheckPointReached: {fileID: 11400000, guid: 858af3d7666d6d140b098c1cc348d4d8, type: 2}
