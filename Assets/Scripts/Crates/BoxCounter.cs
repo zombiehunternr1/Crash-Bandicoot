@@ -14,6 +14,7 @@ public class BoxCounter : MonoBehaviour
     private BreakAmount BreakAmountCrate;
     private Nitro NitroCrate;
     private Tnt TntCrate;
+    private CheckPoint CheckpointCrate;
     private int CurrentCrates;
     private List<Breakable> TotalCrates = new List<Breakable>();
     private Breakable[] CratesInLevel;
@@ -85,24 +86,31 @@ public class BoxCounter : MonoBehaviour
                             BreakableCrate.HasBounced = false;
                             BreakableCrate.JumpAmount = 0;
                         }
-                        if (crate.GetComponent<BreakAmount>())
+                        else if (crate.GetComponent<BreakAmount>())
                         {
                             BreakAmountCrate = crate.GetComponent<BreakAmount>();
                             BreakAmountCrate.Activated = false;
                         }
-                        if (crate.GetComponent<Nitro>())
+                        else if (crate.GetComponent<Nitro>())
                         {
                             NitroCrate = crate.GetComponent<Nitro>();
                             NitroCrate.HasExploded = false;
                         }
-                        if (crate.GetComponent<Tnt>())
+                        else if (crate.GetComponent<Tnt>())
                         {
                             TntCrate = crate.GetComponent<Tnt>();
                             TntCrate.ResetCountdown();
                         }
                         CurrentCrates--;
                         crate.gameObject.SetActive(true);
-
+                    }
+                }
+                else
+                {
+                    if (crate.GetComponent<CheckPoint>())
+                    {
+                        CheckpointCrate = crate.GetComponent<CheckPoint>();
+                        CheckpointCrate.hasSet = false;
                     }
                 }
             }          
@@ -115,13 +123,16 @@ public class BoxCounter : MonoBehaviour
     {
         foreach (Breakable crate in TotalCrates)
         {
-            if (!crate.isActiveAndEnabled)
+            if(crate != null)
             {
-                if (!crate.GetComponent<CheckPoint>())
+                if (!crate.isActiveAndEnabled)
                 {
-                    Destroy(crate.gameObject);
+                    if (!crate.GetComponent<CheckPoint>())
+                    {
+                        Destroy(crate.gameObject);
+                    }
                 }
-            }
+            }          
         }
     }
 }

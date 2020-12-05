@@ -168,3 +168,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CheckPointReached: {fileID: 11400000, guid: 858af3d7666d6d140b098c1cc348d4d8, type: 2}
+  DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
+  HasSet: 0

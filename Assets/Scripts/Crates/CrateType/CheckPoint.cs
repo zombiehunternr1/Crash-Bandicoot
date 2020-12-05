@@ -6,11 +6,17 @@ public class CheckPoint : MonoBehaviour
 {
     public GameEvent CheckPointReached;
     public GameEvent DestroyedCrate;
+    [HideInInspector]
+    public bool hasSet = false;
 
     public void SetCheckpoint()
     {
-        DestroyedCrate.Raise();
-        CheckPointReached.Raise();
-        gameObject.SetActive(false);
+        if (!hasSet)
+        {
+            hasSet = true;
+            DestroyedCrate.Raise();
+            CheckPointReached.Raise();
+            gameObject.SetActive(false);
+        }
     }
 }

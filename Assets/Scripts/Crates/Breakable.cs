@@ -94,6 +94,10 @@ public class Breakable : MonoBehaviour
         {
             NitroCrate.ExplodeCrate();
         }
+        else if (CheckpointCrate)
+        {
+            CheckpointCrate.SetCheckpoint();
+        }
         else
         {
             Crate.BounceUp();
