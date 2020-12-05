@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4989327355697580922}
   - component: {fileID: 4989327355697580923}
   - component: {fileID: 4989327355697580804}
+  - component: {fileID: 4062318685386581187}
   m_Layer: 0
   m_Name: Nitro Crate
   m_TagString: Untagged
@@ -152,3 +153,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SideHitValue: 0
+--- !u!114 &4062318685386581187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4989327355697580805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c694a47041cb2d5469c15b0e561919fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CrateDestroyed: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
+  ExplosionEffect: {fileID: 4843060487788756372, guid: 69b45efbc75488444a534964ddd2404f,
+    type: 3}

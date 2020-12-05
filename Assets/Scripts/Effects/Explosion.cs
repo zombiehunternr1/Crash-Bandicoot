@@ -31,6 +31,9 @@ public class Explosion : MonoBehaviour
         }
         else if (other.GetComponent<PlayerActions>())
         {
+            //Build in check to see if the player has invinsibility active
+            //If so it shouldn't kill the player.
+            //If the player has an extra hit available destroy the extra hit.
             Debug.Log("I am the player");
         }
     }

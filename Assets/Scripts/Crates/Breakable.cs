@@ -9,6 +9,7 @@ public class Breakable : MonoBehaviour
     private Bounce Bouncing;
     private BreakAmount BreakOverTime;
     private Tnt TntCrate;
+    private Nitro NitroCrate;
     private int JumpAmount;
     private CrateBase Crate;
     private bool HasBounced = false;  
@@ -19,6 +20,7 @@ public class Breakable : MonoBehaviour
         Bouncing = GetComponent<Bounce>();
         BreakOverTime = GetComponent<BreakAmount>();
         TntCrate = GetComponent<Tnt>();
+        NitroCrate = GetComponent<Nitro>();
     }
 
     public void CrateAction(int CrateSide)
@@ -84,6 +86,10 @@ public class Breakable : MonoBehaviour
             }
             return;
         }
+        else if (NitroCrate)
+        {
+            NitroCrate.ExplodeCrate();
+        }
         else
         {
             Crate.BounceUp();
@@ -112,6 +118,10 @@ public class Breakable : MonoBehaviour
             }
             return;
         }
+        else if (NitroCrate)
+        {
+            NitroCrate.ExplodeCrate();
+        }
         else
         {
             Crate.BounceDown();
@@ -122,27 +132,46 @@ public class Breakable : MonoBehaviour
 
     void Forward()
     {
-        Debug.Log("Hit breakable Forward");
+        if (NitroCrate)
+        {
+            NitroCrate.ExplodeCrate();
+        }
     }
 
     void Back()
     {
-        Debug.Log("Hit breakable Back");
+        if (NitroCrate)
+        {
+            NitroCrate.ExplodeCrate();
+        }
     }
 
     void Left()
     {
-        Debug.Log("Hit breakable Left");
+        if (NitroCrate)
+        {
+            NitroCrate.ExplodeCrate();
+        }
     }
 
     void Right()
     {
-        Debug.Log("Hit breakable Right");
+        if (NitroCrate)
+        {
+            NitroCrate.ExplodeCrate();
+        }
     }
 
     void Attack()
     {
-        Debug.Log("Spin attack breakable");
+        if (TntCrate)
+        {
+            TntCrate.ExplodeCrate();
+        }
+        else if (NitroCrate)
+        {
+            NitroCrate.ExplodeCrate();
+        }
     }
 
     void EntityOrEffect()
@@ -151,6 +180,11 @@ public class Breakable : MonoBehaviour
         {
             TntCrate.ExplodeCrate();
         }
+        else if (NitroCrate)
+        {
+            NitroCrate.ExplodeCrate();
+        }
+
         else if (BreakOverTime)
         {
             BreakOverTime.BreakCrate();

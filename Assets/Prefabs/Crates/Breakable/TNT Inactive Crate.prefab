@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CrateDestroyed: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
-  ExplosionEffect: {fileID: 198000012942003240, guid: ecdd96beb7f93494880c052dfccf9dc1,
+  ExplosionEffect: {fileID: 793958401758990990, guid: a27c626cc9dfd9d46aa3ae9b9d46bed3,
     type: 3}
 --- !u!1001 &7059857983144654101
 PrefabInstance:

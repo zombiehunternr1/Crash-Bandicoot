@@ -41,10 +41,10 @@ public class Tnt : MonoBehaviour
     {
         if (!HasExploded)
         {
+            HasExploded = true;
             Explode = Instantiate(ExplosionEffect, Crate.transform.position, Crate.transform.rotation);
             CrateDestroyed.Raise();
-            gameObject.SetActive(false);
-            HasExploded = true;
+            gameObject.SetActive(false);           
         }
     }
 
