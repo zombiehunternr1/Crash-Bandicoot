@@ -23,8 +23,15 @@ public class CheckPoint : MonoBehaviour
             hasSet = true;
             Debug.Log(CheckPointPosition);
             CheckPointReached.RaiseTransform(transform);
-            DestroyedCrate.Raise();
-            gameObject.SetActive(false);
+            if (GetComponent<Breakable>())
+            {
+                DestroyedCrate.Raise();
+                gameObject.SetActive(false);
+            }
+            else if (GetComponent<Interactable>())
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }

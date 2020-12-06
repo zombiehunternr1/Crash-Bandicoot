@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    private Bounce Bouncing;
+    private Bounce BouncingCrate;
     private CrateBase Crate;
+    private CheckPoint CheckpointCrate;
     private bool HasBounced = false;
 
     void Awake()
     {
-        Bouncing = GetComponent<Bounce>();
+        BouncingCrate = GetComponent<Bounce>();
         Crate = GetComponent<CrateBase>();
+        CheckpointCrate = GetComponent<CheckPoint>();
     }
 
     public void CrateAction(int CrateSide)
@@ -35,9 +37,13 @@ public class Interactable : MonoBehaviour
 
     void Top()
     {
-        if (Bouncing)
+        if (BouncingCrate)
         {
-            Bouncing.Up();
+            BouncingCrate.Up();
+        }
+        else if (CheckpointCrate)
+        {
+            CheckpointCrate.SetCheckpoint();
         }
         else
         {
@@ -51,14 +57,17 @@ public class Interactable : MonoBehaviour
 
     void Bottom()
     {
-        if (Bouncing)
+        if (BouncingCrate)
         {
-            Bouncing.Down();
+            BouncingCrate.Down();
         }
     }
 
     void Attack()
     {
-        Debug.Log("Spin attack Interactable");
+        if (CheckpointCrate)
+        {
+            CheckpointCrate.SetCheckpoint();
+        }
     }
 }
