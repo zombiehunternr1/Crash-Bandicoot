@@ -29,7 +29,7 @@ public class CheckPoint : MonoBehaviour
             if (GetComponent<Breakable>())
             {
                 DestroyedCrate.Raise();
-                Instantiate(BrokenCheckpoint, transform.position + (Vector3.up * .1f), transform.rotation);
+                Instantiate(BrokenCheckpoint, transform.position, transform.rotation);
                 gameObject.SetActive(false);
             }
             else if (GetComponent<Interactable>())

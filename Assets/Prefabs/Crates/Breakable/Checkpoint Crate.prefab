@@ -172,5 +172,5 @@ MonoBehaviour:
   hasSet: 0
   MetalCrate: {fileID: 8848150449779710713, guid: 779e38cc8d2cb77448a9b99db159f43a,
     type: 3}
-  BrokenCheckpoint: {fileID: 5889032408491234511, guid: 525152be3e11c6742b1011d16b363b18,
+  BrokenCheckpoint: {fileID: 9161319982091621344, guid: 525152be3e11c6742b1011d16b363b18,
     type: 3}
