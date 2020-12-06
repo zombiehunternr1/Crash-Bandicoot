@@ -67,9 +67,17 @@ public class CollisionSideDetection : MonoBehaviour
                 }
             }                            
         }
-        if(collision.transform.GetComponent<CrateBase>() != null)
+        else if(collision.transform.GetComponent<CrateBase>() != null)
         {
-            Crate.BounceUp();
+            ReturnDirection(collision.gameObject, this.gameObject);
+            if (Crate)
+            {
+                Crate.CrateDirectionHit(SideHitValue);
+            }
+            if (Enemy)
+            {
+                Enemy.EnemyDirectionHit(SideHitValue);
+            }
         }
     }
 

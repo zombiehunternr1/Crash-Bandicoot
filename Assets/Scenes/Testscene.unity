@@ -667,6 +667,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TNT Crate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 931278571397417627, guid: 226fba69139e0d347a1b28f0143955f0,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 4128766820952468075, guid: 226fba69139e0d347a1b28f0143955f0,
         type: 3}
       propertyPath: m_IsActive
