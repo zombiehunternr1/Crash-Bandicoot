@@ -9,6 +9,7 @@ public class BoxCounter : MonoBehaviour
     public GameObject Boxes;
     public GameObject Gem;
     public GameObject Parent;
+    public GameEvent ResetPlayerPosition;
 
     private Breakable BreakableCrate;
     private BreakAmount BreakAmountCrate;
@@ -116,6 +117,7 @@ public class BoxCounter : MonoBehaviour
             }          
         }
         UpdateSpawnGemUI();
+        ResetPlayerPosition.Raise();
     }
 
     //If this function gets called it means the player has reached a checkpoint meaning all the crates he broke before in this level are now permanently added to the CurrentCrates.

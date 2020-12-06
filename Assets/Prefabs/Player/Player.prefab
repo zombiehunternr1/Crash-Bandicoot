@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1649318143415699846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Groundchecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,9 @@ GameObject:
   - component: {fileID: 1379602903479472588}
   - component: {fileID: 1379602903479472580}
   - component: {fileID: 4600738564750301116}
-  m_Layer: 0
+  - component: {fileID: 5450345194569298013}
+  - component: {fileID: 1361523548}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +126,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379602903479472589}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0f65c70e2f42e194fa7f884e793236a1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -146,7 +148,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1379602903479472578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +196,17 @@ MonoBehaviour:
   JumpForce: 2
   JumpHeightFloat: 3
   Bounce: 5
-  JumpingCooldown: 0.1
+  GroundCheckRadius: 0.1
+  DoubleJumpCheckRadius: 0.5
+  FallingCutoff: 0.4
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 55
+  DoubleJumpMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  GroundChecker: {fileID: 1649318143415699846}
+  CheckPoint: {fileID: 0}
 --- !u!114 &1379602903479472580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +233,61 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5450345194569298013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379602903479472589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6be31de2386aac429fae94d72a7add1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEventTransform: {fileID: 11400000, guid: 858af3d7666d6d140b098c1cc348d4d8,
+    type: 2}
+  _responseTransform:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1379602903479472588}
+        m_MethodName: SaveCheckpoint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1361523548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379602903479472589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90749240303c2b24e8c1aea0adbdc041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 89f0d091080609b40895aae8af41e599, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1379602903479472588}
+        m_MethodName: SpawnPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1379602905497793076
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +299,7 @@ GameObject:
   - component: {fileID: 1379602905497793079}
   - component: {fileID: 1379602905497793033}
   - component: {fileID: 1379602905497793078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

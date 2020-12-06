@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    public GameEvent CheckPointReached;
+    public GameEventTransform CheckPointReached;
     public GameEvent DestroyedCrate;
     [HideInInspector]
     public bool hasSet = false;
+
+    private Transform CheckPointPosition;
+
+    private void Awake()
+    {
+        CheckPointPosition = transform;
+    }
 
     public void SetCheckpoint()
     {
         if (!hasSet)
         {
             hasSet = true;
+            Debug.Log(CheckPointPosition);
+            CheckPointReached.RaiseTransform(transform);
             DestroyedCrate.Raise();
-            CheckPointReached.Raise();
             gameObject.SetActive(false);
         }
     }

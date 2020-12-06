@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetCrates : MonoBehaviour
+public class ResetAfterDeath : MonoBehaviour
 {
     public GameEvent CrateReset;
 

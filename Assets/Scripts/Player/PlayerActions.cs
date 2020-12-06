@@ -28,6 +28,7 @@ public class PlayerActions : MonoBehaviour
     private float JumpingCooldown = .1f;
     private float CurrentJumpingCooldown;
     private float FallingMovement;
+    public Transform CheckPoint;
 
     //Gets the Rigidbody of the player, the box collider of the spin attack and sets the jumpheight of the player.
     private void Awake()
@@ -173,6 +174,16 @@ public class PlayerActions : MonoBehaviour
             SpinCollider.enabled = false;
             IsSpinning = false;
         }
+    }
+    
+    public void SaveCheckpoint(Transform NewCheckpoint)
+    {
+        CheckPoint = NewCheckpoint;
+    }
+
+    public void SpawnPlayer()
+    {
+        gameObject.transform.position = CheckPoint.position;
     }
 
     /*//Testing purposes only. Remove at final build!!!
