@@ -169,4 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CheckPointReached: {fileID: 11400000, guid: 858af3d7666d6d140b098c1cc348d4d8, type: 2}
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
-  HasSet: 0
+  hasSet: 0
+  MetalCrate: {fileID: 8848150449779710713, guid: 779e38cc8d2cb77448a9b99db159f43a,
+    type: 3}
+  BrokenCheckpoint: {fileID: 5889032408491234511, guid: 525152be3e11c6742b1011d16b363b18,
+    type: 3}
