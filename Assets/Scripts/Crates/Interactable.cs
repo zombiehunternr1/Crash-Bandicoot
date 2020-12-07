@@ -7,6 +7,7 @@ public class Interactable : MonoBehaviour
     private Bounce BouncingCrate;
     private CrateBase Crate;
     private CheckPoint CheckpointCrate;
+    private MetalCrate MetalCrate;
     private bool HasBounced = false;
 
     void Awake()
@@ -14,6 +15,7 @@ public class Interactable : MonoBehaviour
         BouncingCrate = GetComponent<Bounce>();
         Crate = GetComponent<CrateBase>();
         CheckpointCrate = GetComponent<CheckPoint>();
+        MetalCrate = GetComponent<MetalCrate>();
     }
 
     public void CrateAction(int CrateSide)
@@ -60,6 +62,10 @@ public class Interactable : MonoBehaviour
         if (BouncingCrate)
         {
             BouncingCrate.Down();
+        }
+        if (MetalCrate)
+        {
+            MetalCrate.IsFallingDown();
         }
     }
 
