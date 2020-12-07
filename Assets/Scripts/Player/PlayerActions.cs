@@ -28,11 +28,13 @@ public class PlayerActions : MonoBehaviour
     private float JumpingCooldown = .1f;
     private float CurrentJumpingCooldown;
     private float FallingMovement;
-    public Transform CheckPoint;
+    private Transform CheckPoint;
+    private Vector3 OriginPosition;
 
     //Gets the Rigidbody of the player, the box collider of the spin attack and sets the jumpheight of the player.
     private void Awake()
     {
+        OriginPosition = gameObject.transform.position;
         SpinCollider = GetComponent<BoxCollider>();
         Rb = GetComponent<Rigidbody>();
         JumpHeight = new Vector3(0.0f, JumpHeightFloat, 0.0f);
@@ -180,10 +182,19 @@ public class PlayerActions : MonoBehaviour
     {
         CheckPoint = NewCheckpoint;
     }
-
+    
+    //This function gets called when the player died and needs to be respawned.
     public void SpawnPlayer()
     {
-        gameObject.transform.position = CheckPoint.position;
+        //Checks if the player has hit a checkpoint before. If not it sets the player back at the beginning of the level.
+        if(CheckPoint != null)
+        {
+            gameObject.transform.position = CheckPoint.position;
+        }
+        else
+        {
+            gameObject.transform.position = OriginPosition;
+        }
     }
 
     /*//Testing purposes only. Remove at final build!!!

@@ -87,17 +87,17 @@ public class BoxCounter : MonoBehaviour
                             BreakableCrate.HasBounced = false;
                             BreakableCrate.JumpAmount = 0;
                         }
-                        else if (crate.GetComponent<BreakAmount>())
+                        if (crate.GetComponent<BreakAmount>())
                         {
                             BreakAmountCrate = crate.GetComponent<BreakAmount>();
                             BreakAmountCrate.Activated = false;
                         }
-                        else if (crate.GetComponent<Nitro>())
+                        if (crate.GetComponent<Nitro>())
                         {
                             NitroCrate = crate.GetComponent<Nitro>();
                             NitroCrate.HasExploded = false;
                         }
-                        else if (crate.GetComponent<Tnt>())
+                        if (crate.GetComponent<Tnt>())
                         {
                             TntCrate = crate.GetComponent<Tnt>();
                             TntCrate.ResetCountdown();
