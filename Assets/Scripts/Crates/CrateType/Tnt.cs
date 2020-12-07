@@ -8,6 +8,8 @@ public class Tnt : MonoBehaviour
     public ParticleSystem ExplosionEffect;
     [HideInInspector]
     public bool HasExploded = false;
+    [HideInInspector]
+    public bool HasStarted = false;
     private ParticleSystem Explode;
     private Transform Crate;
     private MeshRenderer[] GetChildren;
@@ -30,10 +32,14 @@ public class Tnt : MonoBehaviour
         Countdown[0].enabled = true;
     }
 
-    //Once this function gets called it starts the coroutine StartCountdown.
+    //Once this function gets called it checks if the bool Hasstarted is false. If so it starts the coroutine StartCountdown.
     public void Activate()
     {
-        StartCoroutine(StartCountdown());
+        if (!HasStarted)
+        {
+            StartCoroutine(StartCountdown());
+        }
+        
     }
 
     //Once this function gets called it checks if the crate hasn't already exploded.
@@ -63,6 +69,7 @@ public class Tnt : MonoBehaviour
     //Once it reaches the last one it disables the gameobject, instanciates the explosion effect, calls the ExploteCrate function.
     private IEnumerator StartCountdown()
     {
+        HasStarted = true;
         Countdown[0].enabled = false;
         Countdown[1].enabled = true;
         yield return new WaitForSeconds(1);

@@ -7,6 +7,8 @@ public class CrateBase : MonoBehaviour
 {
     [HideInInspector]
     public int CrateSide;
+    [HideInInspector]
+    public bool GravityEnabled = false;
 
     private enum CrateDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
     private Interactable Interact;
@@ -18,6 +20,10 @@ public class CrateBase : MonoBehaviour
         Rb = GetComponent<Rigidbody>();
         Interact = GetComponent<Interactable>();
         Break = GetComponent<Breakable>();
+        if (Rb.useGravity)
+        {
+            GravityEnabled = true;
+        }
     }
 
     public void CrateDirectionHit(int PlayerSideHit)
@@ -146,15 +152,21 @@ public class CrateBase : MonoBehaviour
         }
     }
 
-    public void BounceUp()
+    public void BounceUpPlayer()
     {
         Rb.velocity = new Vector3(Rb.velocity.x, 0);
         Rb.AddForce(new Vector3(0, 400));
     }
 
-    public void BounceDown()
+    public void BounceDownPlayer()
     {
         Rb.velocity = new Vector3(Rb.velocity.x, 0);
         Rb.AddForce(new Vector3(0, -400));
+    }
+
+    public void BounceUpCrate()
+    {
+        Rb.velocity = new Vector3(Rb.velocity.x, 0);
+        Rb.AddForce(new Vector3(0, 1200));
     }
 }

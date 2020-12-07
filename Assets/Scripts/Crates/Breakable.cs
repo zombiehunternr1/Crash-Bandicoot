@@ -15,7 +15,7 @@ public class Breakable : MonoBehaviour
     private Tnt TntCrate;
     private Nitro NitroCrate;
     private CheckPoint CheckpointCrate;
-    private CrateBase Crate; 
+    private CrateBase Crate;
 
     void Awake()
     {
@@ -84,7 +84,7 @@ public class Breakable : MonoBehaviour
             if (!HasBounced)
             {
                 TntCrate.Activate();
-                Crate.BounceUp();
+                Crate.BounceUpPlayer();
                 HasBounced = true;
                 return;
             }
@@ -100,7 +100,7 @@ public class Breakable : MonoBehaviour
         }
         else
         {
-            Crate.BounceUp();
+            Crate.BounceUpPlayer();
             DestroyedCrate.Raise();
             StartCoroutine(DelayDeactivating());
         }
@@ -120,7 +120,7 @@ public class Breakable : MonoBehaviour
             if (!HasBounced)
             {
                 TntCrate.Activate();
-                Crate.BounceDown();
+                Crate.BounceDownPlayer();
                 HasBounced = true;
                 return;
             }
@@ -132,7 +132,7 @@ public class Breakable : MonoBehaviour
         }
         else
         {
-            Crate.BounceDown();
+            Crate.BounceDownPlayer();
             DestroyedCrate.Raise();
             StartCoroutine(DelayDeactivating());
         }
@@ -205,29 +205,43 @@ public class Breakable : MonoBehaviour
 
     void EntityOrEffect()
     {
-        if (TntCrate)
+        if (!CheckpointCrate)
         {
-            TntCrate.ExplodeCrate();
-        }
-        else if (NitroCrate)
-        {
-            NitroCrate.ExplodeCrate();
-        }
+            if (TntCrate)
+            {
+                TntCrate.ExplodeCrate();
+            }
+            else if (NitroCrate)
+            {
+                NitroCrate.ExplodeCrate();
+            }
 
-        else if (BreakOverTime)
-        {
-            BreakOverTime.BreakCrate();
-        }
-        else if (Bouncing)
-        {
-            Bouncing.breakCrate();
-        }
+            else if (BreakOverTime)
+            {
+                BreakOverTime.BreakCrate();
+            }
+            else if (Bouncing)
+            {
+                Bouncing.breakCrate();
+            }
+            else
+            {
+                breakCrate();
+            }
+        }      
     }
 
     //This coroutine lets the player bounce of the crate before getting deactivated.
     private IEnumerator DelayDeactivating()
     {
         yield return new WaitForSeconds(.1f);
+        gameObject.SetActive(false);
+    }
+
+    //Once this function gets called it raises the crate destroyed event and disables the gameobject.
+    public void breakCrate()
+    {
+        DestroyedCrate.Raise();
         gameObject.SetActive(false);
     }
 }

@@ -49,7 +49,7 @@ public class Interactable : MonoBehaviour
         {
             if (!HasBounced)
             {
-                Crate.BounceUp();
+                Crate.BounceUpPlayer();
                 HasBounced = true;
             }            
         }

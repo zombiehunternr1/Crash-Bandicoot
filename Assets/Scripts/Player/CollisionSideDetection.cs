@@ -67,17 +67,23 @@ public class CollisionSideDetection : MonoBehaviour
                 }
             }                            
         }
-        else if(collision.transform.GetComponent<CrateBase>() != null)
+        else if(collision.gameObject.GetComponent<CrateBase>() != null)
         {
-            ReturnDirection(collision.gameObject, this.gameObject);
-            if (Crate)
+            if (Crate.GravityEnabled)
             {
-                Crate.CrateDirectionHit(SideHitValue);
-            }
-            if (Enemy)
-            {
-                Enemy.EnemyDirectionHit(SideHitValue);
-            }
+                if (collision.gameObject.GetComponent<Bounce>())
+                {
+                    collision.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                }
+                else if (collision.gameObject.GetComponent<Tnt>())
+                {
+                    collision.gameObject.GetComponent<Tnt>().Activate();
+                }
+                else if (collision.gameObject.GetComponent<Nitro>())
+                {
+                    collision.gameObject.GetComponent<Nitro>().ExplodeCrate();
+                }
+            }          
         }
     }
 
