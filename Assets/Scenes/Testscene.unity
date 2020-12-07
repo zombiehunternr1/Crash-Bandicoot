@@ -1679,6 +1679,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4434218013762332155, guid: 632c775917aa2194789018f15bbc7cc6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7801260841705954364, guid: 632c775917aa2194789018f15bbc7cc6,
         type: 3}
       propertyPath: Boxes
@@ -1695,6 +1700,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 89f0d091080609b40895aae8af41e599,
         type: 2}
+    - target: {fileID: 8593810469819776488, guid: 632c775917aa2194789018f15bbc7cc6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 632c775917aa2194789018f15bbc7cc6, type: 3}
 --- !u!1001 &7415307203328438922

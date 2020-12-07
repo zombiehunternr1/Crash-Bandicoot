@@ -10,21 +10,7 @@ public class MetalCrate : MonoBehaviour
     private float PreviousHeight;
     private bool FallingDown = false;
 
-    private void Awake()
-    {
-        StartCoroutine(IsBouncing());
-    }
-
-    public void IsFallingDown()
-    {
-        if (FallingDown)
-        {
-            CrateReset.Raise();
-            PlayerHit.Raise();
-        }
-    }
-
-    IEnumerator IsBouncing()
+    private void FixedUpdate()
     {
         if (PreviousHeight > transform.position.y)
         {
@@ -36,7 +22,14 @@ public class MetalCrate : MonoBehaviour
         }
         CurrentHeight = transform.position.y;
         PreviousHeight = CurrentHeight;
-        yield return new WaitForSeconds(.1f);
-        StartCoroutine(IsBouncing());
+    }
+
+    public void IsFallingDown()
+    {
+        if (FallingDown)
+        {
+            CrateReset.Raise();
+            PlayerHit.Raise();
+        }
     }
 }

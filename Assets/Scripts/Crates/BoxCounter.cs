@@ -19,6 +19,7 @@ public class BoxCounter : MonoBehaviour
     private int CurrentCrates;
     private List<Breakable> TotalCrates = new List<Breakable>();
     private Breakable[] CratesInLevel;
+    private GameObject LevelGem;
 
     //Gets all the breakable crates and stores them in the variable CratesInLevel.
     //Then goes over each crate and adds that crate to the TotalCrates list.
@@ -42,15 +43,17 @@ public class BoxCounter : MonoBehaviour
     }
 
     //Once this function gets called it checks if the CurrentCrates total is equal to the TotalCrates amount.
-    //If so it means the player has broken all the boxes and the gem can be instanciated.
-    //Afterwards it destroys the text element and it's parent.
+    //If so it means the player has broken all the boxes and the gem can be instanciated and stored in the GameObject LevelGem.
+    //Afterwards it disables the boxcount text, disables the boxcollider on the parent object and disables it's meshrenderer.
     public void SpawnGem()
     {
         if(CurrentCrates == TotalCrates.Count)
         {
-            Instantiate(Gem, transform.position, transform.rotation);           
-            Destroy(BoxCount);
-            Destroy(Parent);
+            LevelGem = Instantiate(Gem, transform.position, transform.rotation, this.transform);
+            BoxCount.GetComponent<Text>().enabled = false;
+            Parent.GetComponent<BoxCollider>().enabled = false;
+            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
         }
     }
 
@@ -70,7 +73,7 @@ public class BoxCounter : MonoBehaviour
     //Once this function gets called it checks if the totalcrates list has crates in it.
     //If it doesn't it skills the whole reset progress. If it does it checks if the crate is disabled.
     //foreach crate that is inactive it descreases the current crate count by one and sets the crate back to enabled.
-    //Afterwards we call the function UpdateUI;
+    //Afterwards we call the function UpdateUI, checks if boxcount and parent are not empty. If not it sets the boxcount active and enables the parent's boxcollider.
     public void ResetCurrentAmount()
     {
         foreach(Breakable crate in TotalCrates)
@@ -117,6 +120,16 @@ public class BoxCounter : MonoBehaviour
             }          
         }
         UpdateSpawnGemUI();
+        if(BoxCount != null)
+        {
+            BoxCount.GetComponent<Text>().enabled = true;
+        }
+        if(Parent != null)
+        {
+           Parent.GetComponent<BoxCollider>().enabled = true;                       
+        }
+        this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        Destroy(LevelGem);
         ResetPlayerPosition.Raise();
     }
 
