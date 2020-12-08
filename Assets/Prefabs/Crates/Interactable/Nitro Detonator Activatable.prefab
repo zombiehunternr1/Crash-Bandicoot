@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5453635738975193674}
   - component: {fileID: 5453635738975193673}
   - component: {fileID: 5453635738975193672}
+  - component: {fileID: 9039914527014295954}
   m_Layer: 0
   m_Name: Nitro Detonator Activatable
   m_TagString: Untagged
@@ -126,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CrateSide: 0
+  GravityEnabled: 0
 --- !u!114 &5453635738975193673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,3 +153,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SideHitValue: 0
+--- !u!114 &9039914527014295954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5453635738975193679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8b1ae4922f84a4baf5682494e8a41d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelCrates: {fileID: 0}
+  InactiveNitrocrate: {fileID: 7926766915058057473, guid: 594764594bf83f249bef5e272e6115b5,
+    type: 3}

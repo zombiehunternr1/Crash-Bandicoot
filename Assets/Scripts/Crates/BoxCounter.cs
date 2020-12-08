@@ -9,6 +9,7 @@ public class BoxCounter : MonoBehaviour
     public GameObject Boxes;
     public GameObject Gem;
     public GameObject Parent;
+    public GameObject NitroDetonator;
     public GameEvent ResetPlayerPosition;
 
     private Breakable BreakableCrate;
@@ -120,6 +121,10 @@ public class BoxCounter : MonoBehaviour
             }          
         }
         UpdateSpawnGemUI();
+        if(NitroDetonator != null)
+        {
+            NitroDetonator.GetComponent<NitroDetonator>().ResetDetonator();
+        }
         if(BoxCount != null)
         {
             BoxCount.GetComponent<Text>().enabled = true;

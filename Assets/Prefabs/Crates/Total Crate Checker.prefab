@@ -174,6 +174,9 @@ MonoBehaviour:
   Boxes: {fileID: 0}
   Gem: {fileID: 1152170538213397844, guid: d62b872833ecc8a40889308f3d25ec96, type: 3}
   Parent: {fileID: 4434218013762332153}
+  NitroDetonator: {fileID: 0}
+  ResetPlayerPosition: {fileID: 11400000, guid: 89f0d091080609b40895aae8af41e599,
+    type: 2}
 --- !u!114 &5850652278574716138
 MonoBehaviour:
   m_ObjectHideFlags: 0
