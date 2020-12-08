@@ -177,6 +177,7 @@ MonoBehaviour:
   NitroDetonator: {fileID: 0}
   ResetPlayerPosition: {fileID: 11400000, guid: 89f0d091080609b40895aae8af41e599,
     type: 2}
+  Interact: {fileID: 0}
 --- !u!114 &5850652278574716138
 MonoBehaviour:
   m_ObjectHideFlags: 0

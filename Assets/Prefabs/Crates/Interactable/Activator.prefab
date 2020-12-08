@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 2278316766436379008}
   - component: {fileID: 2278316766436379009}
   - component: {fileID: 2278316766436379010}
+  - component: {fileID: 8459877469566505446}
   m_Layer: 0
-  m_Name: Activator Activatable
+  m_Name: Activator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CrateSide: 0
+  GravityEnabled: 0
 --- !u!114 &2278316766436379009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,3 +153,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SideHitValue: 0
+--- !u!114 &8459877469566505446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2278316766436379011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f57c3d7ddd4aef46b182b8dfc0938b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Crates:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  InActiveCrate: {fileID: 3748311121310577669, guid: f8f4fb98846101044bc1b04904c44ccd,
+    type: 3}
+  Inactive: {fileID: 2100000, guid: c670fb73267000e4e90fbff35fa912ee, type: 2}
+  WaitTillNextActivate: 0.25

@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour
     private CheckPoint CheckpointCrate;
     private MetalCrate MetalCrate;
     private NitroDetonator NitroDetonatorCrate;
+    private Activator ActivatorCrate;
     private bool HasBounced = false;
 
     void Awake()
@@ -18,6 +19,7 @@ public class Interactable : MonoBehaviour
         CheckpointCrate = GetComponent<CheckPoint>();
         MetalCrate = GetComponent<MetalCrate>();
         NitroDetonatorCrate = GetComponent<NitroDetonator>();
+        ActivatorCrate = GetComponent<Activator>();
     }
 
     public void CrateAction(int CrateSide)
@@ -53,6 +55,10 @@ public class Interactable : MonoBehaviour
         {
             NitroDetonatorCrate.DestroyAllNitroCrates();
         }
+        else if (ActivatorCrate)
+        {
+            ActivatorCrate.ActivateCrates();
+        }
         else
         {
             if (!HasBounced)
@@ -84,6 +90,10 @@ public class Interactable : MonoBehaviour
         else if (NitroDetonatorCrate)
         {
             NitroDetonatorCrate.DestroyAllNitroCrates();
+        }
+        else if (ActivatorCrate)
+        {
+            ActivatorCrate.ActivateCrates();
         }
     }
 }

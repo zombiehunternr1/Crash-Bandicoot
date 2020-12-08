@@ -11,12 +11,14 @@ public class BoxCounter : MonoBehaviour
     public GameObject Parent;
     public GameObject NitroDetonator;
     public GameEvent ResetPlayerPosition;
+    public Interactable Interact;
 
     private Breakable BreakableCrate;
     private BreakAmount BreakAmountCrate;
     private Nitro NitroCrate;
     private Tnt TntCrate;
     private CheckPoint CheckpointCrate;
+    private Activator ActivatorCrate;
     private int CurrentCrates;
     private List<Breakable> TotalCrates = new List<Breakable>();
     private Breakable[] CratesInLevel;
@@ -121,11 +123,19 @@ public class BoxCounter : MonoBehaviour
             }          
         }
         UpdateSpawnGemUI();
+        if(Interact != null)
+        {
+            if (Interact.GetComponent<Activator>())
+            {
+                ActivatorCrate = Interact.GetComponent<Activator>();
+                ActivatorCrate.DeactivateCrates();
+            }
+        }
         if(NitroDetonator != null)
         {
             NitroDetonator.GetComponent<NitroDetonator>().ResetDetonator();
         }
-        if(BoxCount != null)
+        if (BoxCount != null)
         {
             BoxCount.GetComponent<Text>().enabled = true;
         }

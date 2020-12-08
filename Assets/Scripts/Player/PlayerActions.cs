@@ -57,14 +57,14 @@ public class PlayerActions : MonoBehaviour
         }
         if (IsGrounded)
         {
-            FallingMovement = 1; 
+            FallingMovement = 1;
         }
         else
         {
-            if(FallingMovement >= 0)
+            if (FallingMovement >= 0)
             {
                 FallingMovement -= FallingCutoff * Time.deltaTime;
-            }          
+            }
         }
     }
 
@@ -108,6 +108,7 @@ public class PlayerActions : MonoBehaviour
             }
             if (IsGrounded)
             {
+                Rb.velocity = new Vector3(0, 0, 0);
                 HasDoubleJumped = false;
             }
             else
@@ -166,18 +167,6 @@ public class PlayerActions : MonoBehaviour
         StartCoroutine(SpinAttack());
     }
 
-    IEnumerator SpinAttack()
-    {
-        if (!IsSpinning)
-        {
-            IsSpinning = true;
-            SpinCollider.enabled = true;
-            yield return new WaitForSeconds(1);
-            SpinCollider.enabled = false;
-            IsSpinning = false;
-        }
-    }
-    
     public void SaveCheckpoint(Transform NewCheckpoint)
     {
         CheckPoint = NewCheckpoint;
@@ -194,6 +183,18 @@ public class PlayerActions : MonoBehaviour
         else
         {
             gameObject.transform.position = OriginPosition;
+        }
+    }
+
+    IEnumerator SpinAttack()
+    {
+        if (!IsSpinning)
+        {
+            IsSpinning = true;
+            SpinCollider.enabled = true;
+            yield return new WaitForSeconds(1);
+            SpinCollider.enabled = false;
+            IsSpinning = false;
         }
     }
 
