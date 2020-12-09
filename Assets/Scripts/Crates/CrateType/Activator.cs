@@ -28,10 +28,15 @@ public class Activator : MonoBehaviour
     //Once this function gets called it enables the activator crate and destroys the inactive activator crate.
     //It then goes over each crate in the list and checks if it doesn't return null. If it doesn't it means that crate hasn't been destroyed yet.
     //It then adds the inactive metarial to each crate in the list.
+    //It then creates a temporarely filterlist that adds all the gameobjects from the list Crates that don't return null to it's list.
+    //Afterwards I set the Crates list equal to the FilterList.
+    //If the list is equal to zero it means all the crates have been destroyed so the inactive crate can be placed instead of the activator crate.
     public void DeactivateCrates()
     {
         gameObject.SetActive(true);
         Destroy(InactiveActivator);
+
+        var FilterList = new List<GameObject>();
 
         foreach (GameObject ChangeCrate in Crates)
         {
@@ -43,6 +48,7 @@ public class Activator : MonoBehaviour
                     CrateMaterial = Rend.materials;
                     Rend.material = Inactive;
                     ChangeCrate.GetComponent<BoxCollider>().enabled = false;
+                    FilterList.Add(ChangeCrate);
                 }
                 else
                 {
@@ -50,8 +56,15 @@ public class Activator : MonoBehaviour
                     CrateMaterial = Rend.materials;
                     Rend.material = Inactive;
                     ChangeCrate.GetComponent<BoxCollider>().enabled = false;
-                }
+                    FilterList.Add(ChangeCrate);
+                }               
             }
+        }
+        Crates = FilterList;
+        if(Crates.Count == 0)
+        {
+            InactiveActivator = Instantiate(InActiveCrate, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
     }
     
