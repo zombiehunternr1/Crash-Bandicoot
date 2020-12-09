@@ -26,13 +26,13 @@ public class CrateBase : MonoBehaviour
         }
     }
 
-    public void CrateDirectionHit(int PlayerSideHit)
+    public void CrateDirectionHit(int PlayerSideHit, Vector3 PlayerVelocity)
     {
         switch (PlayerSideHit)
         {
             //Top
             case 1:
-                Top();
+                Top(PlayerVelocity);
                 break;
             //Botom
             case 2:
@@ -61,14 +61,14 @@ public class CrateBase : MonoBehaviour
         }
     }
 
-    void Top()
+    void Top(Vector3 PlayerVelicoty)
     {
         CrateSide = Convert.ToInt32(CrateDirection.Top);
         if (Interact)
         {
             Interact.CrateAction(CrateSide);
         }
-        if (Break)
+        if (Break && (PlayerVelicoty.y > 0.01f))
         {
             Break.CrateAction(CrateSide);
         }

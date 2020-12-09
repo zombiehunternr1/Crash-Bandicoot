@@ -22,6 +22,7 @@ public class Activator : MonoBehaviour
     //Then it starts the coroutine ActivateOverTime.
     public void ActivateCrates()
     {
+        gameObject.GetComponent<BoxCollider>().enabled = false;
         InactiveActivator = Instantiate(InActiveCrate, transform.position, transform.rotation);
         StartCoroutine(ActivateOverTime());
     }
