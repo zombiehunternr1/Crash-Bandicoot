@@ -35,6 +35,7 @@ public class Activator : MonoBehaviour
     public void DeactivateCrates()
     {
         gameObject.SetActive(true);
+        gameObject.GetComponent<BoxCollider>().enabled = true;
         Destroy(InactiveActivator);
 
         var FilterList = new List<GameObject>();
