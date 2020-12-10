@@ -71,6 +71,14 @@ public class CollisionSideDetection : MonoBehaviour
         {
             if (Crate.GravityEnabled)
             {
+                if (this.gameObject.GetComponent<Interactable>())
+                {
+                    if (this.gameObject.GetComponent<MetalCrate>())
+                    {
+                        this.gameObject.GetComponent<CrateBase>().BounceUpMetalCrate();
+                        return;
+                    }
+                }
                 if (collision.gameObject.GetComponent<Bounce>())
                 {
                     if (!this.gameObject.GetComponent<Breakable>().FallingDown)
@@ -92,6 +100,10 @@ public class CollisionSideDetection : MonoBehaviour
                             {
                                 collision.gameObject.GetComponent<CrateBase>().BounceUpCrate();
                             }
+                        }
+                        else
+                        {
+                            collision.gameObject.GetComponent<CrateBase>().BounceUpCrate();
                         }
                     }
                 }
