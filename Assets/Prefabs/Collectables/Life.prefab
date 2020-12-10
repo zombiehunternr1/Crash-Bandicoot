@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3913484154566251714
+--- !u!1 &5305732024090812793
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4396830134384643704}
-  - component: {fileID: 768838056235352541}
-  - component: {fileID: 3264970549644047639}
-  - component: {fileID: 1598397256211641443}
-  - component: {fileID: 5648164967942864260}
+  - component: {fileID: 7743575977473614345}
+  - component: {fileID: 4615227950158182159}
+  - component: {fileID: 6963411258731591634}
+  - component: {fileID: 4729967484764731113}
+  - component: {fileID: 8187781948902400579}
   m_Layer: 0
-  m_Name: Wumpa fruit
+  m_Name: Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4396830134384643704
+--- !u!4 &7743575977473614345
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3913484154566251714}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_GameObject: {fileID: 5305732024090812793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.67, y: 0.65, z: 1.3090248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &768838056235352541
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4615227950158182159
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3913484154566251714}
-  m_Mesh: {fileID: -8910911946527395436, guid: 9c4c12290b5c9724d9416d7767da914b, type: 3}
---- !u!23 &3264970549644047639
+  m_GameObject: {fileID: 5305732024090812793}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6963411258731591634
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3913484154566251714}
+  m_GameObject: {fileID: 5305732024090812793}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,9 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9794f01147f475479964a1a6850265c, type: 2}
-  - {fileID: 2100000, guid: ea8c9cceae4d6004897b1e329a3d1f26, type: 2}
-  - {fileID: 2100000, guid: 18d47ae41323a844f95970146c8b4d2e, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,29 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1598397256211641443
+--- !u!135 &4729967484764731113
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5305732024090812793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8187781948902400579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3913484154566251714}
+  m_GameObject: {fileID: 5305732024090812793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dabd74c7ed637940b3840225c47cd70, type: 3}
+  m_Script: {fileID: 11500000, guid: 732ad64c2b6bf7e42bfd46d8829ceca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AddWoompa: {fileID: 11400000, guid: eff4a7bef981ca0448b5dd6e046f8654, type: 2}
---- !u!65 &5648164967942864260
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3913484154566251714}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.98399997, y: 1.0720252, z: 1.0800003}
-  m_Center: {x: -0.048125014, y: 0.044637498, z: -0.51717514}
+  AddLife: {fileID: 11400000, guid: d6cb9e0007850394a88d13df69ff02a3, type: 2}

@@ -7,4 +7,5 @@ public class PlayerInfo : ScriptableObject
 {
     public int Lives;
     public int ExtraHit;
+    public int Woompa;
 }

@@ -5,10 +5,14 @@ using UnityEngine;
 public class Breakable : MonoBehaviour
 {
     public GameEvent DestroyedCrate;
+    public GameObject Woompa;
+    public GameObject life;
     [HideInInspector]
     public bool HasBounced = false;
     [HideInInspector]
     public int JumpAmount;
+    [HideInInspector]
+    public bool FallingDown = false;
 
     private Bounce Bouncing;
     private BreakAmount BreakOverTime;
@@ -16,10 +20,8 @@ public class Breakable : MonoBehaviour
     private Nitro NitroCrate;
     private CheckPoint CheckpointCrate;
     private CrateBase Crate;
-
     private float CurrentHeight;
-    private float PreviousHeight;
-    public bool FallingDown = false;
+    private float PreviousHeight;   
 
     void Awake()
     {
@@ -119,7 +121,6 @@ public class Breakable : MonoBehaviour
         else
         {
             Crate.BounceUpPlayer();
-            DestroyedCrate.Raise();
             StartCoroutine(DelayDeactivating());
         }
     }
@@ -151,7 +152,6 @@ public class Breakable : MonoBehaviour
         else
         {
             Crate.BounceDownPlayer();
-            DestroyedCrate.Raise();
             StartCoroutine(DelayDeactivating());
         }
     }
@@ -206,8 +206,7 @@ public class Breakable : MonoBehaviour
             }
             else
             {
-                DestroyedCrate.Raise();
-                gameObject.SetActive(false);
+                breakCrate();
             }
         }
         else if (CheckpointCrate)
@@ -216,8 +215,7 @@ public class Breakable : MonoBehaviour
         }
         else
         {
-            DestroyedCrate.Raise();
-            gameObject.SetActive(false);
+            breakCrate();
         }
     }
 
@@ -244,21 +242,31 @@ public class Breakable : MonoBehaviour
             }
             else
             {
-                breakCrate();
+                DestroyedCrate.Raise();
+                gameObject.SetActive(false);
             }
         }      
     }
 
     //This coroutine lets the player bounce of the crate before getting deactivated.
     private IEnumerator DelayDeactivating()
-    {
+    {        
         yield return new WaitForSeconds(.1f);
-        gameObject.SetActive(false);
+        breakCrate();
     }
 
-    //Once this function gets called it raises the crate destroyed event and disables the gameobject.
+    //Once this function gets called it checks if either the Woompa gameobject or the life object isn't null, if it isn't it either spawns in the Woompa or a life.
+    //Else it just raises the crate destroyed event and disables the gameobject.
     public void breakCrate()
     {
+        if(Woompa != null)
+        {
+            Instantiate(Woompa, transform.position, Woompa.transform.rotation);
+        }
+        if(life != null)
+        {
+            Instantiate(life, transform.position, life.transform.rotation);
+        }
         DestroyedCrate.Raise();
         gameObject.SetActive(false);
     }

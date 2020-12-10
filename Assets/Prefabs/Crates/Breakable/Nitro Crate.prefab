@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CrateSide: 0
+  GravityEnabled: 0
 --- !u!114 &4989327355697580923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
+  Woompa: {fileID: 0}
+  HasBounced: 0
+  JumpAmount: 0
+  FallingDown: 0
 --- !u!114 &4989327355697580804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c694a47041cb2d5469c15b0e561919fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasExploded: 0
   CrateDestroyed: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
   ExplosionEffect: {fileID: 4843060487788756372, guid: 69b45efbc75488444a534964ddd2404f,
     type: 3}

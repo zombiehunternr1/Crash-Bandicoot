@@ -5,9 +5,12 @@ using UnityEngine;
 public class BreakAmount : MonoBehaviour
 {
     public GameEvent CrateDestroyed;
+    public PlayerInfo AddWoompa;
     [HideInInspector]
     public bool Activated = false;
 
+
+    int GiveWoompa = 3;
     int TotalBounce = 5;
     float StartTime = 0f;
     float MaxTime = 5f;
@@ -32,23 +35,32 @@ public class BreakAmount : MonoBehaviour
         {
             CrateDestroyed.Raise();
             gameObject.SetActive(false);
-            //Give player Woompa fruit and break crate
+            for(int i = 0; i < GiveWoompa; i++)
+            {
+                AddWoompa.Woompa++;
+            }
         }
         //Checks if the bouncecount is smaller then the totalbounce. If so that means the player jumped on the crate again in the allowed timespan.
         //This will reset the startTime back to 0 and give the player some Woompa Fruit.
         else if(BounceCount < TotalBounce)
         {
-            //Give player Woompa fruit
+            for (int i = 0; i < GiveWoompa; i++)
+            {
+                AddWoompa.Woompa++;
+            }
             StartTime = 0f;
         }
         //Checks if the BounceCount is greater or equal to the TotalBounce. If so this means the player has jumped the allowed maximum times on the crate.
         //This will bounce the player of the crate and then stop the Timer coroutine, raises the CrateDestroyed event, disables the gameobject and gives the player some Woompa fruit.
         else if (BounceCount >= TotalBounce)
         {
+            for (int i = 0; i < GiveWoompa; i++)
+            {
+                AddWoompa.Woompa++;
+            }
             StopCoroutine(Timer());
             CrateDestroyed.Raise();
             gameObject.SetActive(false);
-            //Give player Woompa fruit and break crate
         }         
     }
 

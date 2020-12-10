@@ -32,10 +32,11 @@ public class PlayerActions : MonoBehaviour
     private float FallingMovement;
     private Transform CheckPoint;
     private Vector3 OriginPosition;
+    private PlayerStatus PlayerStats;
 
-    //Gets the Rigidbody of the player, the box collider of the spin attack and sets the jumpheight of the player.
     private void Awake()
     {
+        PlayerStats = GetComponent<PlayerStatus>();
         OriginPosition = gameObject.transform.position;
         SpinCollider = GetComponent<BoxCollider>();
         Rb = GetComponent<Rigidbody>();
@@ -201,6 +202,21 @@ public class PlayerActions : MonoBehaviour
             SpinCollider.enabled = false;
             IsSpinning = false;
         }
+    }
+
+    public void AddWoompa()
+    {
+        PlayerStats.Player.Woompa++;
+        if (PlayerStats.Player.Woompa >= 99)
+        {
+            AddExtraLife();
+            PlayerStats.Player.Woompa = 0;
+        }
+    }
+
+    public void AddExtraLife()
+    {
+        PlayerStats.Player.Lives++;
     }
 
     /*//Testing purposes only. Remove at final build!!!

@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CrateSide: 0
+  GravityEnabled: 0
 --- !u!114 &7205145870057906265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
+  Woompa: {fileID: 3913484154566251714, guid: 13cb31da07c58b14b8658c0a93eb9b36, type: 3}
+  HasBounced: 0
+  JumpAmount: 0
+  FallingDown: 0
 --- !u!114 &7205145870057906264
 MonoBehaviour:
   m_ObjectHideFlags: 0
