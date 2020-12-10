@@ -17,6 +17,10 @@ public class Breakable : MonoBehaviour
     private CheckPoint CheckpointCrate;
     private CrateBase Crate;
 
+    private float CurrentHeight;
+    private float PreviousHeight;
+    public bool FallingDown = false;
+
     void Awake()
     {
         Crate = GetComponent<CrateBase>();
@@ -25,6 +29,20 @@ public class Breakable : MonoBehaviour
         TntCrate = GetComponent<Tnt>();
         NitroCrate = GetComponent<Nitro>();
         CheckpointCrate = GetComponent<CheckPoint>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (PreviousHeight > transform.position.y)
+        {
+            FallingDown = true;
+        }
+        else if (PreviousHeight == transform.position.y)
+        {
+            FallingDown = false;
+        }
+        CurrentHeight = transform.position.y;
+        PreviousHeight = CurrentHeight;
     }
 
     public void CrateAction(int CrateSide)

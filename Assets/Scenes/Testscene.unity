@@ -194,6 +194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Metal crate Gravity
       objectReference: {fileID: 0}
+    - target: {fileID: 9145771377803776859, guid: 2a866726a32480c44a765dc5736c916e,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a866726a32480c44a765dc5736c916e, type: 3}
 --- !u!1 &136559198

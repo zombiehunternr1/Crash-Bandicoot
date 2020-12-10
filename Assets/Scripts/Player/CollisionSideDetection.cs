@@ -73,15 +73,49 @@ public class CollisionSideDetection : MonoBehaviour
             {
                 if (collision.gameObject.GetComponent<Bounce>())
                 {
-                    collision.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                    if (!this.gameObject.GetComponent<Breakable>().FallingDown)
+                    {
+                        collision.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                    }
+                    else
+                    {
+                        if (this.gameObject.GetComponent<Tnt>())
+                        {
+                            this.gameObject.GetComponent<Tnt>().Activate();
+                        }
+                        if (this.gameObject.GetComponent<Nitro>())
+                        {
+                            collision.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                        }
+                    }
                 }
-                else if (collision.gameObject.GetComponent<Tnt>())
+                else if (collision.gameObject.GetComponent<Tnt>() && !this.gameObject.GetComponent<Nitro>())
                 {
                     collision.gameObject.GetComponent<Tnt>().Activate();
                 }
                 else if (collision.gameObject.GetComponent<Nitro>())
                 {
-                    collision.gameObject.GetComponent<Nitro>().ExplodeCrate();
+                    if (this.gameObject.GetComponent<Breakable>().FallingDown)
+                    {
+                        collision.gameObject.GetComponent<Nitro>().ExplodeCrate();
+                    }                        
+                }
+                else if(collision.gameObject.GetComponent<Breakable>())
+                {
+                    if (this.gameObject.GetComponent<Tnt>())
+                    {
+                        if (this.gameObject.GetComponent<Breakable>().FallingDown)
+                        {
+                            this.gameObject.GetComponent<Tnt>().Activate();
+                        }                 
+                    }
+                    else
+                    {
+                        if (!this.gameObject.GetComponent<Nitro>())
+                        {
+                            this.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                        }                       
+                    }
                 }
             }          
         }
