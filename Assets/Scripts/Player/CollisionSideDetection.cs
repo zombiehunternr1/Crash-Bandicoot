@@ -75,7 +75,7 @@ public class CollisionSideDetection : MonoBehaviour
                 {
                     if (this.gameObject.GetComponent<MetalCrate>())
                     {
-                        this.gameObject.GetComponent<CrateBase>().BounceUpMetalCrate();
+                        this.gameObject.GetComponent<CrateBase>().BounceUpCrate();
                         return;
                     }
                 }
