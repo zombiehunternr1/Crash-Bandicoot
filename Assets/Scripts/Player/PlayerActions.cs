@@ -16,6 +16,8 @@ public class PlayerActions : MonoBehaviour
     public LayerMask GroundMask;
     public LayerMask DoubleJumpMask;
     public Transform GroundChecker;
+    [HideInInspector]
+    public bool CanMove = true;
 
     private bool IsGrounded;
     private bool HasDoubleJumped;
@@ -40,10 +42,13 @@ public class PlayerActions : MonoBehaviour
         JumpHeight = new Vector3(0.0f, JumpHeightFloat, 0.0f);
     }
 
-    //Keeps updating the direction everytime the player gives an input.
+    //Checks if the bool CanMove is true, if so it keeps updating the direction everytime the player gives an input.
     void FixedUpdate()
     {
-        Direction();
+        if (CanMove)
+        {
+            Direction();
+        }       
     }
 
     //Checks if the player is colliding with an object or is still falling down.
