@@ -75,7 +75,10 @@ public class CollisionSideDetection : MonoBehaviour
                 {
                     if (!this.gameObject.GetComponent<Breakable>().FallingDown)
                     {
-                        collision.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                        if (collision.gameObject.GetComponent<BreakAmount>())
+                        {
+                            collision.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                        }                       
                     }
                     else
                     {
@@ -85,7 +88,10 @@ public class CollisionSideDetection : MonoBehaviour
                         }
                         if (this.gameObject.GetComponent<Nitro>())
                         {
-                            collision.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                            if (!collision.gameObject.GetComponent<BreakAmount>())
+                            {
+                                collision.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                            }
                         }
                     }
                 }
