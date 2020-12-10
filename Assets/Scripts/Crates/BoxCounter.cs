@@ -10,13 +10,8 @@ public class BoxCounter : MonoBehaviour
     public GameObject Gem;
     public GameObject Parent;
     public GameObject NitroDetonator;
-    public GameEvent ResetPlayerPosition;
     public Interactable Interact;
-    public PlayerActions Player;
-    public RectTransform FadePanel;
-    private int FadingSpeed = 1;
 
-    private bool Fading = true;
     private Breakable BreakableCrate;
     private BreakAmount BreakAmountCrate;
     private Nitro NitroCrate;
@@ -77,18 +72,11 @@ public class BoxCounter : MonoBehaviour
         BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
     }
 
-    //Once this function gets called it sets the CanMove bool to false, starts the coroutine FadeToBack
-    public void PlayerDied()
-    {
-        Player.CanMove = false;
-        StartCoroutine(FadeToBlack());
-    }
-
     //Once this function gets called it checks if the totalcrates list has crates in it.
     //If it doesn't it skills the whole reset progress. If it does it checks if the crate is disabled.
     //foreach crate that is inactive it descreases the current crate count by one and sets the crate back to enabled.
     //Afterwards we call the function UpdateUI, checks if boxcount and parent are not empty. If not it sets the boxcount active and enables the parent's boxcollider.
-    private void ResetLevel()
+    public void ResetLevel()
     {
         foreach (Breakable crate in TotalCrates)
         {
@@ -173,65 +161,6 @@ public class BoxCounter : MonoBehaviour
                     }
                 }
             }          
-        }
-    }
-
-    //This coroutine switches the panel from opaque to black.
-    IEnumerator FadeToBlack()
-    {
-        //Gets the color component from the panel and stores it in the FadingColor variable.
-        Color FadingColor = FadePanel.GetComponent<Image>().color;
-        float FadeAmount;
-        if (Fading)
-        {
-            //Keeps looping until the alpha color of the image isn't smaller then 1.
-            while (FadePanel.GetComponent<Image>().color.a < 1)
-            {
-                FadeAmount = FadingColor.a + (FadingSpeed * Time.deltaTime);
-                FadingColor = new Color(FadingColor.r, FadingColor.g, FadingColor.g, FadeAmount);
-                FadePanel.GetComponent<Image>().color = FadingColor;
-                yield return null;
-            }
-            yield return new WaitForSeconds(FadingSpeed);
-            Fading = false;
-            StartCoroutine(FadeToBlack());
-        }
-        else
-        {
-            //Checks if the alpha color of the image is greater or equal to 1. If so it means the screen is completely black and we can call the coroutine FadeToOpaque
-            //and raises the event ResetPlayerPosition.
-            if (FadePanel.GetComponent<Image>().color.a >= 1)
-            {
-                ResetLevel();
-                ResetPlayerPosition.Raise();
-                StartCoroutine(FadeToOpaque());            
-            }
-        }
-    }
-
-    //This coroutine switches the panel from black to opaque.
-    IEnumerator FadeToOpaque()
-    {
-        //Gets the color component from the panel and stores it in the FadingColor variable.
-        Color FadingColor = FadePanel.GetComponent<Image>().color;
-        float FadeAmount;
-        if (!Fading)
-        {
-            //Keeps looping until the alpha color of the image isn't smaller then 0.
-            while (FadePanel.GetComponent<Image>().color.a > 0)
-            {
-                FadeAmount = FadingColor.a - (FadingSpeed * Time.deltaTime);
-                FadingColor = new Color(FadingColor.r, FadingColor.g, FadingColor.g, FadeAmount);
-                FadePanel.GetComponent<Image>().color = FadingColor;
-                yield return null;
-            }
-            yield return new WaitForSeconds(FadingSpeed);
-            Fading = true;
-            StartCoroutine(FadeToOpaque());
-        }
-        else
-        {
-            Player.CanMove = true;
         }
     }
 }
