@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MetalCrate : MonoBehaviour
 {
-    public GameEvent PlayerHit;
     public GameEvent CrateReset;
     private float CurrentHeight;
     private float PreviousHeight;
@@ -29,7 +28,6 @@ public class MetalCrate : MonoBehaviour
         if (FallingDown)
         {
             CrateReset.Raise();
-            PlayerHit.Raise();
         }
     }
 }

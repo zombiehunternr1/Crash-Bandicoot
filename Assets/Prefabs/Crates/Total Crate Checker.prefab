@@ -175,9 +175,10 @@ MonoBehaviour:
   Gem: {fileID: 1152170538213397844, guid: d62b872833ecc8a40889308f3d25ec96, type: 3}
   Parent: {fileID: 4434218013762332153}
   NitroDetonator: {fileID: 0}
-  ResetPlayerPosition: {fileID: 11400000, guid: 89f0d091080609b40895aae8af41e599,
+  ResetPlayerPosition: {fileID: 11400000, guid: be4c0f567b2ad0647849ad1e9518f403,
     type: 2}
   Interact: {fileID: 0}
+  Player: {fileID: 0}
   FadePanel: {fileID: 0}
 --- !u!114 &5850652278574716138
 MonoBehaviour:
@@ -223,7 +224,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7801260841705954364}
-        m_MethodName: ResetCurrentAmount
+        m_MethodName: PlayerDied
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

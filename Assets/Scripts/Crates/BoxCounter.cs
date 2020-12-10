@@ -77,14 +77,19 @@ public class BoxCounter : MonoBehaviour
         BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
     }
 
-    //Once this function gets called it sets the CanMove bool to false, starts the coroutine FadeToBack and checks if the totalcrates list has crates in it.
-    //If it doesn't it skills the whole reset progress. If it does it checks if the crate is disabled.
-    //foreach crate that is inactive it descreases the current crate count by one and sets the crate back to enabled.
-    //Afterwards we call the function UpdateUI, checks if boxcount and parent are not empty. If not it sets the boxcount active and enables the parent's boxcollider.
-    public void ResetCurrentAmount()
+    //Once this function gets called it sets the CanMove bool to false, starts the coroutine FadeToBack
+    public void PlayerDied()
     {
         Player.CanMove = false;
         StartCoroutine(FadeToBlack());
+    }
+
+    //Once this function gets called it checks if the totalcrates list has crates in it.
+    //If it doesn't it skills the whole reset progress. If it does it checks if the crate is disabled.
+    //foreach crate that is inactive it descreases the current crate count by one and sets the crate back to enabled.
+    //Afterwards we call the function UpdateUI, checks if boxcount and parent are not empty. If not it sets the boxcount active and enables the parent's boxcollider.
+    private void ResetLevel()
+    {
         foreach (Breakable crate in TotalCrates)
         {
             if(crate != null)
@@ -197,6 +202,7 @@ public class BoxCounter : MonoBehaviour
             //and raises the event ResetPlayerPosition.
             if (FadePanel.GetComponent<Image>().color.a >= 1)
             {
+                ResetLevel();
                 ResetPlayerPosition.Raise();
                 StartCoroutine(FadeToOpaque());            
             }

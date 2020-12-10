@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9f17593882362b4ba340f7568de453c, type: 3}
-  m_Name: CrateReset
+  m_Name: ResetPlayerPosition
   m_EditorClassIdentifier: 

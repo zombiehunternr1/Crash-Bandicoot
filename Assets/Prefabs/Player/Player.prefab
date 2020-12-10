@@ -206,7 +206,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1536
   GroundChecker: {fileID: 1649318143415699846}
-  CheckPoint: {fileID: 0}
+  CanMove: 1
 --- !u!114 &1379602903479472580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90749240303c2b24e8c1aea0adbdc041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 11400000, guid: 89f0d091080609b40895aae8af41e599, type: 2}
+  _gameEvent: {fileID: 11400000, guid: be4c0f567b2ad0647849ad1e9518f403, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:

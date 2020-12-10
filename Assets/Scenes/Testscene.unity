@@ -1379,6 +1379,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1379602904187475177}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1361523543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1379602903479472588, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1379602904187475177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361523538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf247d16e225f5241b119058e11f70bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1384373552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1639,6 +1651,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1, type: 3}
+--- !u!1 &1595215206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595215207}
+  - component: {fileID: 1595215209}
+  - component: {fileID: 1595215208}
+  m_Layer: 5
+  m_Name: Fade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1595215207
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595215206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2124426227}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1595215208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595215206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1595215209
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595215206}
+  m_CullTransparentMesh: 0
 --- !u!1 &1649700691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,6 +2412,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 462543756}
+  - {fileID: 1595215207}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2407,11 +2494,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1379602903479472591, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1.35
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a46bac9c95b2b5469fb0cc3fb6f4b9e, type: 3}
 --- !u!1001 &4434218013202961837
@@ -2481,16 +2563,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4434218013762332155, guid: 632c775917aa2194789018f15bbc7cc6,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7801260841705954364, guid: 632c775917aa2194789018f15bbc7cc6,
         type: 3}
       propertyPath: Boxes
       value: 
       objectReference: {fileID: 1649700691}
+    - target: {fileID: 7801260841705954364, guid: 632c775917aa2194789018f15bbc7cc6,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1361523543}
     - target: {fileID: 7801260841705954364, guid: 632c775917aa2194789018f15bbc7cc6,
         type: 3}
       propertyPath: BoxCount
@@ -2501,6 +2583,11 @@ PrefabInstance:
       propertyPath: Interact
       value: 
       objectReference: {fileID: 195899840}
+    - target: {fileID: 7801260841705954364, guid: 632c775917aa2194789018f15bbc7cc6,
+        type: 3}
+      propertyPath: FadePanel
+      value: 
+      objectReference: {fileID: 1595215207}
     - target: {fileID: 7801260841705954364, guid: 632c775917aa2194789018f15bbc7cc6,
         type: 3}
       propertyPath: NitroDetonator
