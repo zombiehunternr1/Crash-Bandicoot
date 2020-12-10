@@ -167,7 +167,7 @@ public class CrateBase : MonoBehaviour
     public void BounceUpCrate()
     {
         Rb.velocity = new Vector3(Rb.velocity.x, 0);
-        Rb.AddForce(new Vector3(0, 1200));
+        Rb.AddForce(new Vector3(0, 600));
     }
 
     public void BounceUpMetalCrate()
