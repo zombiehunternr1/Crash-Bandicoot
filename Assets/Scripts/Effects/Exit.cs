@@ -11,6 +11,7 @@ public class Exit : MonoBehaviour
     private void Awake()
     {
         Effect = Instantiate(ExitEffect, transform.position, ExitEffect.transform.rotation);
+        Effect.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
     }
 
     private void OnTriggerEnter(Collider other)
