@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CrateSide: 0
+  GravityEnabled: 0
 --- !u!114 &4226160588979219058
 MonoBehaviour:
   m_ObjectHideFlags: 0
