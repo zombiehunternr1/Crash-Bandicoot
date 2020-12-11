@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
-  Woompa: {fileID: 3913484154566251714, guid: 13cb31da07c58b14b8658c0a93eb9b36, type: 3}
+  Woompa: {fileID: 4901675930758871217, guid: 63f7fc1de0254954ab40699237190102, type: 3}
+  life: {fileID: 0}
   HasBounced: 0
   JumpAmount: 0
   FallingDown: 0

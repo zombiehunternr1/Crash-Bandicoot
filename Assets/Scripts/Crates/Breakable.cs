@@ -261,11 +261,11 @@ public class Breakable : MonoBehaviour
     {
         if(Woompa != null)
         {
-            Instantiate(Woompa, transform.position, Woompa.transform.rotation);
+            Instantiate(Woompa, transform.position, transform.rotation);
         }
         if(life != null)
         {
-            Instantiate(life, transform.position, life.transform.rotation);
+            Instantiate(life, transform.position, transform.rotation);
         }
         DestroyedCrate.Raise();
         gameObject.SetActive(false);
