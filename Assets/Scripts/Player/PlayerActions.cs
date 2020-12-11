@@ -19,6 +19,7 @@ public class PlayerActions : MonoBehaviour
     [HideInInspector]
     public bool CanMove = true;
 
+    private Animator Animator;
     private bool IsGrounded;
     private bool HasDoubleJumped;
     private bool HoldingJump;
@@ -36,6 +37,7 @@ public class PlayerActions : MonoBehaviour
 
     private void Awake()
     {
+        Animator = GetComponentInChildren<Animator>();
         PlayerStats = GetComponent<PlayerStatus>();
         OriginPosition = gameObject.transform.position;
         SpinCollider = GetComponent<BoxCollider>();
