@@ -5,17 +5,19 @@ using UnityEngine;
 public class Gem : MonoBehaviour
 {
     public CheckAmount BoxCounter;
+    public ParticleSystem Effect;
 
     private void Awake()
     {
-        BoxCounter = GetComponentInParent<CheckAmount>();
+        BoxCounter = GetComponentInParent<CheckAmount>();       
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerActions>())
         {
-            if(BoxCounter != null)
+            Instantiate(Effect, transform.position, transform.rotation);
+            if (BoxCounter != null)
             {
                 Destroy(BoxCounter.gameObject);
             }            

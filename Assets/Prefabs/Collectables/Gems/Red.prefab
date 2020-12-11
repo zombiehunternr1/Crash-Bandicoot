@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoxCounter: {fileID: 0}
+  Effect: {fileID: 8622165233999203386, guid: ab107d5150fc98d438fb0285d6de4d7d, type: 3}
 --- !u!65 &5635407544584758162
 BoxCollider:
   m_ObjectHideFlags: 0
