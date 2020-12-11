@@ -6,6 +6,7 @@ public class NitroDetonator : MonoBehaviour
 {
     public GameObject LevelCrates;
     public GameObject InactiveNitrocrate;
+    public GameObject Effect;
     private GameObject InactiveDetonator;
     private Nitro[] NitroCrates;
     private List<Nitro> NitroCrateList = new List<Nitro>();
@@ -22,11 +23,13 @@ public class NitroDetonator : MonoBehaviour
         }
     }
 
-    //Once this function gets called it goes over every nitro crate in the list and if it isn't enmpty it blows up the crate.
+    //Once this function gets called it instanciates the effect, goes over every nitro crate in the list and if it isn't enmpty it blows up the crate.
     //Afterwards it instanciates a deactivated nitro detonator crate at the same position as the detonator and disables the detonator crate.
     public void DestroyAllNitroCrates()
     {
-        foreach(Nitro crate in NitroCrateList)
+        Instantiate(Effect, transform.position + (Vector3.down * 0.5f), Effect.transform.rotation);
+
+        foreach (Nitro crate in NitroCrateList)
         {
             if (crate != null)
             {

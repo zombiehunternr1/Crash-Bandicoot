@@ -6,6 +6,7 @@ public class Activator : MonoBehaviour
 {
     public List<GameObject> Crates = new List<GameObject>();
     public GameObject InActiveCrate;
+    public GameObject Effect;
     public Material Inactive;
     public float WaitTillNextActivate;
 
@@ -70,10 +71,12 @@ public class Activator : MonoBehaviour
         }
     }
     
-    //Once this coroutine gets called it goes over each crate in the list, changes the metarial from inactive to it's own metarial.
+    //Once this coroutine gets called it instanciates the activation effect, goes over each crate in the list, changes the metarial from inactive to it's own metarial.
     //Afterwards it disables the activator crate.
     IEnumerator ActivateOverTime()
     {
+        Instantiate(Effect, transform.position + (Vector3.down * 0.5f), Effect.transform.rotation);
+
         foreach (GameObject ChangeCrate in Crates)
         {
             if(ChangeCrate != null)
@@ -92,7 +95,7 @@ public class Activator : MonoBehaviour
                 }
             }       
             yield return new WaitForSeconds(WaitTillNextActivate);
-        }
+        }       
         gameObject.SetActive(false);
     }
 }

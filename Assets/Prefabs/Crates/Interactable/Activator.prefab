@@ -173,5 +173,6 @@ MonoBehaviour:
   - {fileID: 0}
   InActiveCrate: {fileID: 3748311121310577669, guid: f8f4fb98846101044bc1b04904c44ccd,
     type: 3}
+  Effect: {fileID: 601080499792891693, guid: 037fef34b8231124db08904fd6af2cfd, type: 3}
   Inactive: {fileID: 2100000, guid: c670fb73267000e4e90fbff35fa912ee, type: 2}
   WaitTillNextActivate: 0.25
