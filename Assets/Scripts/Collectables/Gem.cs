@@ -15,7 +15,10 @@ public class Gem : MonoBehaviour
     {
         if (other.GetComponent<PlayerActions>())
         {
-            Destroy(BoxCounter.gameObject);
+            if(BoxCounter != null)
+            {
+                Destroy(BoxCounter.gameObject);
+            }            
             Destroy(gameObject);
         }
     }
