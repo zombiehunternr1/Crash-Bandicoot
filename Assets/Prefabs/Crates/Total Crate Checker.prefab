@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoxCount: {fileID: 0}
   Boxes: {fileID: 0}
-  Gem: {fileID: 1152170538213397844, guid: d62b872833ecc8a40889308f3d25ec96, type: 3}
+  Gem: {fileID: 576299705350671408, guid: d62b872833ecc8a40889308f3d25ec96, type: 3}
   Parent: {fileID: 4434218013762332153}
   NitroDetonator: {fileID: 0}
   Interact: {fileID: 0}

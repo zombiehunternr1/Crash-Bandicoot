@@ -55,7 +55,6 @@ public class BoxCounter : MonoBehaviour
             BoxCount.GetComponent<Text>().enabled = false;
             Parent.GetComponent<BoxCollider>().enabled = false;
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-
         }
     }
 
