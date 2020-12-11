@@ -142,9 +142,11 @@ MonoBehaviour:
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
   Woompa: {fileID: 4901675930758871217, guid: 63f7fc1de0254954ab40699237190102, type: 3}
   life: {fileID: 0}
+  Player: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
   HasBounced: 0
   JumpAmount: 0
   FallingDown: 0
+  AutoAdd: 0
 --- !u!114 &7205145870057906264
 MonoBehaviour:
   m_ObjectHideFlags: 0

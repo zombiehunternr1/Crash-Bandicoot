@@ -7,12 +7,15 @@ public class Breakable : MonoBehaviour
     public GameEvent DestroyedCrate;
     public GameObject Woompa;
     public GameObject life;
+    public PlayerInfo Player;
     [HideInInspector]
     public bool HasBounced = false;
     [HideInInspector]
     public int JumpAmount;
     [HideInInspector]
     public bool FallingDown = false;
+
+    public bool AutoAdd = false;
 
     private Bounce Bouncing;
     private BreakAmount BreakOverTime;
@@ -259,13 +262,27 @@ public class Breakable : MonoBehaviour
     //Else it just raises the crate destroyed event and disables the gameobject.
     public void breakCrate()
     {
-        if(Woompa != null)
+        if (AutoAdd)
         {
-            Instantiate(Woompa, transform.position, transform.rotation);
+            if (Woompa != null)
+            {
+                Player.Woompa++;
+            }
+            if (life != null)
+            {
+                Player.Lives++;
+            }
         }
-        if(life != null)
+        else
         {
-            Instantiate(life, transform.position, transform.rotation);
+            if (Woompa != null)
+            {
+                Instantiate(Woompa, transform.position, transform.rotation);
+            }
+            if (life != null)
+            {
+                Instantiate(life, transform.position, transform.rotation);
+            }
         }
         DestroyedCrate.Raise();
         gameObject.SetActive(false);

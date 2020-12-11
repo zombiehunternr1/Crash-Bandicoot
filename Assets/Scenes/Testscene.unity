@@ -3040,11 +3040,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1649700692}
     m_Modifications:
-    - target: {fileID: 210024272792544632, guid: 226fba69139e0d347a1b28f0143955f0,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 551480130139312349, guid: 226fba69139e0d347a1b28f0143955f0,
         type: 3}
       propertyPath: m_RootOrder
@@ -3104,21 +3099,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TNT Crate
-      objectReference: {fileID: 0}
-    - target: {fileID: 4128766820952468075, guid: 226fba69139e0d347a1b28f0143955f0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4677543057618604712, guid: 226fba69139e0d347a1b28f0143955f0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078992636583174975, guid: 226fba69139e0d347a1b28f0143955f0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 226fba69139e0d347a1b28f0143955f0, type: 3}
