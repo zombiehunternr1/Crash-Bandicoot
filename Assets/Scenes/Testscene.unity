@@ -906,7 +906,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1391278474}
     - target: {fileID: 5043777653123370630, guid: eddca6e2701cff449b328ebb5d5c9066,
         type: 3}
       propertyPath: m_Name
@@ -1513,7 +1513,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1391278474}
     - target: {fileID: 4604720463922916105, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1,
         type: 3}
       propertyPath: m_Name
@@ -1609,6 +1609,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3932433912432727054, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6989627018079205029, guid: 34e67dfdbd503d5498cfdaee114a90cd,
         type: 3}
       propertyPath: m_RootOrder
@@ -1664,10 +1669,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6989627018079205034, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: SpinCollider
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6989627018079205035, guid: 34e67dfdbd503d5498cfdaee114a90cd,
         type: 3}
       propertyPath: m_Name
       value: Crash
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058704476864813323, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.631067
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058704476864813323, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.9052243
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058704476864813323, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058704476864813323, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0009471178
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058704476864813323, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.07422328
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e67dfdbd503d5498cfdaee114a90cd, type: 3}
@@ -1737,7 +1772,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1391278474}
     - target: {fileID: 4226160588979219057, guid: ae02074bc525b254585c76c62daeec9b,
         type: 3}
       propertyPath: m_Name
@@ -1926,6 +1961,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9373c9476f0b36c4e9405f3c33ba2973, type: 3}
+--- !u!114 &1391278474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6989627018079205034, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1193823360}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf247d16e225f5241b119058e11f70bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1391278478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6989627018079205029, guid: 34e67dfdbd503d5498cfdaee114a90cd,
@@ -2067,7 +2114,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1391278474}
     - target: {fileID: 4604720463922916105, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1,
         type: 3}
       propertyPath: m_Name
@@ -2258,7 +2305,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1391278474}
     - target: {fileID: 4604720463922916105, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1,
         type: 3}
       propertyPath: m_Name
@@ -3177,7 +3224,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1391278474}
     - target: {fileID: 2953217173423938678, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
         type: 3}
       propertyPath: FadePanel

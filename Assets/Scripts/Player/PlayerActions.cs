@@ -19,14 +19,14 @@ public class PlayerActions : MonoBehaviour
     [HideInInspector]
     public bool CanMove = true;
 
-    private Animator Animator;
+    private BoxCollider SpinCollider;
+    private Animation AnimSpinAttack;
     private bool IsGrounded;
     private bool HasDoubleJumped;
     private bool HoldingJump;
     private Rigidbody Rb;
     private Vector2 InputValue;
     private Vector3 JumpHeight;
-    private BoxCollider SpinCollider;
     private bool IsSpinning;
     private float JumpingCooldown = .1f;
     private float CurrentJumpingCooldown;
@@ -37,10 +37,11 @@ public class PlayerActions : MonoBehaviour
 
     private void Awake()
     {
-        Animator = GetComponentInChildren<Animator>();
+        SpinCollider = GetComponent<BoxCollider>();
+        AnimSpinAttack = GetComponentInChildren<Animation>();
+        AnimSpinAttack.gameObject.SetActive(false);
         PlayerStats = GetComponent<PlayerStatus>();
         OriginPosition = gameObject.transform.position;
-        SpinCollider = GetComponent<BoxCollider>();
         Rb = GetComponent<Rigidbody>();
         JumpHeight = new Vector3(0.0f, JumpHeightFloat, 0.0f);
     }
@@ -199,9 +200,11 @@ public class PlayerActions : MonoBehaviour
         if (!IsSpinning)
         {
             IsSpinning = true;
-            SpinCollider.enabled = true;
-            yield return new WaitForSeconds(1);
-            SpinCollider.enabled = false;
+            AnimSpinAttack.gameObject.SetActive(true);
+            SpinCollider.GetComponent<BoxCollider>().enabled = true;           
+            yield return new WaitForSeconds(0.5f);
+            SpinCollider.GetComponent<BoxCollider>().enabled = false;
+            AnimSpinAttack.gameObject.SetActive(false);
             IsSpinning = false;
         }
     }

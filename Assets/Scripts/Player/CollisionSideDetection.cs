@@ -40,7 +40,7 @@ public class CollisionSideDetection : MonoBehaviour
                 ReturnDirection(collision.gameObject, this.gameObject);
                 if (Crate)
                 {
-                    Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);                                     
+                    Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);
                 }
                 if (Enemy)
                 {
