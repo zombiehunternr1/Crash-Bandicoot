@@ -21,6 +21,7 @@ public class PlayerActions : MonoBehaviour
 
     private BoxCollider SpinCollider;
     private Animation AnimSpinAttack;
+    private Animator PlayerAnimator;
     private bool IsGrounded;
     private bool HasDoubleJumped;
     private bool HoldingJump;
@@ -37,6 +38,7 @@ public class PlayerActions : MonoBehaviour
 
     private void Awake()
     {
+        PlayerAnimator = GetComponentInChildren<Animator>();
         SpinCollider = GetComponent<BoxCollider>();
         AnimSpinAttack = GetComponentInChildren<Animation>();
         AnimSpinAttack.gameObject.SetActive(false);
@@ -200,10 +202,12 @@ public class PlayerActions : MonoBehaviour
         if (!IsSpinning)
         {
             IsSpinning = true;
+            PlayerAnimator.gameObject.SetActive(false);
             AnimSpinAttack.gameObject.SetActive(true);
             SpinCollider.GetComponent<BoxCollider>().enabled = true;           
             yield return new WaitForSeconds(0.5f);
             SpinCollider.GetComponent<BoxCollider>().enabled = false;
+            PlayerAnimator.gameObject.SetActive(true);
             AnimSpinAttack.gameObject.SetActive(false);
             IsSpinning = false;
         }
