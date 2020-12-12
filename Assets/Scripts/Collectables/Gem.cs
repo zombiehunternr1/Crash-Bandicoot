@@ -9,7 +9,8 @@ public class Gem : MonoBehaviour
 
     private void Awake()
     {
-        BoxCounter = GetComponentInParent<CheckAmount>();       
+        BoxCounter = GetComponentInParent<CheckAmount>();
+        Instantiate(Effect, transform.position, transform.rotation);
     }
 
     private void OnTriggerEnter(Collider other)
