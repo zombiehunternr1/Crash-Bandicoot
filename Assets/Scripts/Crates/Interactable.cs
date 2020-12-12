@@ -59,6 +59,10 @@ public class Interactable : MonoBehaviour
         {
             ActivatorCrate.ActivateCrates();
         }
+        else if (MetalCrate)
+        {
+            MetalCrate.GetComponent<Rigidbody>().mass = 0.4f;
+        }
         else
         {
             if (!HasBounced)

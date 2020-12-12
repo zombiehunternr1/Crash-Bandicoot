@@ -12,6 +12,7 @@ public class CollisionSideDetection : MonoBehaviour
     public int SideHitValue;
     private CrateBase Crate;
     private EnemyBase Enemy;
+    private BoxCollider SpinAttack;
 
     void Start()
     {
@@ -19,7 +20,17 @@ public class CollisionSideDetection : MonoBehaviour
         Enemy = GetComponent<EnemyBase>();
     }
 
-    private BoxCollider SpinAttack;
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.transform.GetComponent<PlayerActions>() != null)
+        {
+            gameObject.GetComponent<BoxCollider>().material.staticFriction = 0;
+            if (gameObject.GetComponent<MetalCrate>())
+            {
+                gameObject.GetComponent<MetalCrate>().GetComponent<Rigidbody>().mass = 1.35f;
+            }          
+        }
+    }
 
     //Checks if the player collides with it.
     void OnCollisionEnter(Collision collision)
@@ -131,7 +142,10 @@ public class CollisionSideDetection : MonoBehaviour
                     {
                         if (!this.gameObject.GetComponent<Nitro>())
                         {
-                            this.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                            if (!this.gameObject.GetComponent<Breakable>())
+                            {
+                                this.gameObject.GetComponent<CrateBase>().BounceUpCrate();
+                            }                            
                         }                       
                     }
                 }

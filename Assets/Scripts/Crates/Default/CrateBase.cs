@@ -63,7 +63,9 @@ public class CrateBase : MonoBehaviour
 
     void Top(Vector3 PlayerVelicoty)
     {
+        gameObject.GetComponent<BoxCollider>().material.staticFriction = 1;      
         CrateSide = Convert.ToInt32(CrateDirection.Top);
+
         if (Interact)
         {
             Interact.CrateAction(CrateSide);
