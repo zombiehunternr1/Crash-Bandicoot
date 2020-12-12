@@ -45,10 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  PlayerInfo: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
   BoxCounter: {fileID: 0}
   FadePanel: {fileID: 0}
   ResetPlayerPosition: {fileID: 11400000, guid: be4c0f567b2ad0647849ad1e9518f403,
     type: 2}
+  GameOverText: {fileID: 0}
 --- !u!114 &2953217173423938679
 MonoBehaviour:
   m_ObjectHideFlags: 0

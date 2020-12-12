@@ -34,7 +34,7 @@ public class PlayerActions : MonoBehaviour
     private float FallingMovement;
     private Transform CheckPoint;
     private Vector3 OriginPosition;
-    private PlayerStatus PlayerStats;
+    private PlayerStatus PlayerStatus;
 
     private void Awake()
     {
@@ -42,7 +42,7 @@ public class PlayerActions : MonoBehaviour
         SpinCollider = GetComponent<BoxCollider>();
         AnimSpinAttack = GetComponentInChildren<Animation>();
         AnimSpinAttack.gameObject.SetActive(false);
-        PlayerStats = GetComponent<PlayerStatus>();
+        PlayerStatus = GetComponent<PlayerStatus>();
         OriginPosition = gameObject.transform.position;
         Rb = GetComponent<Rigidbody>();
         JumpHeight = new Vector3(0.0f, JumpHeightFloat, 0.0f);
@@ -186,11 +186,11 @@ public class PlayerActions : MonoBehaviour
     //This function gets called when the player died and needs to be respawned.
     public void SpawnPlayer()
     {
-        //Checks if the player has hit a checkpoint before. If not it sets the player back at the beginning of the level.
-        if(CheckPoint != null)
+        //Checks if the player has already hit a checkpoint, if so it resets the player to the checkpoint position. If not it resets the player to the beginning of the level.
+        if (CheckPoint != null)
         {
             gameObject.transform.position = CheckPoint.position;
-        }
+        }             
         else
         {
             gameObject.transform.position = OriginPosition;
@@ -215,17 +215,17 @@ public class PlayerActions : MonoBehaviour
 
     public void AddWoompa()
     {
-        PlayerStats.Player.Woompa++;
-        if (PlayerStats.Player.Woompa >= 99)
+        PlayerStatus.Player.Woompa++;
+        if (PlayerStatus.Player.Woompa >= 99)
         {
             AddExtraLife();
-            PlayerStats.Player.Woompa = 0;
+            PlayerStatus.Player.Woompa = 0;
         }
     }
 
     public void AddExtraLife()
     {
-        PlayerStats.Player.Lives++;
+        PlayerStatus.Player.Lives++;
     }
 
     /*//Testing purposes only. Remove at final build!!!

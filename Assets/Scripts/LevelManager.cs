@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     public PlayerActions Player;
+    public PlayerInfo PlayerInfo;
     public BoxCounter BoxCounter;
     public RectTransform FadePanel;
     public GameEvent ResetPlayerPosition;
+    public Text GameOverText;
 
     private int FadingSpeed = 1;
     private bool Fading = true;
@@ -44,17 +47,41 @@ public class LevelManager : MonoBehaviour
         else
         {
             //Checks if the alpha color of the image is greater or equal to 1. If so it means the screen is completely black.
-            //Checks if the BoxCounter isn't a null return so we can reset the crates in the level, then raises the ResetPlayerPosition event and starts the coroutine FadeToOpaque.
+            //Checks if the players lives isn't lower then 0, if not then it takes one life of the player and checks the BoxCounter isn't a null return so we can reset the crates in the level, 
+            //then raises the ResetPlayerPosition event and starts the coroutine FadeToOpaque.
+            //If the amount of lives is lower then 0 it means the player lost completely and the gameover scene should be shown.
             if (FadePanel.GetComponent<Image>().color.a >= 1)
             {
-                if(BoxCounter != null)
+                if(PlayerInfo.Lives > 0)
                 {
-                    BoxCounter.ResetLevel();
+                    PlayerInfo.Lives--;
+                    if (BoxCounter != null)
+                    {
+                        BoxCounter.ResetLevel();
+                    }
+                    ResetPlayerPosition.Raise();
+                    StartCoroutine(FadeToOpaque());
+                }
+                else
+                {
+                    StartCoroutine(GameOver());
                 }               
-                ResetPlayerPosition.Raise();
-                StartCoroutine(FadeToOpaque());
             }
         }
+    }
+
+    /// <summary>
+    /// Once overworld scene is added in instead of reloading the scene load in the overworld scene.
+    /// </summary>
+
+
+    //This coroutine displays the game over text to the player, resets the players lives back to 5 and the level gets reloaded.
+    IEnumerator GameOver()
+    {
+        GameOverText.enabled = true;
+        yield return new WaitForSeconds(5);
+        PlayerInfo.Lives = 5;
+        SceneManager.LoadScene(0);
     }
 
     //This coroutine switches the panel from black to opaque.
