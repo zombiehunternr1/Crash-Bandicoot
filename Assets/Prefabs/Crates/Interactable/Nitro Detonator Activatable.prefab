@@ -168,4 +168,4 @@ MonoBehaviour:
   LevelCrates: {fileID: 0}
   InactiveNitrocrate: {fileID: 7926766915058057473, guid: 594764594bf83f249bef5e272e6115b5,
     type: 3}
-  Effect: {fileID: 601080499792891693, guid: 037fef34b8231124db08904fd6af2cfd, type: 3}
+  Effect: {fileID: 2379032992147503256, guid: 09a3798657fed164ba6b1564660cb55f, type: 3}
