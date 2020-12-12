@@ -38,6 +38,10 @@ public class Interactable : MonoBehaviour
             case 7:
                 Attack();
                 break;
+            //Effect or Enemy
+            case 8:
+                EntityOrEffect();
+                break;
         }        
     }
 
@@ -96,6 +100,14 @@ public class Interactable : MonoBehaviour
             NitroDetonatorCrate.DestroyAllNitroCrates();
         }
         else if (ActivatorCrate)
+        {
+            ActivatorCrate.ActivateCrates();
+        }
+    }
+
+    void EntityOrEffect()
+    {
+        if (ActivatorCrate)
         {
             ActivatorCrate.ActivateCrates();
         }

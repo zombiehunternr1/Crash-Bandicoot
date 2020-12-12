@@ -82,6 +82,7 @@ public class Breakable : MonoBehaviour
             case 7:
                 Attack();
                 break;
+            //Effect or enemy
             case 8:
                 EntityOrEffect();
                 break;

@@ -19,10 +19,15 @@ public class Explosion : MonoBehaviour
     //If so it checks what entered it to send out the appropiate responds.
     private void OnTriggerEnter(Collider other)
     {
-        //If it's an crate it gets the breakable script component and calls the function CrateAction.
+        //If it's an crate it gets the breakable or interactable script component and calls the function CrateAction.
         if (other.GetComponent<Breakable>())
         {
             var ExplodeAction = other.GetComponent<Breakable>();
+            ExplodeAction.CrateAction(ExplodeCrate);
+        }
+        else if (other.GetComponent<Interactable>())
+        {
+            var ExplodeAction = other.GetComponent<Interactable>();
             ExplodeAction.CrateAction(ExplodeCrate);
         }
         else if (other.GetComponent<EnemyBase>())
