@@ -653,7 +653,7 @@ PrefabInstance:
     - target: {fileID: 7545219677691902689, guid: 9373c9476f0b36c4e9405f3c33ba2973,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.64
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7545219677691902689, guid: 9373c9476f0b36c4e9405f3c33ba2973,
         type: 3}
@@ -1609,11 +1609,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3932433912432727054, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6989627018079205029, guid: 34e67dfdbd503d5498cfdaee114a90cd,
         type: 3}
       propertyPath: m_RootOrder
@@ -1669,40 +1664,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6989627018079205034, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: SpinCollider
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6989627018079205035, guid: 34e67dfdbd503d5498cfdaee114a90cd,
         type: 3}
       propertyPath: m_Name
       value: Crash
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058704476864813323, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.631067
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058704476864813323, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 1.9052243
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058704476864813323, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058704476864813323, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: m_Center.x
-      value: -0.0009471178
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058704476864813323, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -0.07422328
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e67dfdbd503d5498cfdaee114a90cd, type: 3}
