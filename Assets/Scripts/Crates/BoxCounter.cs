@@ -11,7 +11,7 @@ public class BoxCounter : MonoBehaviour
     public GameObject NitroDetonator;
     public LevelManager LevelManager;
     [HideInInspector]
-    public GameObject LevelGem;   
+    public GameObject LevelGem;
 
     //Keeps setting the BoxCount text to the objects position.
     void FixedUpdate()
@@ -19,7 +19,7 @@ public class BoxCounter : MonoBehaviour
         Vector3 Pos = Camera.main.WorldToScreenPoint(this.transform.position);
         BoxCount.transform.position = Pos;        
     }
-
+   
     //Once this function gets called it checks if the CurrentCrates total is equal to the TotalCrates amount.
     //If so it means the player has broken all the boxes and the gem can be instanciated and stored in the GameObject LevelGem.
     //Afterwards it disables the boxcount text, disables the boxcollider on the parent object and disables it's meshrenderer.
