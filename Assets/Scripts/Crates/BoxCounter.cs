@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class BoxCounter : MonoBehaviour
 {
     public Text BoxCount;
-    public GameObject Boxes;
+    public GameObject BoxesInLevel;
     public GameObject Gem;
     public GameObject Parent;
     public GameObject NitroDetonator;
-    public Interactable Interact;
 
     private Breakable BreakableCrate;
     private BreakAmount BreakAmountCrate;
@@ -20,19 +19,28 @@ public class BoxCounter : MonoBehaviour
     private Activator ActivatorCrate;
     private int CurrentCrates;
     private List<Breakable> TotalCrates = new List<Breakable>();
+    private List<Activator> ActivatorCrates = new List<Activator>();
     private Breakable[] CratesInLevel;
+    private Activator[] ActivatorsInLevel;
     private GameObject LevelGem;
 
-    //Gets all the breakable crates and stores them in the variable CratesInLevel.
-    //Then goes over each crate and adds that crate to the TotalCrates list.
+    //Gets all the breakable crates and Activator crates in the level and stores them in the variable CratesInLevel or ActivatorsInLevel.
+    //Then goes over each activator crate in ActivatorsInLevel and adds it to the list ActivatorCrates.
+    //Then goes over each breakable crate in CratesInLevel and adds it to the list TotalCrates.
     //Once that is done it displays how many crates the player has currently broken and how many there are in the level.
     void Start()
     {
-        CratesInLevel = Boxes.GetComponentsInChildren<Breakable>();
+        CratesInLevel = BoxesInLevel.GetComponentsInChildren<Breakable>();
+        ActivatorsInLevel = BoxesInLevel.GetComponentsInChildren<Activator>();
 
-        foreach(Breakable crate in CratesInLevel)
+        foreach(Activator ActivatorCrate in ActivatorsInLevel)
         {
-            TotalCrates.Add(crate);
+            ActivatorCrates.Add(ActivatorCrate);
+        }
+
+        foreach(Breakable Crate in CratesInLevel)
+        {
+            TotalCrates.Add(Crate);
         }
         BoxCount.text = CurrentCrates + " / " +  TotalCrates.Count.ToString();
     }
@@ -121,14 +129,12 @@ public class BoxCounter : MonoBehaviour
             }          
         }
         UpdateSpawnGemUI();
-        if(Interact != null)
+
+        foreach (Activator ActivatorCrate in ActivatorCrates)
         {
-            if (Interact.GetComponent<Activator>())
-            {
-                ActivatorCrate = Interact.GetComponent<Activator>();
-                ActivatorCrate.DeactivateCrates();
-            }
+            ActivatorCrate.DeactivateCrates();
         }
+
         if(NitroDetonator != null)
         {
             NitroDetonator.GetComponent<NitroDetonator>().ResetDetonator();

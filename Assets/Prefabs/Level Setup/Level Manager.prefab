@@ -44,13 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b612afa004e0a488745bc307ab9dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 6989627018079205034, guid: 34e67dfdbd503d5498cfdaee114a90cd, type: 3}
   PlayerInfo: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
-  BoxCounter: {fileID: 0}
-  FadePanel: {fileID: 0}
+  BoxCounter: {fileID: 7545065300541496425, guid: 4ed73bbec1b396c4bb5f9b604713458b,
+    type: 3}
+  FadePanel: {fileID: 2454021396260999003, guid: f894d9ba153dad041a420078ac3d7769,
+    type: 3}
   ResetPlayerPosition: {fileID: 11400000, guid: be4c0f567b2ad0647849ad1e9518f403,
     type: 2}
-  GameOverText: {fileID: 0}
+  GameOverText: {fileID: 6986828394793563845, guid: 7f9e94ae585012446aa04867e5969dcf,
+    type: 3}
 --- !u!114 &2953217173423938679
 MonoBehaviour:
   m_ObjectHideFlags: 0

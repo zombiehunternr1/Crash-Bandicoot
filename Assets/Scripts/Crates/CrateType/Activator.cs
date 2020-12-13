@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Activator : MonoBehaviour
 {
-    public List<GameObject> Crates = new List<GameObject>();
+    public List<GameObject> Crates;
     public GameObject InActiveCrate;
     public GameObject Effect;
     public Material Inactive;

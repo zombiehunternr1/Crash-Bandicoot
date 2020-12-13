@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4434218013762332153
+--- !u!1 &7545065300541496424
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,71 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4434218013762332154}
-  - component: {fileID: 4434218013762332155}
-  - component: {fileID: 4434218013762332152}
-  m_Layer: 0
-  m_Name: Total Crate Checker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4434218013762332154
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4434218013762332153}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.23, z: 10.03}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 7424313502820206215}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4434218013762332155
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4434218013762332153}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4434218013762332152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4434218013762332153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5eae0cc755b50f49b36ce6c8033e150, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &7801260841705954365
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7424313502820206215}
-  - component: {fileID: 5811805566295804194}
-  - component: {fileID: 8593810469819776488}
-  - component: {fileID: 7801260841705954367}
-  - component: {fileID: 7801260841705954364}
-  - component: {fileID: 5850652278574716138}
-  - component: {fileID: 8137088025385919692}
+  - component: {fileID: 7205377077872592594}
+  - component: {fileID: 6075777918818683255}
+  - component: {fileID: 8337720481818443197}
+  - component: {fileID: 7545065300541496426}
+  - component: {fileID: 7545065300541496425}
+  - component: {fileID: 6181015333678879935}
+  - component: {fileID: 8366122399487026329}
   m_Layer: 0
   m_Name: Total Count Crate
   m_TagString: Untagged
@@ -80,35 +22,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7424313502820206215
+--- !u!4 &7205377077872592594
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801260841705954365}
+  m_GameObject: {fileID: 7545065300541496424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4434218013762332154}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5811805566295804194
+--- !u!33 &6075777918818683255
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801260841705954365}
+  m_GameObject: {fileID: 7545065300541496424}
   m_Mesh: {fileID: -5495902117074765545, guid: 85532cb375667b6478b8e8dc5d5903f7, type: 3}
---- !u!23 &8593810469819776488
+--- !u!23 &8337720481818443197
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801260841705954365}
+  m_GameObject: {fileID: 7545065300541496424}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -141,13 +83,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!111 &7801260841705954367
+--- !u!111 &7545065300541496426
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801260841705954365}
+  m_GameObject: {fileID: 7545065300541496424}
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 6c380273d67f53a4fae9b760a10e2b5d, type: 2}
@@ -157,31 +99,33 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &7801260841705954364
+--- !u!114 &7545065300541496425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801260841705954365}
+  m_GameObject: {fileID: 7545065300541496424}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c33b39abe1c7e894f92afa073afc53e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoxCount: {fileID: 0}
-  Boxes: {fileID: 0}
+  BoxCount: {fileID: 7035590090818244888, guid: 735372843f6ec624a819e6bf99f69e24,
+    type: 3}
+  BoxesInLevel: {fileID: 496300158144228244, guid: e7f56de8c7b0fe043b4ddce7b391702b,
+    type: 3}
   Gem: {fileID: 576299705350671408, guid: d62b872833ecc8a40889308f3d25ec96, type: 3}
-  Parent: {fileID: 4434218013762332153}
-  NitroDetonator: {fileID: 0}
-  Interact: {fileID: 0}
---- !u!114 &5850652278574716138
+  Parent: {fileID: 0}
+  NitroDetonator: {fileID: 5453635738975193679, guid: 4c0122fc560f27e4cb84006e7cc6903b,
+    type: 3}
+--- !u!114 &6181015333678879935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801260841705954365}
+  m_GameObject: {fileID: 7545065300541496424}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90749240303c2b24e8c1aea0adbdc041, type: 3}
@@ -191,7 +135,7 @@ MonoBehaviour:
   _response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7801260841705954364}
+      - m_Target: {fileID: 7545065300541496425}
         m_MethodName: AddCrate
         m_Mode: 1
         m_Arguments:
@@ -202,13 +146,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8137088025385919692
+--- !u!114 &8366122399487026329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801260841705954365}
+  m_GameObject: {fileID: 7545065300541496424}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6be31de2386aac429fae94d72a7add1, type: 3}
@@ -219,7 +163,7 @@ MonoBehaviour:
   _responseTransform:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7801260841705954364}
+      - m_Target: {fileID: 7545065300541496425}
         m_MethodName: CheckPointReached
         m_Mode: 1
         m_Arguments:
