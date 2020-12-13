@@ -19,7 +19,7 @@ public class PlayerActions : MonoBehaviour
     [HideInInspector]
     public bool CanMove = true;
 
-    private BoxCollider SpinCollider;
+    public BoxCollider SpinCollider;
     private Animation AnimSpinAttack;
     private Animator PlayerAnimator;
     private bool IsGrounded;

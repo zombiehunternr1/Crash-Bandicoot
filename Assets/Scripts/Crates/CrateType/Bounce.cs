@@ -15,7 +15,7 @@ public class Bounce : MonoBehaviour
     //Once this function gets called it bounces the player down.
     public void Down()
     {
-        Player.BounceUp();
+        Player.BounceDown();
     }
 
     //Once this function gets called it raises the crate destroyed event and disables the gameobject.

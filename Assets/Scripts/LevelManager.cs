@@ -6,15 +6,57 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject LevelCrates;
     public PlayerActions Player;
     public PlayerInfo PlayerInfo;
     public BoxCounter BoxCounter;
     public RectTransform FadePanel;
     public GameEvent ResetPlayerPosition;
     public Text GameOverText;
+    [HideInInspector]
+    public int CurrentCrates;
 
+    private Breakable BreakableCrate;
+    private BreakAmount BreakAmountCrate;
+    private Nitro NitroCrate;
+    private Tnt TntCrate;
+    private CheckPoint CheckpointCrate;
+    [HideInInspector]
+    public List<Breakable> TotalCrates = new List<Breakable>();
+
+    private List<Activator> ActivatorCrates = new List<Activator>();
+    private List<NitroDetonator> NitroDetanorCrates = new List<NitroDetonator>();
     private int FadingSpeed = 1;
     private bool Fading = true;
+    private Breakable[] CratesInLevel;
+    private Activator[] ActivatorsInLevel;
+    private NitroDetonator[] NitroDetonatorsInLevel;
+
+    //Gets all the crates with crate type Breakable, Activator and NitroDetonator and stores them in each individual array.
+    //Then goes over each item in their individual array and adds them to their corresponding list.
+    //At the end the Boxcounter will be displayed with the current amount of broken crates and the total breakable crates in the level.
+    void Start()
+    {
+        CratesInLevel = LevelCrates.GetComponentsInChildren<Breakable>();
+        ActivatorsInLevel = LevelCrates.GetComponentsInChildren<Activator>();
+        NitroDetonatorsInLevel = LevelCrates.GetComponentsInChildren<NitroDetonator>();
+
+        foreach (Activator ActivatorCrate in ActivatorsInLevel)
+        {
+            ActivatorCrates.Add(ActivatorCrate);
+        }
+
+        foreach(NitroDetonator NitroDetonatorCrate in NitroDetonatorsInLevel)
+        {
+            NitroDetanorCrates.Add(NitroDetonatorCrate);
+        }
+
+        foreach (Breakable Crate in CratesInLevel)
+        {
+            TotalCrates.Add(Crate);
+        }
+        BoxCounter.BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
+    }
 
     //Once this function gets called it sets the CanMove bool to false, starts the coroutine FadeToBack
     public void PlayerDied()
@@ -23,6 +65,12 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(FadeToBlack());
     }
 
+    //Once this function gets called it increases the current crate count by one and calls the function UpdateUI.
+    public void AddCrate()
+    {
+        CurrentCrates++;
+        BoxCounter.UpdateSpawnGemUI();
+    }
 
     //This coroutine switches the panel from opaque to black.
     IEnumerator FadeToBlack()
@@ -57,7 +105,7 @@ public class LevelManager : MonoBehaviour
                     PlayerInfo.Lives--;
                     if (BoxCounter != null)
                     {
-                        BoxCounter.ResetLevel();
+                        ResetLevel();
                     }
                     ResetPlayerPosition.Raise();
                     StartCoroutine(FadeToOpaque());
@@ -66,6 +114,97 @@ public class LevelManager : MonoBehaviour
                 {
                     StartCoroutine(GameOver());
                 }               
+            }
+        }
+    }
+
+    //Once this function gets called it checks if the totalcrates list has crates in it.
+    //If it doesn't it skills the whole reset progress. If it does it checks if the crate is disabled.
+    //foreach crate that is inactive it descreases the current crate count by one and sets the crate back to enabled.
+    //Afterwards we call the function UpdateUI, checks if boxcount and parent are not empty. If not it sets the boxcount active and enables the parent's boxcollider.
+    public void ResetLevel()
+    {
+        foreach (Breakable crate in TotalCrates)
+        {
+            if (crate != null)
+            {
+                if (!crate.isActiveAndEnabled)
+                {
+                    if (!crate.GetComponent<CheckPoint>())
+                    {
+                        if (crate.GetComponent<Breakable>())
+                        {
+                            BreakableCrate = crate.GetComponent<Breakable>();
+                            BreakableCrate.HasBounced = false;
+                            BreakableCrate.JumpAmount = 0;
+                        }
+                        if (crate.GetComponent<BreakAmount>())
+                        {
+                            BreakAmountCrate = crate.GetComponent<BreakAmount>();
+                            BreakAmountCrate.Activated = false;
+                        }
+                        if (crate.GetComponent<Nitro>())
+                        {
+                            NitroCrate = crate.GetComponent<Nitro>();
+                            NitroCrate.HasExploded = false;
+                        }
+                        if (crate.GetComponent<Tnt>())
+                        {
+                            TntCrate = crate.GetComponent<Tnt>();
+                            TntCrate.ResetCountdown();
+                        }
+                        CurrentCrates--;
+                        crate.gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    if (crate.GetComponent<CheckPoint>())
+                    {
+                        CheckpointCrate = crate.GetComponent<CheckPoint>();
+                        CheckpointCrate.hasSet = false;
+                    }
+                }
+            }
+        }
+        BoxCounter.UpdateSpawnGemUI();
+
+        foreach (Activator ActivatorCrate in ActivatorCrates)
+        {
+            ActivatorCrate.DeactivateCrates();
+        }
+
+        foreach(NitroDetonator NitroDetonator in NitroDetanorCrates)
+        {
+            NitroDetonator.ResetDetonator();
+        }
+
+        if (BoxCounter.BoxCount != null)
+        {
+            BoxCounter.BoxCount.GetComponent<Text>().enabled = true;
+        }
+        if (BoxCounter.Parent != null)
+        {
+            BoxCounter.Parent.GetComponent<BoxCollider>().enabled = true;
+        }
+        BoxCounter.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        Destroy(BoxCounter.LevelGem);
+    }
+
+    //If this function gets called it means the player has reached a checkpoint meaning all the crates he broke before in this level are now permanently added to the CurrentCrates.
+    public void CheckPointReached()
+    {
+        foreach (Breakable crate in TotalCrates)
+        {
+            if (crate != null)
+            {
+                if (!crate.isActiveAndEnabled)
+                {
+                    if (!crate.GetComponent<CheckPoint>())
+                    {
+                        Destroy(crate.gameObject);
+                    }
+                }
             }
         }
     }

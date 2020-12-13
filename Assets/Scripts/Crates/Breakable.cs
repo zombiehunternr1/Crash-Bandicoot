@@ -133,9 +133,14 @@ public class Breakable : MonoBehaviour
     {
         if (Bouncing)
         {
-            JumpAmount++;
+            if (BreakOverTime)
+            {
+                JumpAmount++;
+                Bouncing.Down();
+                BreakOverTime.BreakOverTime(JumpAmount);
+                return;
+            }
             Bouncing.Down();
-            BreakOverTime.BreakOverTime(JumpAmount);
             return;
         }
         else if (TntCrate)

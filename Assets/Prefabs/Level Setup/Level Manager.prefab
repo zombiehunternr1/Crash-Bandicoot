@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2953217173423938673}
   - component: {fileID: 2953217173423938678}
   - component: {fileID: 2953217173423938679}
+  - component: {fileID: 8499069700507842192}
+  - component: {fileID: 8998394292487094848}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -44,16 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b612afa004e0a488745bc307ab9dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 6989627018079205034, guid: 34e67dfdbd503d5498cfdaee114a90cd, type: 3}
+  LevelCrates: {fileID: 0}
+  Player: {fileID: 0}
   PlayerInfo: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
-  BoxCounter: {fileID: 7545065300541496425, guid: 4ed73bbec1b396c4bb5f9b604713458b,
-    type: 3}
-  FadePanel: {fileID: 2454021396260999003, guid: f894d9ba153dad041a420078ac3d7769,
-    type: 3}
+  BoxCounter: {fileID: 0}
+  FadePanel: {fileID: 0}
   ResetPlayerPosition: {fileID: 11400000, guid: be4c0f567b2ad0647849ad1e9518f403,
     type: 2}
-  GameOverText: {fileID: 6986828394793563845, guid: 7f9e94ae585012446aa04867e5969dcf,
-    type: 3}
+  GameOverText: {fileID: 0}
+  NitroDetonator: {fileID: 0}
+  CurrentCrates: 0
+  TotalCrates: []
 --- !u!114 &2953217173423938679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +75,61 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2953217173423938678}
         m_MethodName: PlayerDied
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8499069700507842192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953217173423938676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6be31de2386aac429fae94d72a7add1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEventTransform: {fileID: 11400000, guid: 858af3d7666d6d140b098c1cc348d4d8,
+    type: 2}
+  _responseTransform:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2953217173423938678}
+        m_MethodName: CheckPointReached
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8998394292487094848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953217173423938676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90749240303c2b24e8c1aea0adbdc041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2953217173423938678}
+        m_MethodName: AddCrate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
