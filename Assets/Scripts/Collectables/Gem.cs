@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Gem : MonoBehaviour
 {
-    public CheckAmount BoxCounter;
     public ParticleSystem Effect;
+    public LevelManager LevelManager;
 
     private void Awake()
     {
-        BoxCounter = GetComponentInParent<CheckAmount>();
         Instantiate(Effect, transform.position, transform.rotation);
+        LevelManager = GetComponentInParent<LevelManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -18,10 +18,13 @@ public class Gem : MonoBehaviour
         if (other.GetComponent<PlayerActions>())
         {
             Instantiate(Effect, transform.position, transform.rotation);
-            if (BoxCounter != null)
+            if(LevelManager != null)
             {
-                Destroy(BoxCounter.gameObject);
-            }            
+                for (int i = 0; i < LevelManager.BoxCounters.Count; i++)
+                {
+                    Destroy(LevelManager.BoxCounters[i].GetComponentInParent<CheckAmount>().gameObject);
+                }
+            }
             Destroy(gameObject);
         }
     }

@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7402fc2d5f3165418aa31a9cb075672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoxCounter: {fileID: 0}
   Effect: {fileID: 8622165233999203386, guid: c7349762f7e76644a95fa39daed34c91, type: 3}
+  LevelManager: {fileID: 0}
 --- !u!65 &7872732382403222834
 BoxCollider:
   m_ObjectHideFlags: 0

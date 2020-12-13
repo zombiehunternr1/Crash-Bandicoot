@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class NitroDetonator : MonoBehaviour
 {
-    public GameObject LevelCrates;
+    
     public GameObject InactiveNitrocrate;
     public GameObject Effect;
+    private CratesInLevel LevelCrates;
     private GameObject InactiveDetonator;
     private Nitro[] NitroCrates;
     private List<Nitro> NitroCrateList = new List<Nitro>();
@@ -15,6 +16,7 @@ public class NitroDetonator : MonoBehaviour
     //Afterwards it loops over the array and adds it to the gameobject to the list NitroCrateList.
     void Awake()
     {
+        LevelCrates = GetComponentInParent<CratesInLevel>();
         NitroCrates = LevelCrates.GetComponentsInChildren<Nitro>();
 
         foreach(Nitro crate in NitroCrates)

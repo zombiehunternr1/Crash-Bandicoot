@@ -9,7 +9,6 @@ public class LevelManager : MonoBehaviour
     public GameObject LevelCrates;
     public PlayerActions Player;
     public PlayerInfo PlayerInfo;
-    public BoxCounter BoxCounter;
     public RectTransform FadePanel;
     public GameEvent ResetPlayerPosition;
     public Text GameOverText;
@@ -23,10 +22,11 @@ public class LevelManager : MonoBehaviour
     private CheckPoint CheckpointCrate;
     [HideInInspector]
     public List<Breakable> TotalCrates = new List<Breakable>();
+    [HideInInspector]
+    public List<BoxCounter> BoxCounters = new List<BoxCounter>();
 
     private List<Activator> ActivatorCrates = new List<Activator>();
-    private List<NitroDetonator> NitroDetanorCrates = new List<NitroDetonator>();
-    private List<BoxCounter> BoxCounters = new List<BoxCounter>();
+    private List<NitroDetonator> NitroDetanorCrates = new List<NitroDetonator>();   
     private int FadingSpeed = 1;
     private bool Fading = true;
     private BoxCounter[] BoxCountersInLevel;
@@ -198,7 +198,7 @@ public class LevelManager : MonoBehaviour
                 BoxCounters[i].Parent.GetComponent<BoxCollider>().enabled = true;
             }
             BoxCounters[i].gameObject.GetComponent<MeshRenderer>().enabled = true;
-            Destroy(BoxCounters[i].LevelGem);
+            Destroy(BoxCounters[i].LevelGem);                   
         }
 
         foreach (Activator ActivatorCrate in ActivatorCrates)

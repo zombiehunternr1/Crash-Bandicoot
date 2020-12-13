@@ -8,10 +8,15 @@ public class BoxCounter : MonoBehaviour
     public Text BoxCount;
     public GameObject Gem;
     public GameObject Parent;
-    public GameObject NitroDetonator;
-    public LevelManager LevelManager;
     [HideInInspector]
     public GameObject LevelGem;
+    private LevelManager LevelManager;
+
+    void Awake()
+    {
+        LevelManager = GetComponentInParent<LevelManager>();
+
+    }
 
     //Keeps setting the BoxCount text to the objects position.
     void FixedUpdate()
