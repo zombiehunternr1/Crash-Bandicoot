@@ -12,12 +12,12 @@ public class CheckPoint : MonoBehaviour
     public GameObject MetalCrate;
     public GameObject BrokenCheckpoint;
 
-    private Transform CheckPointPosition;
+    private Transform GetcurrentCratePosition;
 
     //Stores the Transform position of the checkpoint in the transform CheckPointPosition.
     private void Awake()
     {
-        CheckPointPosition = transform;
+        GetcurrentCratePosition = transform;
     }
 
     //When this function gets called it checks if the checpoint hasn't already been set yet. If not it sets so the game knows the player has already hit this checkpoint.
@@ -31,15 +31,15 @@ public class CheckPoint : MonoBehaviour
             hasSet = true;
             if (GetComponent<Breakable>())
             {
-                DestroyedCrate.Raise();
-                CheckPointReached.RaiseTransform(CheckPointPosition);
+                DestroyedCrate.Raise();               
                 Instantiate(BrokenCheckpoint, transform.position, transform.rotation);
+                CheckPointReached.RaiseTransform(GetcurrentCratePosition);
                 gameObject.SetActive(false);
             }
             else if (GetComponent<Interactable>())
-            {
-                CheckPointReached.RaiseTransform(CheckPointPosition);
+            {               
                 Instantiate(MetalCrate, transform.position, transform.rotation);
+                CheckPointReached.RaiseTransform(GetcurrentCratePosition);
                 gameObject.SetActive(false);
             }
         }

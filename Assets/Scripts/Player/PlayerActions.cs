@@ -180,6 +180,7 @@ public class PlayerActions : MonoBehaviour
 
     public void SaveCheckpoint(Transform NewCheckpoint)
     {
+        NewCheckpoint.position += Vector3.up * 1.5f;
         CheckPoint = NewCheckpoint;
     }
     
