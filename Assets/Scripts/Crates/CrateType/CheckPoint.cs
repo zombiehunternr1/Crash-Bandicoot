@@ -39,6 +39,7 @@ public class CheckPoint : MonoBehaviour
             else if (GetComponent<Interactable>())
             {               
                 Instantiate(MetalCrate, transform.position, transform.rotation);
+                GetcurrentCratePosition.position += Vector3.up * 1.5f;
                 CheckPointReached.RaiseTransform(GetcurrentCratePosition);
                 gameObject.SetActive(false);
             }

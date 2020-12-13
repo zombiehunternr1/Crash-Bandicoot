@@ -103,7 +103,7 @@ public class LevelManager : MonoBehaviour
                 yield return null;
             }
             yield return new WaitForSeconds(FadingSpeed);
-            Fading = false;
+            Fading = false;           
             StartCoroutine(FadeToBlack());
         }
         else
