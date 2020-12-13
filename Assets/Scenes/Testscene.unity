@@ -2687,6 +2687,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Activator
       objectReference: {fileID: 0}
+    - target: {fileID: 2278316766436379011, guid: 2eedabe4bbef7f648a6914e89a30ebce,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8459877469566505446, guid: 2eedabe4bbef7f648a6914e89a30ebce,
         type: 3}
       propertyPath: Crates.Array.data[0]

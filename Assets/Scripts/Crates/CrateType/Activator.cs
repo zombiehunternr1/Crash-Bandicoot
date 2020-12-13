@@ -13,6 +13,7 @@ public class Activator : MonoBehaviour
     private Material[] CrateMaterial;
     private Renderer Rend;
     private GameObject InactiveActivator;
+    private bool Collected;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class Activator : MonoBehaviour
     //It then creates a temporarely filterlist that adds all the gameobjects from the list Crates that don't return null to it's list.
     //Afterwards I set the Crates list equal to the FilterList.
     //If the list is equal to zero it means all the crates have been destroyed so the inactive crate can be placed instead of the activator crate.
+    //It only needs to collect the current material on that particular crate once so we do a check if this has already happened. If so, it skips the collecting part.
     public void DeactivateCrates()
     {
         gameObject.SetActive(true);
@@ -48,7 +50,12 @@ public class Activator : MonoBehaviour
                 if (ChangeCrate.GetComponent<Renderer>())
                 {
                     Rend = ChangeCrate.GetComponent<Renderer>();
-                    CrateMaterial = Rend.materials;
+                    if (!Collected)
+                    {
+                        CrateMaterial = Rend.materials;
+                        Collected = true;
+                    }
+                    
                     Rend.material = Inactive;
                     ChangeCrate.GetComponent<BoxCollider>().enabled = false;
                     FilterList.Add(ChangeCrate);
@@ -56,7 +63,11 @@ public class Activator : MonoBehaviour
                 else
                 {
                     Rend = ChangeCrate.GetComponentInChildren<Renderer>();
-                    CrateMaterial = Rend.materials;
+                    if (!Collected)
+                    {
+                        CrateMaterial = Rend.materials;
+                        Collected = true;
+                    }
                     Rend.material = Inactive;
                     ChangeCrate.GetComponent<BoxCollider>().enabled = false;
                     FilterList.Add(ChangeCrate);

@@ -201,14 +201,14 @@ public class LevelManager : MonoBehaviour
             Destroy(BoxCounters[i].LevelGem);                   
         }
 
-        foreach (Activator ActivatorCrate in ActivatorCrates)
+        for (int i = 0; i < ActivatorCrates.Count; i++)
         {
-            ActivatorCrate.DeactivateCrates();
+            ActivatorCrates[i].DeactivateCrates();
         }
 
-        foreach (NitroDetonator NitroDetonator in NitroDetanorCrates)
+        for (int i = 0; i < NitroDetanorCrates.Count; i++)
         {
-            NitroDetonator.ResetDetonator();
+            NitroDetanorCrates[i].ResetDetonator();
         }
     }
 
