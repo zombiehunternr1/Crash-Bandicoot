@@ -1039,6 +1039,7 @@ MonoBehaviour:
     m_Bits: 1536
   GroundChecker: {fileID: 7261772002586717920}
   CanMove: 1
+  UpdateUI: {fileID: 11400000, guid: 0a86eb7cbdaa4d14fb61576465619d86, type: 2}
   SpinCollider: {fileID: 7058704476864813323}
 --- !u!114 &6989627018079205026
 MonoBehaviour:

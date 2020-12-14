@@ -12,6 +12,9 @@ public class LevelManager : MonoBehaviour
     public RectTransform FadePanel;
     public GameEvent ResetPlayerPosition;
     public Text GameOverText;
+    public Text BoxCountUI;
+    public Text WoompaUI;
+    public Text LivesUI;
     [HideInInspector]
     public int CurrentCrates;
 
@@ -65,8 +68,11 @@ public class LevelManager : MonoBehaviour
         }
         for(int i = 0; i < BoxCounters.Count; i++)
         {
-            BoxCounters[i].BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString(); 
-        }       
+            BoxCounters[i].BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
+            BoxCountUI.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
+        }
+        WoompaUI.text = PlayerInfo.Woompa.ToString();
+        LivesUI.text = PlayerInfo.Lives.ToString();
     }
 
     //Once this function gets called it sets the CanMove bool to false, starts the coroutine FadeToBack
@@ -76,7 +82,7 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(FadeToBlack());
     }
 
-    //Once this function gets called it increases the current crate count by one and calls the function UpdateUI.
+    //Once this function gets called it increases the current crate count by one and calls the function UpdateUI and UpdateHUD.
     public void AddCrate()
     {
         CurrentCrates++;
@@ -84,6 +90,24 @@ public class LevelManager : MonoBehaviour
         {
             BoxCounters[i].UpdateSpawnGemUI();
         }
+        UpdateHUD();
+    }
+
+    //This function updates the boxcount HUD display.
+    public void UpdateHUD()
+    {
+        if(BoxCountUI != null)
+        {
+            BoxCountUI.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
+        }
+        if(WoompaUI != null)
+        {
+            WoompaUI.text = PlayerInfo.Woompa.ToString();
+        }
+        if(LivesUI != null)
+        {
+            LivesUI.text = PlayerInfo.Lives.ToString();
+        }        
     }
 
     //This coroutine switches the panel from opaque to black.
@@ -139,6 +163,7 @@ public class LevelManager : MonoBehaviour
     //If it doesn't it skills the whole reset progress. If it does it checks if the crate is disabled.
     //foreach crate that is inactive it descreases the current crate count by one and sets the crate back to enabled.
     //Afterwards we call the function UpdateUI, checks if boxcount and parent are not empty. If not it sets the boxcount active and enables the parent's boxcollider.
+    //At last ut calles the function UpdateUIHUD to update the hud display.
     public void ResetLevel()
     {
         foreach (Breakable crate in TotalCrates)
@@ -198,7 +223,8 @@ public class LevelManager : MonoBehaviour
                 BoxCounters[i].Parent.GetComponent<BoxCollider>().enabled = true;
             }
             BoxCounters[i].gameObject.GetComponent<MeshRenderer>().enabled = true;
-            Destroy(BoxCounters[i].LevelGem);                   
+            Destroy(BoxCounters[i].LevelGem);
+            UpdateHUD();
         }
 
         for (int i = 0; i < ActivatorCrates.Count; i++)

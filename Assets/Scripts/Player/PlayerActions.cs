@@ -18,8 +18,9 @@ public class PlayerActions : MonoBehaviour
     public Transform GroundChecker;
     [HideInInspector]
     public bool CanMove = true;
-
+    public GameEvent UpdateUI;
     public BoxCollider SpinCollider;
+
     private Animation AnimSpinAttack;
     private Animator PlayerAnimator;
     private bool IsGrounded;
@@ -221,11 +222,14 @@ public class PlayerActions : MonoBehaviour
             AddExtraLife();
             PlayerStatus.Player.Woompa = 0;
         }
+        UpdateUI.Raise();
+
     }
 
     public void AddExtraLife()
     {
         PlayerStatus.Player.Lives++;
+        UpdateUI.Raise();
     }
 
     /*//Testing purposes only. Remove at final build!!!
