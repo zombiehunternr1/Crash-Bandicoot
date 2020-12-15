@@ -68,8 +68,8 @@ public class LevelManager : MonoBehaviour
         }
         for(int i = 0; i < BoxCounters.Count; i++)
         {
-            BoxCounters[i].BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
-            BoxCountUI.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
+            BoxCounters[i].BoxCount.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
+            BoxCountUI.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
         }
         WoompaUI.text = PlayerInfo.Woompa.ToString();
         LivesUI.text = PlayerInfo.Lives.ToString();
@@ -98,7 +98,7 @@ public class LevelManager : MonoBehaviour
     {
         if(BoxCountUI != null)
         {
-            BoxCountUI.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
+            BoxCountUI.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
         }
         if(WoompaUI != null)
         {
