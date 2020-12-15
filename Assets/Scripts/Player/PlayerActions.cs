@@ -20,6 +20,8 @@ public class PlayerActions : MonoBehaviour
     public bool CanMove = true;
     public GameEvent UpdateUI;
     public BoxCollider SpinCollider;
+    public Animator HUDObjects;
+    public Animator HUDText;
 
     private Animation AnimSpinAttack;
     private Animator PlayerAnimator;
@@ -179,11 +181,18 @@ public class PlayerActions : MonoBehaviour
         StartCoroutine(SpinAttack());
     }
 
+    //Once this function gets called it sets the Transform CheckPoint to the NewCheckpoint transform.
     public void SaveCheckpoint(Transform NewCheckpoint)
     {
         CheckPoint = NewCheckpoint;
     }
     
+    //Once this function gets called it displays the HUD
+    private void OnHUD()
+    {
+        StartCoroutine(DisplayHUD());
+    }
+
     //This function gets called when the player died and needs to be respawned.
     public void SpawnPlayer()
     {
@@ -195,22 +204,6 @@ public class PlayerActions : MonoBehaviour
         else
         {
             gameObject.transform.position = OriginPosition;
-        }
-    }
-
-    IEnumerator SpinAttack()
-    {
-        if (!IsSpinning)
-        {
-            IsSpinning = true;
-            PlayerAnimator.gameObject.SetActive(false);
-            AnimSpinAttack.gameObject.SetActive(true);
-            SpinCollider.GetComponent<BoxCollider>().enabled = true;           
-            yield return new WaitForSeconds(0.5f);
-            SpinCollider.GetComponent<BoxCollider>().enabled = false;
-            PlayerAnimator.gameObject.SetActive(true);
-            AnimSpinAttack.gameObject.SetActive(false);
-            IsSpinning = false;
         }
     }
 
@@ -230,6 +223,31 @@ public class PlayerActions : MonoBehaviour
     {
         PlayerStatus.Player.Lives++;
         UpdateUI.Raise();
+    }
+
+    IEnumerator SpinAttack()
+    {
+        if (!IsSpinning)
+        {
+            IsSpinning = true;
+            PlayerAnimator.gameObject.SetActive(false);
+            AnimSpinAttack.gameObject.SetActive(true);
+            SpinCollider.GetComponent<BoxCollider>().enabled = true;           
+            yield return new WaitForSeconds(0.5f);
+            SpinCollider.GetComponent<BoxCollider>().enabled = false;
+            PlayerAnimator.gameObject.SetActive(true);
+            AnimSpinAttack.gameObject.SetActive(false);
+            IsSpinning = false;
+        }
+    }
+
+    IEnumerator DisplayHUD()
+    {
+        HUDObjects.SetBool("Display", true);
+        HUDText.SetBool("Display", true);
+        yield return new WaitForSeconds(5);
+        HUDObjects.SetBool("Display", false);
+        HUDText.SetBool("Display", false);
     }
 
     /*//Testing purposes only. Remove at final build!!!

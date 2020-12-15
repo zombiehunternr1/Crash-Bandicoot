@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &5471690 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5471690, guid: c0c60c625444ffb428c0e3cb2a63e08a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5032408514137579386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &56608007 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5453635738975193679, guid: 4c0122fc560f27e4cb84006e7cc6903b,
@@ -1695,6 +1701,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6989627018079205034, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: HUDText
+      value: 
+      objectReference: {fileID: 5471690}
+    - target: {fileID: 6989627018079205034, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: HUDObjects
+      value: 
+      objectReference: {fileID: 7633813467356064505}
     - target: {fileID: 6989627018079205035, guid: 34e67dfdbd503d5498cfdaee114a90cd,
         type: 3}
       propertyPath: m_Name
@@ -3186,6 +3202,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5032408512218690697, guid: c0c60c625444ffb428c0e3cb2a63e08a,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032408512218690697, guid: c0c60c625444ffb428c0e3cb2a63e08a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032408512218690697, guid: c0c60c625444ffb428c0e3cb2a63e08a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032408512218690697, guid: c0c60c625444ffb428c0e3cb2a63e08a,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3413,6 +3444,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &7633813467356064505 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1830711060947771411, guid: ddf2ab4adf8f8f747874b08c861c25d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8113022409305639658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8030716797282950728
 PrefabInstance:
   m_ObjectHideFlags: 0
