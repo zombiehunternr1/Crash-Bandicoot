@@ -215,14 +215,16 @@ public class PlayerActions : MonoBehaviour
             AddExtraLife();
             PlayerStatus.Player.Woompa = 0;
         }
-        UpdateUI.Raise();
-
+        else
+        {
+            StartCoroutine(HideWoompaOvertime());
+        }            
     }
 
     public void AddExtraLife()
     {
         PlayerStatus.Player.Lives++;
-        UpdateUI.Raise();
+        StartCoroutine(HideLivesOverTime());
     }
 
     IEnumerator SpinAttack()
@@ -241,13 +243,33 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
+    IEnumerator HideWoompaOvertime()
+    {
+        UpdateUI.Raise();
+        HUDObjects.SetBool("DisplayWoompa", true);
+        HUDText.SetBool("DisplayWoompa", true);
+        yield return new WaitForSeconds(5);
+        HUDObjects.SetBool("DisplayWoompa", false);
+        HUDText.SetBool("DisplayWoompa", false);
+    }
+
+    IEnumerator HideLivesOverTime()
+    {
+        UpdateUI.Raise();
+        HUDObjects.SetBool("DisplayLives", true);
+        HUDText.SetBool("DisplayLives", true);
+        yield return new WaitForSeconds(5);
+        HUDObjects.SetBool("DisplayLives", false);
+        HUDText.SetBool("DisplayLives", false);
+    }
+
     IEnumerator DisplayHUD()
     {
-        HUDObjects.SetBool("Display", true);
-        HUDText.SetBool("Display", true);
+        HUDObjects.SetBool("DisplayAll", true);
+        HUDText.SetBool("DisplayAll", true);
         yield return new WaitForSeconds(5);
-        HUDObjects.SetBool("Display", false);
-        HUDText.SetBool("Display", false);
+        HUDObjects.SetBool("DisplayAll", false);
+        HUDText.SetBool("DisplayAll", false);
     }
 
     /*//Testing purposes only. Remove at final build!!!

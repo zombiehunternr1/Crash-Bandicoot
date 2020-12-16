@@ -91,8 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7577538169727155559}
   - component: {fileID: 2918045551356980281}
-  - component: {fileID: 8589558351753563142}
   - component: {fileID: 8738868403989986387}
+  - component: {fileID: -8294828571357494287}
   m_Layer: 0
   m_Name: Woompa Fruit
   m_TagString: Untagged
@@ -128,19 +128,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8589558351753563142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4901675930758871217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dabd74c7ed637940b3840225c47cd70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AddWoompa: {fileID: 11400000, guid: eff4a7bef981ca0448b5dd6e046f8654, type: 2}
 --- !u!95 &8738868403989986387
 Animator:
   serializedVersion: 3
@@ -160,3 +147,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8294828571357494287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901675930758871217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dabd74c7ed637940b3840225c47cd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddWoompa: {fileID: 11400000, guid: eff4a7bef981ca0448b5dd6e046f8654, type: 2}
