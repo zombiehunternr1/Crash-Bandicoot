@@ -32,7 +32,8 @@ public class PlayerActions : MonoBehaviour
     private bool DisplayHud = false;
     
     float TimerHUD = 0f;
-    float TimerWoompa = 0f;
+    [HideInInspector]
+    public float TimerWoompa = 0f;
     [HideInInspector]
     public float TimerLife = 0f;
 
@@ -260,6 +261,7 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
+    //This function adds Woompa fruit to the playerstatus SO, raises the UpdateUI event and if the player has over 99 Woompa fruit it resets the amount to 0 and calls the function AddExtraLife.
     public void AddWoompa()
     {
         TimerWoompa = 5f;
@@ -272,6 +274,7 @@ public class PlayerActions : MonoBehaviour
         }           
     }
 
+    //This function sets the TimerLife to 5, adds an extra life to the playerstatus and raises the UpdateUI event.
     public void AddExtraLife()
     {        
         TimerLife = 5;

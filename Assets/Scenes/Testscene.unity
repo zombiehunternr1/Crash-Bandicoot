@@ -572,6 +572,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bounce amount Crate (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4604720463922916215, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1391278474}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1, type: 3}
 --- !u!1001 &319238970
@@ -799,6 +804,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bounce amount Crate
       objectReference: {fileID: 0}
+    - target: {fileID: 4604720463922916215, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1391278474}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1, type: 3}
 --- !u!1 &409402298 stripped
@@ -3078,6 +3088,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bounce amount Crate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4604720463922916215, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1391278474}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1, type: 3}
 --- !u!95 &2145126740 stripped

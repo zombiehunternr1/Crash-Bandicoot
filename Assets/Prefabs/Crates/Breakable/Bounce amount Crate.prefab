@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CrateDestroyed: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
   UpdateUI: {fileID: 11400000, guid: 0a86eb7cbdaa4d14fb61576465619d86, type: 2}
+  Player: {fileID: 0}
   AddWoompa: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
   Activated: 0
 --- !u!114 &4604720463922916104
