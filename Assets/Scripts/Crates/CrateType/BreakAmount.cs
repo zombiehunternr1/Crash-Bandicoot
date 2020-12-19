@@ -5,6 +5,7 @@ using UnityEngine;
 public class BreakAmount : MonoBehaviour
 {
     public GameEvent CrateDestroyed;
+    public GameEvent UpdateUI;
     public PlayerInfo AddWoompa;
     [HideInInspector]
     public bool Activated = false;
@@ -38,6 +39,7 @@ public class BreakAmount : MonoBehaviour
             for(int i = 0; i < GiveWoompa; i++)
             {
                 AddWoompa.Woompa++;
+                UpdateUI.Raise();
             }
         }
         //Checks if the bouncecount is smaller then the totalbounce. If so that means the player jumped on the crate again in the allowed timespan.
@@ -47,6 +49,7 @@ public class BreakAmount : MonoBehaviour
             for (int i = 0; i < GiveWoompa; i++)
             {
                 AddWoompa.Woompa++;
+                UpdateUI.Raise();
             }
             StartTime = 0f;
         }
@@ -57,6 +60,7 @@ public class BreakAmount : MonoBehaviour
             for (int i = 0; i < GiveWoompa; i++)
             {
                 AddWoompa.Woompa++;
+                UpdateUI.Raise();
             }
             StopCoroutine(Timer());
             CrateDestroyed.Raise();

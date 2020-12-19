@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "HUDReleased",
+                    "type": "Button",
+                    "id": "146cde52-ee05-44d2-b2a6-c88a34f6d42c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -242,6 +250,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "HUD",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a3e6cc7-4ef5-4dd4-8a79-15b3ff6a2d5e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HUDReleased",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c11c57b-3e23-4ec7-8c9e-85834964b6ef",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HUDReleased",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

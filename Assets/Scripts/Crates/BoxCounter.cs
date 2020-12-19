@@ -15,7 +15,6 @@ public class BoxCounter : MonoBehaviour
     void Awake()
     {
         LevelManager = GetComponentInParent<LevelManager>();
-
     }
 
     //Keeps setting the BoxCount text to the objects position.
@@ -30,13 +29,13 @@ public class BoxCounter : MonoBehaviour
     //Afterwards it disables the boxcount text, disables the boxcollider on the parent object and disables it's meshrenderer.
     public void SpawnGem()
     {
-        if(LevelManager.CurrentCrates == LevelManager.TotalCrates.Count)
+        if (LevelManager.CurrentCrates == LevelManager.TotalCrates.Count)
         {
             LevelGem = Instantiate(Gem, transform.position, transform.rotation, this.transform);
             BoxCount.GetComponent<Text>().enabled = false;
             Parent.GetComponent<BoxCollider>().enabled = false;
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        }
+        }         
     }
 
     //This function updates the UI text that is being displayed on the total count crate.

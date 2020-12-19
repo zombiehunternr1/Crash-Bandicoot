@@ -57,6 +57,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""HUDReleased"",
+                    ""type"": ""Button"",
+                    ""id"": ""146cde52-ee05-44d2-b2a6-c88a34f6d42c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -257,6 +265,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""HUD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3a3e6cc7-4ef5-4dd4-8a79-15b3ff6a2d5e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HUDReleased"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c11c57b-3e23-4ec7-8c9e-85834964b6ef"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HUDReleased"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -270,6 +300,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player_Spin = m_Player.FindAction("Spin", throwIfNotFound: true);
         m_Player_JumpReleased = m_Player.FindAction("JumpReleased", throwIfNotFound: true);
         m_Player_HUD = m_Player.FindAction("HUD", throwIfNotFound: true);
+        m_Player_HUDReleased = m_Player.FindAction("HUDReleased", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -324,6 +355,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Spin;
     private readonly InputAction m_Player_JumpReleased;
     private readonly InputAction m_Player_HUD;
+    private readonly InputAction m_Player_HUDReleased;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -333,6 +365,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Spin => m_Wrapper.m_Player_Spin;
         public InputAction @JumpReleased => m_Wrapper.m_Player_JumpReleased;
         public InputAction @HUD => m_Wrapper.m_Player_HUD;
+        public InputAction @HUDReleased => m_Wrapper.m_Player_HUDReleased;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -357,6 +390,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @HUD.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHUD;
                 @HUD.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHUD;
                 @HUD.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHUD;
+                @HUDReleased.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHUDReleased;
+                @HUDReleased.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHUDReleased;
+                @HUDReleased.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHUDReleased;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -376,6 +412,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @HUD.started += instance.OnHUD;
                 @HUD.performed += instance.OnHUD;
                 @HUD.canceled += instance.OnHUD;
+                @HUDReleased.started += instance.OnHUDReleased;
+                @HUDReleased.performed += instance.OnHUDReleased;
+                @HUDReleased.canceled += instance.OnHUDReleased;
             }
         }
     }
@@ -387,5 +426,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSpin(InputAction.CallbackContext context);
         void OnJumpReleased(InputAction.CallbackContext context);
         void OnHUD(InputAction.CallbackContext context);
+        void OnHUDReleased(InputAction.CallbackContext context);
     }
 }

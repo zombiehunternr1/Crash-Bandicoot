@@ -140,7 +140,7 @@ public class LevelManager : MonoBehaviour
             {
                 if(PlayerInfo.Lives > 0)
                 {
-                    PlayerInfo.Lives--;
+                    PlayerInfo.Lives--;                   
                     foreach(BoxCounter BoxCounter in BoxCounters)
                     {
                         if (BoxCounter != null)
@@ -292,6 +292,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            Player.TimerLife = 5f;
             Player.CanMove = true;
         }
     }

@@ -127,6 +127,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 8622165233999203386, guid: eca141368cbe88740911551cbb1ff31d, type: 3}
   LevelManager: {fileID: 0}
+  GemsCollected: {fileID: 11400000, guid: 905d72af5891aa94f8b882a652fb28b1, type: 2}
+  GemsAvailable: {fileID: 11400000, guid: 59cb7724574ff1c4195d659707bdc69b, type: 2}
+  TempGems: {fileID: 11400000, guid: 712081863e45002458ae8b0d2f5f75d7, type: 2}
 --- !u!65 &2523408570105783691
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e348d2714c17b448b05b1d9dc415cc, type: 3}
-  m_Name: Playerinfo
+  m_Script: {fileID: 11500000, guid: 6c2035226a0931447a8c230d15e7d15c, type: 3}
+  m_Name: Gems Collected
   m_EditorClassIdentifier: 
-  Lives: 20
-  ExtraHit: 0
-  Woompa: 0
+  GemList: []

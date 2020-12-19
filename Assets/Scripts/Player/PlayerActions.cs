@@ -22,6 +22,19 @@ public class PlayerActions : MonoBehaviour
     public BoxCollider SpinCollider;
     public Animator HUDObjects;
     public Animator HUDText;
+    public Animator UILivesObject;
+    public Animator UILivesText;
+    public Animator UIWoompaObject;
+    public Animator UIWoompaText;
+
+    private bool GotWoompa = false;
+    private bool GotLife = false;
+    private bool DisplayHud = false;
+    
+    float TimerHUD = 0f;
+    float TimerWoompa = 0f;
+    [HideInInspector]
+    public float TimerLife = 0f;
 
     private Animation AnimSpinAttack;
     private Animator PlayerAnimator;
@@ -79,6 +92,40 @@ public class PlayerActions : MonoBehaviour
             {
                 FallingMovement -= FallingCutoff * Time.deltaTime;
             }
+        }
+
+        if (DisplayHud)
+        {
+            TimerLife = 5f;
+            TimerWoompa = 5f;
+            TimerHUD = 5f;
+        }
+        if (TimerWoompa > 0)
+        {
+            TimerWoompa -= Time.deltaTime;
+            ShowWoompa();
+        }
+        else
+        {
+            HideWoompa();
+        }
+        if (TimerHUD > 0)
+        {
+            TimerHUD -= Time.deltaTime;
+            ShowHUD();
+        }
+        else
+        {
+            HideHUD();
+        }
+        if (TimerLife > 0)
+        {
+            TimerLife -= Time.deltaTime;
+            ShowLives();
+        }
+        else
+        {
+            HideLives();
         }
     }
 
@@ -190,7 +237,13 @@ public class PlayerActions : MonoBehaviour
     //Once this function gets called it displays the HUD
     private void OnHUD()
     {
-        StartCoroutine(DisplayHUD());
+        DisplayHud = true;
+    }
+
+    //Once this function gets called it displays the HUD
+    private void OnHUDReleased()
+    {
+        DisplayHud = false;
     }
 
     //This function gets called when the player died and needs to be respawned.
@@ -209,22 +262,57 @@ public class PlayerActions : MonoBehaviour
 
     public void AddWoompa()
     {
+        TimerWoompa = 5f;
         PlayerStatus.Player.Woompa++;
+        UpdateUI.Raise();
         if (PlayerStatus.Player.Woompa >= 99)
         {
-            AddExtraLife();
             PlayerStatus.Player.Woompa = 0;
-        }
-        else
-        {
-            StartCoroutine(HideWoompaOvertime());
-        }            
+            AddExtraLife();           
+        }           
     }
 
     public void AddExtraLife()
-    {
+    {        
+        TimerLife = 5;
         PlayerStatus.Player.Lives++;
-        StartCoroutine(HideLivesOverTime());
+        UpdateUI.Raise();
+    }
+
+    private void HideHUD()
+    {
+        HUDObjects.SetBool("DisplayAll", false);
+        HUDText.SetBool("DisplayAll", false);
+    }
+
+    private void ShowHUD()
+    {
+        HUDObjects.SetBool("DisplayAll", true);
+        HUDText.SetBool("DisplayAll", true);
+    }
+
+    private void HideLives()
+    {
+        UILivesObject.SetBool("Display", false);
+        UILivesText.SetBool("Display", false);
+    }
+
+    private void ShowLives()
+    {
+        UILivesObject.SetBool("Display", true);
+        UILivesText.SetBool("Display", true);
+    }
+    
+    private void HideWoompa()
+    {
+        UIWoompaObject.SetBool("Display", false);
+        UIWoompaText.SetBool("Display", false);
+    }
+
+    private void ShowWoompa()
+    {
+        UIWoompaObject.SetBool("Display", true);
+        UIWoompaText.SetBool("Display", true);
     }
 
     IEnumerator SpinAttack()
@@ -242,36 +330,6 @@ public class PlayerActions : MonoBehaviour
             IsSpinning = false;
         }
     }
-
-    IEnumerator HideWoompaOvertime()
-    {
-        UpdateUI.Raise();
-        HUDObjects.SetBool("DisplayWoompa", true);
-        HUDText.SetBool("DisplayWoompa", true);
-        yield return new WaitForSeconds(5);
-        HUDObjects.SetBool("DisplayWoompa", false);
-        HUDText.SetBool("DisplayWoompa", false);
-    }
-
-    IEnumerator HideLivesOverTime()
-    {
-        UpdateUI.Raise();
-        HUDObjects.SetBool("DisplayLives", true);
-        HUDText.SetBool("DisplayLives", true);
-        yield return new WaitForSeconds(5);
-        HUDObjects.SetBool("DisplayLives", false);
-        HUDText.SetBool("DisplayLives", false);
-    }
-
-    IEnumerator DisplayHUD()
-    {
-        HUDObjects.SetBool("DisplayAll", true);
-        HUDText.SetBool("DisplayAll", true);
-        yield return new WaitForSeconds(5);
-        HUDObjects.SetBool("DisplayAll", false);
-        HUDText.SetBool("DisplayAll", false);
-    }
-
     /*//Testing purposes only. Remove at final build!!!
     private void OnDrawGizmosSelected()
     {
