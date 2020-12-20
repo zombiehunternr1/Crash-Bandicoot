@@ -228,9 +228,19 @@ public class LevelManager : MonoBehaviour
                         if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
                         {
                             BoxCounters.RemoveAt(i);
-                        }
+                            UpdateHUD();
+                            return;
+                        }                       
                     }
-                    BoxCounters[i].UpdateSpawnGemUI();
+                    else if(GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
+                    {
+                        GemsAvailable.Gems[j].SetActive(false);
+                        BoxCounters[i].gameObject.SetActive(true);
+                        BoxCounters[i].gameObject.GetComponentInParent<BoxCollider>().enabled = true;
+                        BoxCounters[i].gameObject.GetComponent<MeshRenderer>().enabled = true;
+                        BoxCounters[i].gameObject.GetComponentInChildren<Text>().enabled = true;
+                        BoxCounters[i].UpdateSpawnGemUI();
+                    }                                        
                 }
             }
             UpdateHUD();

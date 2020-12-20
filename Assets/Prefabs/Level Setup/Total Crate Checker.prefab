@@ -108,7 +108,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7424313502820206215}
-  - {fileID: 186302823782746139}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -137,8 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5eae0cc755b50f49b36ce6c8033e150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GemCollection: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
-  GemsAvailable: {fileID: 0}
 --- !u!1 &5387547552553491645
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,8 +166,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 3202035084608851135}
-  m_Father: {fileID: 4434218013762332154}
-  m_RootOrder: 1
+  m_Father: {fileID: 7424313502820206215}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -250,7 +247,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 186302823782746139}
   m_Father: {fileID: 4434218013762332154}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
