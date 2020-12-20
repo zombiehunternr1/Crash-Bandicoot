@@ -40,7 +40,7 @@ public class BoxCounter : MonoBehaviour
     {
         if(BoxCount != null)
         {
-            BoxCount.text = LevelManager.CurrentCrates + " / " + LevelManager.TotalCrates.Count.ToString();
+            BoxCount.text = LevelManager.CurrentCrates + "/" + LevelManager.TotalCrates.Count.ToString();
         }
     }  
 }

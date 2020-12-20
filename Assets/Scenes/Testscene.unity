@@ -221,7 +221,7 @@ PrefabInstance:
     - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
         type: 3}
@@ -231,7 +231,7 @@ PrefabInstance:
     - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.09
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
         type: 3}
@@ -273,6 +273,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8386462191274096048, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: GemsAvailable
+      value: 
+      objectReference: {fileID: 557413004}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ca6edd2b0974044899b75f7d20fe33f, type: 3}
 --- !u!95 &100338960 stripped
@@ -450,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 7577538169727155559, guid: 63f7fc1de0254954ab40699237190102,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7577538169727155559, guid: 63f7fc1de0254954ab40699237190102,
         type: 3}
@@ -935,7 +940,7 @@ PrefabInstance:
     - target: {fileID: 6728585968608565981, guid: 8737ae43eff11a74b9d790640168c875,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6728585968608565981, guid: 8737ae43eff11a74b9d790640168c875,
         type: 3}
@@ -989,6 +994,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8737ae43eff11a74b9d790640168c875, type: 3}
+--- !u!114 &557413004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4166531876570917800, guid: 2416d0ca7abbcae44ba608fdd1733b56,
+    type: 3}
+  m_PrefabInstance: {fileID: 503780566489944477}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee14fc7e5e2637142a43b246b97f74e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &576775756 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2953217173423938678, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
@@ -1478,7 +1495,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &873590967
 PrefabInstance:
@@ -1745,10 +1762,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4434218013762332152, guid: 632c775917aa2194789018f15bbc7cc6,
+        type: 3}
+      propertyPath: GemsAvailable
+      value: 
+      objectReference: {fileID: 557413004}
     - target: {fileID: 4434218013762332153, guid: 632c775917aa2194789018f15bbc7cc6,
         type: 3}
       propertyPath: m_Name
       value: Total Crate Checker (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434218013762332153, guid: 632c775917aa2194789018f15bbc7cc6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4434218013762332154, guid: 632c775917aa2194789018f15bbc7cc6,
         type: 3}
@@ -1910,7 +1937,7 @@ PrefabInstance:
     - target: {fileID: 6989627018079205029, guid: 34e67dfdbd503d5498cfdaee114a90cd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6989627018079205029, guid: 34e67dfdbd503d5498cfdaee114a90cd,
         type: 3}
@@ -2023,6 +2050,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4434218013762332152, guid: 632c775917aa2194789018f15bbc7cc6,
+        type: 3}
+      propertyPath: GemsAvailable
+      value: 
+      objectReference: {fileID: 557413004}
     - target: {fileID: 4434218013762332153, guid: 632c775917aa2194789018f15bbc7cc6,
         type: 3}
       propertyPath: m_Name
@@ -2468,7 +2500,7 @@ Transform:
   m_LocalScale: {x: 4.3775, y: 1, z: 3.9181}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1515900355
 PrefabInstance:
@@ -2540,7 +2572,7 @@ PrefabInstance:
     - target: {fileID: 1801363950488579361, guid: d1516630018aabf49a45ab53acf21ced,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1516630018aabf49a45ab53acf21ced, type: 3}
@@ -2645,7 +2677,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1680787929 stripped
 Transform:
@@ -3096,7 +3128,7 @@ PrefabInstance:
     - target: {fileID: 503780566785969422, guid: 2416d0ca7abbcae44ba608fdd1733b56,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 503780566785969422, guid: 2416d0ca7abbcae44ba608fdd1733b56,
         type: 3}
@@ -3171,7 +3203,7 @@ PrefabInstance:
     - target: {fileID: 1684979239015142248, guid: 98e25f596f3a3bc4abd5f6aa3a569557,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1684979239015142248, guid: 98e25f596f3a3bc4abd5f6aa3a569557,
         type: 3}
@@ -3255,11 +3287,6 @@ PrefabInstance:
       objectReference: {fileID: 576775756}
     - target: {fileID: 2704353335400056078, guid: 98e25f596f3a3bc4abd5f6aa3a569557,
         type: 3}
-      propertyPath: Testing
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704353335400056078, guid: 98e25f596f3a3bc4abd5f6aa3a569557,
-        type: 3}
       propertyPath: LevelManager
       value: 
       objectReference: {fileID: 576775756}
@@ -3285,7 +3312,7 @@ PrefabInstance:
     - target: {fileID: 2953217173423938673, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2953217173423938673, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
         type: 3}
@@ -3372,6 +3399,17 @@ PrefabInstance:
       propertyPath: GameOverText
       value: 
       objectReference: {fileID: 657757555}
+    - target: {fileID: 2953217173423938678, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
+        type: 3}
+      propertyPath: GemCollection
+      value: 
+      objectReference: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9,
+        type: 2}
+    - target: {fileID: 2953217173423938678, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
+        type: 3}
+      propertyPath: GemsAvailable
+      value: 
+      objectReference: {fileID: 557413004}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63fd30f8d2b5f8044bd84a57a19f325e, type: 3}
 --- !u!114 &3011332749342427345 stripped
@@ -3406,7 +3444,7 @@ PrefabInstance:
     - target: {fileID: 5032408512218690697, guid: c0c60c625444ffb428c0e3cb2a63e08a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5032408512218690697, guid: c0c60c625444ffb428c0e3cb2a63e08a,
         type: 3}
@@ -3515,7 +3553,7 @@ PrefabInstance:
     - target: {fileID: 5146495724837922489, guid: f0254d96daae17b4daaec346b33e3679,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5146495724837922489, guid: f0254d96daae17b4daaec346b33e3679,
         type: 3}
@@ -3599,7 +3637,7 @@ PrefabInstance:
     - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
         type: 3}
@@ -3646,6 +3684,11 @@ PrefabInstance:
       propertyPath: gemColour
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8386462191274096048, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: GemsAvailable
+      value: 
+      objectReference: {fileID: 557413004}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ca6edd2b0974044899b75f7d20fe33f, type: 3}
 --- !u!1001 &7127039780777055489
@@ -3663,7 +3706,7 @@ PrefabInstance:
     - target: {fileID: 7127039781464441025, guid: 859a6c6f24a762b4c90319c0169e5906,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7127039781464441025, guid: 859a6c6f24a762b4c90319c0169e5906,
         type: 3}

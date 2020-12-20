@@ -230,29 +230,9 @@ public class LevelManager : MonoBehaviour
                             BoxCounters.RemoveAt(i);
                         }
                     }
-                }
-                /*
-                if (BoxCounters[i].gameObject.activeSelf)
-                {
-                    BoxCounters[i].BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
-
                     BoxCounters[i].UpdateSpawnGemUI();
-                    if (BoxCounters[i].BoxCount != null)
-                    {
-                        BoxCounters[i].BoxCount.GetComponent<Text>().enabled = true;
-                    }
-                    if (BoxCounters[i].Parent != null)
-                    {
-                        BoxCounters[i].Parent.GetComponent<BoxCollider>().enabled = true;
-                    }
-                    BoxCounters[i].gameObject.GetComponent<MeshRenderer>().enabled = true;                   
                 }
-                else
-                {
-                    BoxCounters[i].gameObject.GetComponentInParent<CheckAmount>().gameObject.SetActive(false);
-                }
-                */
-            }          
+            }
             UpdateHUD();
         }
 
