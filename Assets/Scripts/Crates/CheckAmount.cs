@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CheckAmount : MonoBehaviour
 {
     private BoxCounter Counter;
-    private string GemID;
 
     void Start()
     { 
@@ -33,5 +31,5 @@ public class CheckAmount : MonoBehaviour
         {
             Counter.SpawnGem();
         }
-    }
+    } 
 }

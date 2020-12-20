@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public GemCollected GemCollection;
+    public GemSystem GemsAvailable;
     public GameObject LevelCrates;
     public PlayerActions Player;
     public PlayerInfo PlayerInfo;
@@ -65,11 +67,23 @@ public class LevelManager : MonoBehaviour
         foreach (Breakable Crate in CratesInLevel)
         {
             TotalCrates.Add(Crate);
-        }
-        for(int i = 0; i < BoxCounters.Count; i++)
+        }   
+
+        for (int i = 0; i < BoxCounters.Count; i++)
         {
             BoxCounters[i].BoxCount.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
             BoxCountUI.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
+
+            for (int j = 0; j < GemsAvailable.Gems.Count; j++)
+            {
+                if (GemCollection.GemsCollected.Contains(j))
+                {
+                    if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
+                    {
+                        BoxCounters[i].gameObject.GetComponentInParent<CheckAmount>().gameObject.SetActive(false);
+                    }
+                }
+            }
         }
         WoompaUI.text = PlayerInfo.Woompa.ToString();
         LivesUI.text = PlayerInfo.Lives.ToString();
@@ -141,15 +155,9 @@ public class LevelManager : MonoBehaviour
                 if(PlayerInfo.Lives > 0)
                 {
                     PlayerInfo.Lives--;                   
-                    foreach(BoxCounter BoxCounter in BoxCounters)
-                    {
-                        if (BoxCounter != null)
-                        {
-                            ResetLevel();
-                        }
-                        ResetPlayerPosition.Raise();
-                        StartCoroutine(FadeToOpaque());
-                    }                   
+                    ResetLevel();
+                    ResetPlayerPosition.Raise();
+                    StartCoroutine(FadeToOpaque());                                    
                 }
                 else
                 {
@@ -211,19 +219,40 @@ public class LevelManager : MonoBehaviour
         }
         for (int i = 0; i < BoxCounters.Count; i++)
         {
-            BoxCounters[i].BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
+            if(BoxCounters != null)
+            {
+                for (int j = 0; j < GemsAvailable.Gems.Count; j++)
+                {
+                    if (GemCollection.GemsCollected.Contains(j))
+                    {
+                        if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
+                        {
+                            BoxCounters.RemoveAt(i);
+                        }
+                    }
+                }
+                /*
+                if (BoxCounters[i].gameObject.activeSelf)
+                {
+                    BoxCounters[i].BoxCount.text = CurrentCrates + " / " + TotalCrates.Count.ToString();
 
-            BoxCounters[i].UpdateSpawnGemUI();
-            if (BoxCounters[i].BoxCount != null)
-            {
-                BoxCounters[i].BoxCount.GetComponent<Text>().enabled = true;
-            }
-            if (BoxCounters[i].Parent != null)
-            {
-                BoxCounters[i].Parent.GetComponent<BoxCollider>().enabled = true;
-            }
-            BoxCounters[i].gameObject.GetComponent<MeshRenderer>().enabled = true;
-            Destroy(BoxCounters[i].gameObject);
+                    BoxCounters[i].UpdateSpawnGemUI();
+                    if (BoxCounters[i].BoxCount != null)
+                    {
+                        BoxCounters[i].BoxCount.GetComponent<Text>().enabled = true;
+                    }
+                    if (BoxCounters[i].Parent != null)
+                    {
+                        BoxCounters[i].Parent.GetComponent<BoxCollider>().enabled = true;
+                    }
+                    BoxCounters[i].gameObject.GetComponent<MeshRenderer>().enabled = true;                   
+                }
+                else
+                {
+                    BoxCounters[i].gameObject.GetComponentInParent<CheckAmount>().gameObject.SetActive(false);
+                }
+                */
+            }          
             UpdateHUD();
         }
 

@@ -137,6 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5eae0cc755b50f49b36ce6c8033e150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GemCollection: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  GemsAvailable: {fileID: 0}
 --- !u!1 &5387547552553491645
 GameObject:
   m_ObjectHideFlags: 0

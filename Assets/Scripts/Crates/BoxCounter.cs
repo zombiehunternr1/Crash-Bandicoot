@@ -35,9 +35,12 @@ public class BoxCounter : MonoBehaviour
         }         
     }
 
-    //This function updates the UI text that is being displayed on the total count crate.
+    //This function first checks if the BoxCount isn't empty. If not then it updates the UI text that is being displayed on the total count crate.
     public void UpdateSpawnGemUI()
     {
-        BoxCount.text = LevelManager.CurrentCrates + " / " + LevelManager.TotalCrates.Count.ToString();
+        if(BoxCount != null)
+        {
+            BoxCount.text = LevelManager.CurrentCrates + " / " + LevelManager.TotalCrates.Count.ToString();
+        }
     }  
 }

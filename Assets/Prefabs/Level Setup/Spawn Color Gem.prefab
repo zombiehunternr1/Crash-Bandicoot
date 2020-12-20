@@ -43,4 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f32cead45ed0bd45b8b5eccb307f87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GemCollection: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  GemsAvailable: {fileID: 0}
   gemColour: 7
