@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b612afa004e0a488745bc307ab9dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GemCollection: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  GemsAvailable: {fileID: 0}
   LevelCrates: {fileID: 1649700691}
   Player: {fileID: 0}
   PlayerInfo: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
