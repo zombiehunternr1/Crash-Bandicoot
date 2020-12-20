@@ -17,7 +17,7 @@ public class Gem : MonoBehaviour
         GemColour = gemColour;
         switch (GemColour)
         {
-            case GemColour.white:
+            case GemColour.WhiteBox:
                 Gems[0].SetActive(true);
                 break;
 
@@ -44,17 +44,22 @@ public class Gem : MonoBehaviour
             case GemColour.Purple:
                 Gems[6].SetActive(true);
                 break;
+
+            case GemColour.WhiteHidden:
+                Gems[7].SetActive(true);
+                break;
         }
     }
 }
 
 public enum GemColour 
 { 
-    white,
+    WhiteBox,
     Red,
     Green,
     Blue,
     Yellow,
     Orange,
-    Purple
+    Purple,
+    WhiteHidden
 }

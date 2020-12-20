@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f32cead45ed0bd45b8b5eccb307f87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gemColour: 7

@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gems: []
-  gemHolder: {fileID: 0}
+  gemHolder: {fileID: 2468713407287234603, guid: 98e25f596f3a3bc4abd5f6aa3a569557,
+    type: 3}
   MaxGemsToPool: 30

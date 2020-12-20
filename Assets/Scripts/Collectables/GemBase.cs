@@ -9,10 +9,12 @@ public class GemBase : MonoBehaviour
     public LevelManager LevelManager;
 
     private Colored ColorGem;
+    private Hidden HiddenGem;
 
     private void Awake()
     {
         ColorGem = GetComponent<Colored>();
+        HiddenGem = GetComponent<Hidden>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,13 +24,16 @@ public class GemBase : MonoBehaviour
             Effect.Play();
             if (!ColorGem)
             {
-                if (LevelManager != null)
+                if (!HiddenGem)
                 {
-                    for (int i = 0; i < LevelManager.BoxCounters.Count; i++)
+                    if (LevelManager != null)
                     {
-                        Destroy(LevelManager.BoxCounters[i].GetComponentInParent<CheckAmount>().gameObject);
+                        for (int i = 0; i < LevelManager.BoxCounters.Count; i++)
+                        {
+                            Destroy(LevelManager.BoxCounters[i].GetComponentInParent<CheckAmount>().gameObject);
+                        }
                     }
-                }
+                }               
             }           
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
             Destroy(gameObject, 0.5f);

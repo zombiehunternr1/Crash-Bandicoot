@@ -28,7 +28,7 @@ public class BoxCounter : MonoBehaviour
     {
         if (LevelManager.CurrentCrates == LevelManager.TotalCrates.Count)
         {
-            GemSystem.Instance.SpawnGem(this.transform.position, GemColour.white);
+            GemSystem.Instance.SpawnGem(this.transform.position, GemColour.WhiteBox);
             BoxCount.GetComponent<Text>().enabled = false;
             Parent.GetComponent<BoxCollider>().enabled = false;
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
