@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5eae0cc755b50f49b36ce6c8033e150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GemsCollected: {fileID: 11400000, guid: 905d72af5891aa94f8b882a652fb28b1, type: 2}
 --- !u!1 &5387547552553491645
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +328,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoxCount: {fileID: 3202035084608851134}
-  Gem: {fileID: 2523408570105783689, guid: d62b872833ecc8a40889308f3d25ec96, type: 3}
   Parent: {fileID: 4434218013762332153}
-  LevelGem: {fileID: 0}

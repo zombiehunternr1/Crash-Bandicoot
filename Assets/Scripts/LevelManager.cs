@@ -223,7 +223,7 @@ public class LevelManager : MonoBehaviour
                 BoxCounters[i].Parent.GetComponent<BoxCollider>().enabled = true;
             }
             BoxCounters[i].gameObject.GetComponent<MeshRenderer>().enabled = true;
-            Destroy(BoxCounters[i].LevelGem);
+            Destroy(BoxCounters[i].gameObject);
             UpdateHUD();
         }
 

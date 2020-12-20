@@ -6,21 +6,11 @@ using UnityEngine.SceneManagement;
 public class CheckAmount : MonoBehaviour
 {
     private BoxCounter Counter;
-    public Gems GemsCollected;
     private string GemID;
 
     void Start()
     { 
-        Counter = GetComponentInChildren<BoxCounter>();
-
-        if(GemsCollected.GemList != null)
-        {
-            //Checks if gem has already been collected in this level. If so it destroys the gameobject.
-            if (GemsCollected.GemList.Contains(GemID))
-            {
-                Destroy(gameObject);
-            }
-        }    
+        Counter = GetComponentInChildren<BoxCounter>();   
     }
 
     //Checks if the object it's colliding with is the player.
