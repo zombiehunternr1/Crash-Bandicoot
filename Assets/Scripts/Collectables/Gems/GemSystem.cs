@@ -23,6 +23,7 @@ public class GemSystem : MonoBehaviour
         for (int i = 0; i < MaxGemsToPool; i++)
         {
             var newGem = Instantiate(gemHolder, Vector3.zero, Quaternion.identity);
+            newGem.GetComponent<Gem>().ID = i;
             newGem.SetActive(false);
             Gems.Add(newGem);
         }

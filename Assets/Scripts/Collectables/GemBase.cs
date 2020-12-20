@@ -7,6 +7,7 @@ public class GemBase : MonoBehaviour
 {
     public ParticleSystem Effect;
     public LevelManager LevelManager;
+    public GemCollected GemCollect;
 
     private Colored ColorGem;
     private Hidden HiddenGem;
@@ -28,15 +29,29 @@ public class GemBase : MonoBehaviour
                 {
                     if (LevelManager != null)
                     {
+                        GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
                         for (int i = 0; i < LevelManager.BoxCounters.Count; i++)
                         {
                             Destroy(LevelManager.BoxCounters[i].GetComponentInParent<CheckAmount>().gameObject);
                         }
+                        DestroyGem();
+                        return;
                     }
-                }               
+                    GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
+                }
+                GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
+            }
+            else
+            {
+                GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
             }           
-            gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
-            Destroy(gameObject, 0.5f);
         }
+        DestroyGem();
+    }
+
+    private void DestroyGem()
+    {
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        Destroy(gameObject, 0.5f);
     }
 }

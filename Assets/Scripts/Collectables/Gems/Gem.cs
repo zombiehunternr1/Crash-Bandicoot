@@ -6,6 +6,7 @@ public class Gem : MonoBehaviour
 {
     public GemColour GemColour;
     public GameObject[] Gems;
+    public int ID;
 
     private void Start()
     {

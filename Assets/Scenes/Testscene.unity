@@ -3255,6 +3255,11 @@ PrefabInstance:
       objectReference: {fileID: 576775756}
     - target: {fileID: 2704353335400056078, guid: 98e25f596f3a3bc4abd5f6aa3a569557,
         type: 3}
+      propertyPath: Testing
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704353335400056078, guid: 98e25f596f3a3bc4abd5f6aa3a569557,
+        type: 3}
       propertyPath: LevelManager
       value: 
       objectReference: {fileID: 576775756}
