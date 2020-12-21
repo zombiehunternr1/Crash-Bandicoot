@@ -34,16 +34,19 @@ public class LevelManager : MonoBehaviour
     private List<NitroDetonator> NitroDetanorCrates = new List<NitroDetonator>();   
     private int FadingSpeed = 1;
     private bool Fading = true;
+    private SpawnColorGem SpawnColorGem;
     private BoxCounter[] BoxCountersInLevel;
     private Breakable[] CratesInLevel;
     private Activator[] ActivatorsInLevel;
     private NitroDetonator[] NitroDetonatorsInLevel;
 
+    //Goes over all the gameobjects in LevelCrates to find the object that has the script SpawnColorGem attached to it. If so it adds it to the variable SpawnColorGem.
     //Gets all the crates with crate type Breakable, Activator and NitroDetonator and stores them in each individual array.
     //Then goes over each item in their individual array and adds them to their corresponding list.
     //At the end the Boxcounter will be displayed with the current amount of broken crates and the total breakable crates in the level.
     void Start()
     {
+        SpawnColorGem = LevelCrates.GetComponentInChildren<SpawnColorGem>();
         CratesInLevel = LevelCrates.GetComponentsInChildren<Breakable>();
         ActivatorsInLevel = LevelCrates.GetComponentsInChildren<Activator>();
         NitroDetonatorsInLevel = LevelCrates.GetComponentsInChildren<NitroDetonator>();
@@ -71,19 +74,38 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < BoxCounters.Count; i++)
         {
-            BoxCounters[i].BoxCount.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
-            BoxCountUI.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
-
-            for (int j = 0; j < GemsAvailable.Gems.Count; j++)
+            if(BoxCounters[i] != null)
             {
-                if (GemCollection.GemsCollected.Contains(j))
+                BoxCounters[i].BoxCount.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
+                BoxCountUI.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
+
+                for (int j = 0; j < GemsAvailable.Gems.Count; j++)
                 {
-                    if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
+                    if (GemCollection.GemsCollected.Contains(j))
                     {
-                        BoxCounters[i].gameObject.GetComponentInParent<CheckAmount>().gameObject.SetActive(false);
+                        if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
+                        {
+                            if (GemCollection.GemsCollected.Contains(GemsAvailable.Gems[j].GetComponent<Gem>().ID))
+                            {
+                                if (BoxCounters != null)
+                                {
+                                    if (BoxCounters[i].isActiveAndEnabled)
+                                    {
+                                        BoxCounters[i].gameObject.GetComponentInParent<CheckAmount>().gameObject.SetActive(false);
+                                    }
+                                }
+                            }                                                  
+                        }
+                        if (SpawnColorGem != null)
+                        {
+                            if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(SpawnColorGem.gemColour))
+                            {
+                                GemsAvailable.Gems[j].gameObject.SetActive(false);
+                            }
+                        }
                     }
                 }
-            }
+            }          
         }
         WoompaUI.text = PlayerInfo.Woompa.ToString();
         LivesUI.text = PlayerInfo.Lives.ToString();
@@ -227,10 +249,20 @@ public class LevelManager : MonoBehaviour
                     {
                         if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
                         {
-                            BoxCounters.RemoveAt(i);
-                            UpdateHUD();
-                            return;
-                        }                       
+                            if (GemCollection.GemsCollected.Contains(GemsAvailable.Gems[j].GetComponent<Gem>().ID))
+                            {
+                                BoxCounters.RemoveAt(i);
+                                UpdateHUD();
+                                return;
+                            }                        
+                        }
+                        if (SpawnColorGem != null)
+                        {
+                            if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(SpawnColorGem.gemColour))
+                            {
+                                GemsAvailable.Gems[j].gameObject.SetActive(false);
+                            }
+                        }
                     }
                     else if(GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
                     {

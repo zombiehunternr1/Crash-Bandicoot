@@ -6,9 +6,9 @@ using UnityEngine;
 public class GemBase : MonoBehaviour
 {
     public ParticleSystem Effect;
-    public LevelManager LevelManager;
     public GemCollected GemCollect;
 
+    private LevelManager LevelManager;
     private Colored ColorGem;
     private Hidden HiddenGem;
 
@@ -16,6 +16,7 @@ public class GemBase : MonoBehaviour
     {
         ColorGem = GetComponent<Colored>();
         HiddenGem = GetComponent<Hidden>();
+        LevelManager = GetComponentInParent<LevelManager>();
     }
 
     private void OnTriggerEnter(Collider other)
