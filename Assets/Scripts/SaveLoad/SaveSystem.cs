@@ -4,18 +4,18 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 { 
-    public static void SavePlayer(PlayerInfo Player)
+    public static void SaveProgress(PlayerInfo Player, GemCollected Gems)
     {
         BinaryFormatter Formatter = new BinaryFormatter();
         string Path = Application.persistentDataPath + "/Save.cbr";
         FileStream Stream = new FileStream(Path, FileMode.Create);
 
-        Save Save = new Save(Player);
-        Formatter.Serialize(Stream, Save);
+        Save Progress = new Save(Player, Gems);
+        Formatter.Serialize(Stream, Progress);
         Stream.Close();
     }
 
-    public static Save LoadPlayer()
+    public static Save LoadProgress()
     {
         string Path = Application.persistentDataPath + "/Save.cbr";
         if (File.Exists(Path))
@@ -23,9 +23,9 @@ public static class SaveSystem
             BinaryFormatter Formatter = new BinaryFormatter();
             FileStream Stream = new FileStream(Path, FileMode.Open);
 
-            Save Player = Formatter.Deserialize(Stream) as Save;
+            Save Progress = Formatter.Deserialize(Stream) as Save;
             Stream.Close();
-            return Player;
+            return Progress;
         }
         else
         {

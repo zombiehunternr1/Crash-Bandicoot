@@ -166,3 +166,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0f1f57644495744996bdbe806b3c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gems: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}

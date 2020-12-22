@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ExitLevel : MonoBehaviour
 {
+    public GemCollected Gems;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerActions>())
         {
-            SaveSystem.SavePlayer(other.GetComponent<PlayerStatus>().Player);
+            SaveSystem.SaveProgress(other.GetComponent<PlayerStatus>().Player, Gems);
             SceneManager.LoadScene("Testscene");
         }
     }
