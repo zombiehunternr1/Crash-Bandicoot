@@ -706,6 +706,141 @@ PrefabInstance:
       objectReference: {fileID: 1391278474}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34dac8cb52c8d5148bd69fc2a85d5ec1, type: 3}
+--- !u!1 &281359214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2953217173423938676, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2953217172321688381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &281359219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2953217173423938678, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2953217172321688381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281359214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b612afa004e0a488745bc307ab9dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &281359221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281359214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90749240303c2b24e8c1aea0adbdc041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: afccb93aa576ae34099d84b63cc617c1, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 281359219}
+        m_MethodName: LevelChecker
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &309617369
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1649700692}
+    m_Modifications:
+    - target: {fileID: 2789013646802864388, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_Name
+      value: Spawn Color Gem (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.217457
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881763211347764678, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386462191274096048, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: ID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386462191274096048, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: gemColour
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386462191274096048, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: Gem.Colour
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386462191274096048, guid: 2ca6edd2b0974044899b75f7d20fe33f,
+        type: 3}
+      propertyPath: GemsAvailable
+      value: 
+      objectReference: {fileID: 1717094339284853000, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ca6edd2b0974044899b75f7d20fe33f, type: 3}
 --- !u!1001 &319238970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2060,6 +2195,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Total Crate Checker
       objectReference: {fileID: 0}
+    - target: {fileID: 4434218013762332153, guid: 632c775917aa2194789018f15bbc7cc6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4434218013762332154, guid: 632c775917aa2194789018f15bbc7cc6,
         type: 3}
       propertyPath: m_RootOrder
@@ -2114,6 +2254,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801260841705954364, guid: 632c775917aa2194789018f15bbc7cc6,
+        type: 3}
+      propertyPath: BoxCount
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801260841705954365, guid: 632c775917aa2194789018f15bbc7cc6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 632c775917aa2194789018f15bbc7cc6, type: 3}
@@ -3125,6 +3275,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1717094339284853000, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
+        type: 3}
+      propertyPath: gemPrefab
+      value: 
+      objectReference: {fileID: 682547284330954397, guid: 324c6bed6a91bf64e869d04a22f05fac,
+        type: 3}
+    - target: {fileID: 1717094339284853000, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
+        type: 3}
+      propertyPath: GemCollectionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9,
+        type: 2}
     - target: {fileID: 2953217173423938673, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
         type: 3}
       propertyPath: m_RootOrder
@@ -3215,6 +3377,11 @@ PrefabInstance:
       propertyPath: GameOverText
       value: 
       objectReference: {fileID: 657757555}
+    - target: {fileID: 6672467345910165682, guid: 63fd30f8d2b5f8044bd84a57a19f325e,
+        type: 3}
+      propertyPath: Gem.Colour
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63fd30f8d2b5f8044bd84a57a19f325e, type: 3}
 --- !u!114 &3011332749342427345 stripped

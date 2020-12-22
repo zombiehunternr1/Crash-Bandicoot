@@ -43,7 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee14fc7e5e2637142a43b246b97f74e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gems: []
-  gemHolder: {fileID: 2468713407287234603, guid: 98e25f596f3a3bc4abd5f6aa3a569557,
+  CollectedIds: 
+  GemHolders: []
+  BoxCounters: []
+  gemPrefab: {fileID: 682547284330954397, guid: 324c6bed6a91bf64e869d04a22f05fac,
     type: 3}
-  MaxGemsToPool: 30
+  GemCollectionSO: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}

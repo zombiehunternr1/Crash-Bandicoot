@@ -70,47 +70,9 @@ public class LevelManager : MonoBehaviour
         foreach (Breakable Crate in CratesInLevel)
         {
             TotalCrates.Add(Crate);
-        }   
-
-        for (int i = 0; i < BoxCounters.Count; i++)
-        {
-            if(BoxCounters[i] != null)
-            {
-                BoxCounters[i].BoxCount.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
-                BoxCountUI.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
-
-                for (int j = 0; j < GemsAvailable.Gems.Count; j++)
-                {
-                    if (GemCollection.GemsCollected.Contains(j))
-                    {
-                        if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
-                        {
-                            if (GemCollection.GemsCollected.Contains(GemsAvailable.Gems[j].GetComponent<Gem>().ID))
-                            {
-                                if (BoxCounters != null)
-                                {
-                                    if (BoxCounters[i].isActiveAndEnabled)
-                                    {
-                                        BoxCounters[i].gameObject.GetComponentInParent<CheckAmount>().gameObject.SetActive(false);
-                                    }
-                                }
-                            }                                                  
-                        }
-                        if (SpawnColorGem != null)
-                        {
-                            if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(SpawnColorGem.gemColour))
-                            {
-                                if (GemCollection.GemsCollected.Contains(GemsAvailable.Gems[j].GetComponent<Gem>().ID))
-                                {
-                                    Destroy(SpawnColorGem);
-                                    GemsAvailable.Gems[j].gameObject.SetActive(false);
-                                }
-                            }
-                        }
-                    }
-                }
-            }          
         }
+
+        UpdateCrateCount();
         WoompaUI.text = PlayerInfo.Woompa.ToString();
         LivesUI.text = PlayerInfo.Lives.ToString();
     }
@@ -131,6 +93,19 @@ public class LevelManager : MonoBehaviour
             BoxCounters[i].UpdateSpawnGemUI();
         }
         UpdateHUD();
+    }
+
+    //This updates the Crate count display in the crate checker.
+    private void UpdateCrateCount()
+    {
+        for (int i = 0; i < BoxCounters.Count; i++)
+        {
+            if (BoxCounters[i] != null)
+            {
+                BoxCounters[i].BoxCount.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
+                BoxCountUI.text = CurrentCrates + "/" + TotalCrates.Count.ToString();
+            }
+        }
     }
 
     //This function updates the boxcount HUD display.
@@ -197,7 +172,7 @@ public class LevelManager : MonoBehaviour
     //If it doesn't it skills the whole reset progress. If it does it checks if the crate is disabled.
     //foreach crate that is inactive it descreases the current crate count by one and sets the crate back to enabled.
     //Afterwards we call the function UpdateUI, checks if boxcount and parent are not empty. If not it sets the boxcount active and enables the parent's boxcollider.
-    //At last ut calles the function UpdateUIHUD to update the hud display.
+    //At last ut calls the functions UpdateUIHUD and UpdateCrateHUD to update the hud display and crate count display.
     public void ResetLevel()
     {
         foreach (Breakable crate in TotalCrates)
@@ -243,49 +218,6 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
-        for (int i = 0; i < BoxCounters.Count; i++)
-        {
-            if(BoxCounters != null)
-            {
-                for (int j = 0; j < GemsAvailable.Gems.Count; j++)
-                {
-                    if (GemCollection.GemsCollected.Contains(j))
-                    {
-                        if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
-                        {
-                            if (GemCollection.GemsCollected.Contains(GemsAvailable.Gems[j].GetComponent<Gem>().ID))
-                            {
-                                BoxCounters.RemoveAt(i);
-                                UpdateHUD();
-                                return;
-                            }                        
-                        }
-                        if (SpawnColorGem != null)
-                        {
-                            if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(SpawnColorGem.gemColour))
-                            {
-                                if (GemCollection.GemsCollected.Contains(GemsAvailable.Gems[j].GetComponent<Gem>().ID))
-                                {
-                                    Destroy(SpawnColorGem);
-                                    GemsAvailable.Gems[j].gameObject.SetActive(false);
-                                }                                    
-                            }
-                        }
-                    }
-                    else if(GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
-                    {
-                        GemsAvailable.Gems[j].SetActive(false);
-                        BoxCounters[i].gameObject.SetActive(true);
-                        BoxCounters[i].gameObject.GetComponentInParent<BoxCollider>().enabled = true;
-                        BoxCounters[i].gameObject.GetComponent<MeshRenderer>().enabled = true;
-                        BoxCounters[i].gameObject.GetComponentInChildren<Text>().enabled = true;
-                        BoxCounters[i].UpdateSpawnGemUI();
-                    }                                        
-                }
-            }
-            UpdateHUD();
-        }
-
         for (int i = 0; i < ActivatorCrates.Count; i++)
         {
             ActivatorCrates[i].DeactivateCrates();
@@ -295,6 +227,8 @@ public class LevelManager : MonoBehaviour
         {
             NitroDetanorCrates[i].ResetDetonator();
         }
+        UpdateCrateCount();
+        UpdateHUD();
     }
 
     //If this function gets called it means the player has reached a checkpoint meaning all the crates he broke before in this level are now permanently added to the CurrentCrates.

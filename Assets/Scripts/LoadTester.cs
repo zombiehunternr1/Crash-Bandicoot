@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadTester : MonoBehaviour
 {
@@ -24,8 +25,9 @@ public class LoadTester : MonoBehaviour
 
             for(int i = 0; i < player.GemsCollected.Count; i++)
             {
-                Gems.GemsCollected.Add(i);
+                Gems.GemsCollected.Add(player.GemsCollected[i]);
             }
+            SceneManager.LoadScene("Testscene");
         }
     }
 }

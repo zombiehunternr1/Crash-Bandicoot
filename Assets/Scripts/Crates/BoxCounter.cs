@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class BoxCounter : MonoBehaviour
 {
+    [HideInInspector]
     public Text BoxCount;
-    public GameObject Parent;
+    public int ID;
+    private CheckAmount Parent;
     private LevelManager LevelManager;
 
     void Awake()
     {
         LevelManager = GetComponentInParent<LevelManager>();
+        Parent = GetComponentInParent<CheckAmount>();
+        BoxCount = GetComponentInChildren<Text>();
     }
 
     //Keeps setting the BoxCount text to the objects position.
@@ -28,7 +32,10 @@ public class BoxCounter : MonoBehaviour
     {
         if (LevelManager.CurrentCrates == LevelManager.TotalCrates.Count)
         {
-            GemSystem.Instance.SpawnGem(this.transform.position, GemColour.WhiteBox);
+            var x = Instantiate(FindObjectOfType<GemSystem>().gemPrefab, transform.position, Quaternion.identity).GetComponent<Gem>();
+            x.ID = ID;
+            x.Enable(GemColour.White);
+            x.gameObject.SetActive(true);
             BoxCount.GetComponent<Text>().enabled = false;
             Parent.GetComponent<BoxCollider>().enabled = false;
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;

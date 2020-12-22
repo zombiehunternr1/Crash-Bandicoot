@@ -4,72 +4,54 @@ using UnityEngine;
 
 public class GemSystem : MonoBehaviour
 {
-    /// <summary>
-    /// This created  astatic instance of this script.
-    /// This allows us to access it from anywhere and any script.
-    /// To use this you simple call ' GemSystem.Instance.SpawnGem(position, colour); '
-    /// </summary>
-    public static GemSystem Instance;
+    public List<int> CollectedIds = new List<int>();
+    public SpawnColorGem[] GemHolders;
+    public BoxCounter[] BoxCounters;
+    public GameObject gemPrefab;
+    public GemCollected GemCollectionSO;
 
-    [Header("Gem Objects.")]
-    public List<GameObject> Gems;
-    public GameObject gemHolder;
-    public int MaxGemsToPool = 30;
+    private int LastUsedIndex;
 
-    void Awake()
+    private void Awake()
     {
-        Instance = this;
-        //This will spawn all the needed gems for the level / game.
-        for (int i = 0; i < MaxGemsToPool; i++)
+        CollectedIds = GemCollectionSO.GemsCollected;
+
+        GemHolders = GameObject.FindObjectsOfType<SpawnColorGem>();
+        for (int i = 0; i < GemHolders.Length; i++)
         {
-            var newGem = Instantiate(gemHolder, Vector3.zero, Quaternion.identity);
-            newGem.transform.SetParent(transform);
-            newGem.GetComponent<Gem>().ID = i;
-            newGem.SetActive(false);
-            Gems.Add(newGem);
+            GemHolders[i].ID = i;
+            LastUsedIndex = i;
         }
+        LastUsedIndex++;
+
+        BoxCounters = GameObject.FindObjectsOfType<BoxCounter>();
+        for (int i = 0; i < BoxCounters.Length; i++)
+        {
+            BoxCounters[i].ID = LastUsedIndex;
+        }
+        LastUsedIndex += 2;
     }
 
-    /// <summary>
-    /// Returns an inactive gem from the pooled list.
-    /// </summary>
-    public GameObject GetGem
+    private void Start()
     {
-        get
+        foreach (var x in GemHolders)
         {
-            foreach (GameObject go in Gems)
+            if (!CollectedIds.Contains(x.ID))
             {
-                if (!go.activeSelf)
-                    return go;
+                var obj = Instantiate(gemPrefab, x.transform.position, Quaternion.identity);
+                obj.GetComponent<Gem>().Enable(x.Gem.Colour);
+                obj.GetComponent<Gem>().ID = x.ID;
+                obj.SetActive(true);
             }
-            return null;
         }
-    }
 
-    /// <summary>
-    /// Called to spawn a gem.
-    /// </summary>
-    /// <param name="position"></param>
-    /// <returns></returns>
-    public bool SpawnGem(Vector3 position, GemColour gemColour)
-    {
-        GameObject x = GetGem;
-        if (x != null)
+        foreach (var x in BoxCounters)
         {
-            //Enable the gem colour we want.
-            x.GetComponent<Gem>().EnableGem(gemColour);
-
-            //Move the particle to the hit position.
-            x.transform.position = position;
-
-            //Activate the Gem holder object.
-            x.SetActive(true);
-            return true;
-        }
-        else
-        {
-            Debug.LogError("Unable to spawn gem on position " + position.ToString());
-            return false;
+            x.transform.parent.gameObject.SetActive(false);
+            if (!CollectedIds.Contains(x.ID))
+            {
+                x.transform.parent.gameObject.SetActive(true);
+            }
         }
     }
 }

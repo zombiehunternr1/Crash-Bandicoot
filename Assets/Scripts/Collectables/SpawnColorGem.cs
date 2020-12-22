@@ -4,57 +4,15 @@ using UnityEngine;
 
 public class SpawnColorGem : MonoBehaviour
 {
-    public GemCollected GemCollection;
-    public GemSystem GemsAvailable;
-    public GemColour gemColour;
-    public bool HasCollected;
-
-    void Start()
-    {
-        if (!HasCollected)
-        {
-            GemSystem.Instance.SpawnGem(this.transform.position, gemColour);
-        }
-        for (int i = 0; i < GemsAvailable.Gems.Count; i++)
-        {
-            if (GemCollection.GemsCollected.Contains(i))
-            {
-                if (GemsAvailable.Gems[i].GetComponent<Gem>().GemColour.Equals(GemColour.Blue))
-                {
-                    GemsAvailable.Gems[i].gameObject.SetActive(false);
-                    Destroy(gameObject);
-                }
-                else if (GemsAvailable.Gems[i].GetComponent<Gem>().GemColour.Equals(GemColour.Green))
-                {
-                    GemsAvailable.Gems[i].gameObject.SetActive(false);
-                    Destroy(gameObject);
-                }
-                else if (GemsAvailable.Gems[i].GetComponent<Gem>().GemColour.Equals(GemColour.Orange))
-                {
-                    GemsAvailable.Gems[i].gameObject.SetActive(false);
-                    Destroy(gameObject);
-                }
-                else if (GemsAvailable.Gems[i].GetComponent<Gem>().GemColour.Equals(GemColour.Purple))
-                {
-                    GemsAvailable.Gems[i].gameObject.SetActive(false);
-                    Destroy(gameObject);
-                }
-                else if (GemsAvailable.Gems[i].GetComponent<Gem>().GemColour.Equals(GemColour.Red))
-                {
-                    GemsAvailable.Gems[i].gameObject.SetActive(false);
-                    Destroy(gameObject);
-                }
-                else if (GemsAvailable.Gems[i].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteHidden))
-                {
-                    GemsAvailable.Gems[i].gameObject.SetActive(false);
-                    Destroy(gameObject);
-                }
-                else if (GemsAvailable.Gems[i].GetComponent<Gem>().GemColour.Equals(GemColour.Yellow))
-                {
-                    GemsAvailable.Gems[i].gameObject.SetActive(false);
-                    Destroy(gameObject);
-                }              
-            }
-        }
-    }
+    public int ID;
+    public GemProperty Gem;
 }
+
+[System.Serializable]
+public class GemProperty
+{
+    public GemColour Colour;
+}
+
+public enum GemColour { NONE, Red, White, Green, Blue, Yellow, Orange, Purple }
+

@@ -18,7 +18,7 @@ public class Save
 
         for (int i = 0; i < Gems.GemsCollected.Count; i++)
         {
-            GemsCollected.Add(i);
+            GemsCollected.Add(Gems.GemsCollected[i]);
         }
     }
 }

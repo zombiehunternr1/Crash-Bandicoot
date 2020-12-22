@@ -8,7 +8,7 @@ public class CheckAmount : MonoBehaviour
 
     void Start()
     { 
-        Counter = GetComponentInChildren<BoxCounter>();   
+        Counter = GetComponentInChildren<BoxCounter>();
     }
 
     //Checks if the object it's colliding with is the player.

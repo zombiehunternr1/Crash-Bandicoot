@@ -50,10 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2235f1e3b7af146be0692ee2bc10fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GemColour: 0
   Gems:
-  - {fileID: 1062163312294521787}
   - {fileID: 1062163311703945871}
+  - {fileID: 1062163312294521787}
   - {fileID: 1062163312288693834}
   - {fileID: 1062163311639538652}
   - {fileID: 1062163312442181016}
@@ -74,7 +73,6 @@ GameObject:
   - component: {fileID: 3857690178034107995}
   - component: {fileID: 1272797078907257521}
   - component: {fileID: 946234023318973012}
-  - component: {fileID: 4066258657434973615}
   m_Layer: 0
   m_Name: Orange
   m_TagString: Untagged
@@ -111,7 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 1272797078907257521}
   GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
-  GemsAvailable: {fileID: 0}
 --- !u!65 &904882559248335873
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4645,18 +4642,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &4066258657434973615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904882559248335875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3c4b465a09ad247bd1af28dde69604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1062163311639538652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4671,7 +4656,6 @@ GameObject:
   - component: {fileID: 1062163311639538643}
   - component: {fileID: 2606300986020833788}
   - component: {fileID: 4476397805313853905}
-  - component: {fileID: 6021278697974395167}
   m_Layer: 0
   m_Name: Blue
   m_TagString: Untagged
@@ -4708,7 +4692,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 2606300986020833788}
   GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
-  GemsAvailable: {fileID: 0}
 --- !u!65 &1062163311639538642
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9242,18 +9225,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &6021278697974395167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062163311639538652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3c4b465a09ad247bd1af28dde69604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1062163311703945871
 GameObject:
   m_ObjectHideFlags: 0
@@ -9268,7 +9239,6 @@ GameObject:
   - component: {fileID: 1062163311703945870}
   - component: {fileID: 7595074059543285503}
   - component: {fileID: 2278826558797976102}
-  - component: {fileID: 6177634049075270551}
   m_Layer: 0
   m_Name: Red
   m_TagString: Untagged
@@ -9305,7 +9275,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 7595074059543285503}
   GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
-  GemsAvailable: {fileID: 0}
 --- !u!65 &1062163311703945869
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13839,18 +13808,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &6177634049075270551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062163311703945871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3c4b465a09ad247bd1af28dde69604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1062163311835130876
 GameObject:
   m_ObjectHideFlags: 0
@@ -13896,7 +13853,6 @@ GameObject:
   - component: {fileID: 1062163312288693833}
   - component: {fileID: 4377883336967182750}
   - component: {fileID: 8375794137537122227}
-  - component: {fileID: 1990938976442163154}
   m_Layer: 0
   m_Name: Green
   m_TagString: Untagged
@@ -13933,7 +13889,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 4377883336967182750}
   GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
-  GemsAvailable: {fileID: 0}
 --- !u!65 &1062163312288693832
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18467,18 +18422,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &1990938976442163154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062163312288693834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3c4b465a09ad247bd1af28dde69604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1062163312294521787
 GameObject:
   m_ObjectHideFlags: 0
@@ -18529,7 +18472,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 415116486}
   GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
-  GemsAvailable: {fileID: 0}
 --- !u!65 &1062163312294521785
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23077,7 +23019,6 @@ GameObject:
   - component: {fileID: 1062163312442181023}
   - component: {fileID: 3837059623706994657}
   - component: {fileID: 8188076830093815362}
-  - component: {fileID: 5490745582354281567}
   m_Layer: 0
   m_Name: Yellow
   m_TagString: Untagged
@@ -23114,7 +23055,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 3837059623706994657}
   GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
-  GemsAvailable: {fileID: 0}
 --- !u!65 &1062163312442181022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27648,18 +27588,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &5490745582354281567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062163312442181016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3c4b465a09ad247bd1af28dde69604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1062163312532142073
 GameObject:
   m_ObjectHideFlags: 0
@@ -28176,7 +28104,6 @@ GameObject:
   - component: {fileID: 1062163313595182993}
   - component: {fileID: 7833517147718471930}
   - component: {fileID: 1371178181871025460}
-  - component: {fileID: 3261667910902180628}
   m_Layer: 0
   m_Name: Purple
   m_TagString: Untagged
@@ -28213,7 +28140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 7833517147718471930}
   GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
-  GemsAvailable: {fileID: 0}
 --- !u!65 &4015525060202196427
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32747,18 +32673,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &3261667910902180628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4015525060202196425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3c4b465a09ad247bd1af28dde69604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5880050526186916241
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,13 +10,9 @@ public class GemBase : MonoBehaviour
 
     private GemSystem GemsAvailable;
     private LevelManager LevelManager;
-    private Colored ColorGem;
-    private Hidden HiddenGem;
 
     private void Awake()
     {
-        ColorGem = GetComponent<Colored>();
-        HiddenGem = GetComponent<Hidden>();
         LevelManager = GetComponentInParent<LevelManager>();
         GemsAvailable = GetComponentInParent<GemSystem>();
     }
@@ -25,58 +21,17 @@ public class GemBase : MonoBehaviour
     {
         if (other.GetComponent<PlayerActions>())
         {
+            GetComponent<BoxCollider>().enabled = false;
             Effect.Play();
-            if (!ColorGem)
-            {
-                if (!HiddenGem)
-                {
-                    if (LevelManager != null)
-                    {
-                        for (int j = 0; j < GemsAvailable.Gems.Count; j++)
-                        {
-                            if (!GemCollect.GemsCollected.Contains(j))
-                            {
-                                if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
-                                {
-                                    if (GemCollect.GemsCollected.Contains(GemsAvailable.Gems[j].GetComponent<Gem>().ID))
-                                    {
-                                        for (int i = 0; i < LevelManager.BoxCounters.Count; i++)
-                                        {
-                                            Destroy(LevelManager.BoxCounters[i].GetComponentInParent<CheckAmount>().gameObject);
-                                        }
-                                        return;
-                                    }
-                                    else
-                                    {
-                                        GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
-                                        for (int i = 0; i < LevelManager.BoxCounters.Count; i++)
-                                        {
-                                            Destroy(LevelManager.BoxCounters[i].GetComponentInParent<CheckAmount>().gameObject);
-                                        }
-                                        DisableGem();
-                                        return;
-                                    }
-                                }
-                            }
-                        }
-                        DisableGem();
-                        return;
-                    }
-                    GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
-                }
-                GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
-            }
-            else
-            {
-                GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
-            }           
+            GemCollect.GemsCollected.Add(this.GetComponentInParent<Gem>().ID);
+            StartCoroutine(DisableGem());
         }
-        DisableGem();
     }
 
-    private void DisableGem()
+    IEnumerator DisableGem()
     {
-        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        GetComponentInChildren<MeshRenderer>().enabled = false;      
+        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }
 }
