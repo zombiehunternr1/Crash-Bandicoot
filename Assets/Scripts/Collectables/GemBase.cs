@@ -34,7 +34,7 @@ public class GemBase : MonoBehaviour
                     {
                         for (int j = 0; j < GemsAvailable.Gems.Count; j++)
                         {
-                            if (GemCollect.GemsCollected.Contains(j))
+                            if (!GemCollect.GemsCollected.Contains(j))
                             {
                                 if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
                                 {
@@ -49,6 +49,12 @@ public class GemBase : MonoBehaviour
                                     else
                                     {
                                         GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
+                                        for (int i = 0; i < LevelManager.BoxCounters.Count; i++)
+                                        {
+                                            Destroy(LevelManager.BoxCounters[i].GetComponentInParent<CheckAmount>().gameObject);
+                                        }
+                                        DisableGem();
+                                        return;
                                     }
                                 }
                             }

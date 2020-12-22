@@ -17,6 +17,8 @@ public class Load : MonoBehaviour
         PlayerProgress.Woompa = player.Woompa;
         UpdateHUD.Raise();
 
+        Gems.GemsCollected = new List<int>();
+
         for (int i = 0; i < player.GemsCollected.Count; i++)
         {
             Gems.GemsCollected.Add(i);

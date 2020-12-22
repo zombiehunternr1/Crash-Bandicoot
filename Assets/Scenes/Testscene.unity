@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpdateHUD: {fileID: 11400000, guid: 0a86eb7cbdaa4d14fb61576465619d86, type: 2}
+  Gems: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
 --- !u!65 &99283626
 BoxCollider:
   m_ObjectHideFlags: 0

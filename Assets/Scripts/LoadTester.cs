@@ -20,6 +20,8 @@ public class LoadTester : MonoBehaviour
             PlayerInfo.Woompa = player.Woompa;
             UpdateHUD.Raise();
 
+            Gems.GemsCollected = new List<int>();
+
             for(int i = 0; i < player.GemsCollected.Count; i++)
             {
                 Gems.GemsCollected.Add(i);
