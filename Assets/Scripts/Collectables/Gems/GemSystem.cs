@@ -22,7 +22,8 @@ public class GemSystem : MonoBehaviour
         //This will spawn all the needed gems for the level / game.
         for (int i = 0; i < MaxGemsToPool; i++)
         {
-            var newGem = Instantiate(gemHolder, Vector3.zero, Quaternion.identity, transform.parent);
+            var newGem = Instantiate(gemHolder, Vector3.zero, Quaternion.identity);
+            newGem.transform.SetParent(transform);
             newGem.GetComponent<Gem>().ID = i;
             newGem.SetActive(false);
             Gems.Add(newGem);

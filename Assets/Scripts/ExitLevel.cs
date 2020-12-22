@@ -9,6 +9,7 @@ public class ExitLevel : MonoBehaviour
     {
         if (other.GetComponent<PlayerActions>())
         {
+            SaveSystem.SavePlayer(other.GetComponent<PlayerStatus>().Player);
             SceneManager.LoadScene("Testscene");
         }
     }

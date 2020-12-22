@@ -7,10 +7,14 @@ public class SpawnColorGem : MonoBehaviour
     public GemCollected GemCollection;
     public GemSystem GemsAvailable;
     public GemColour gemColour;
+    public bool HasCollected;
 
     void Start()
     {
-        GemSystem.Instance.SpawnGem(this.transform.position, gemColour);
+        if (!HasCollected)
+        {
+            GemSystem.Instance.SpawnGem(this.transform.position, gemColour);
+        }
         for (int i = 0; i < GemsAvailable.Gems.Count; i++)
         {
             if (GemCollection.GemsCollected.Contains(i))

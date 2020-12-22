@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 1062163312442181016}
   - {fileID: 904882559248335875}
   - {fileID: 4015525060202196425}
+  ID: 0
 --- !u!1 &904882559248335875
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 1272797078907257521}
-  LevelManager: {fileID: 0}
+  GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  GemsAvailable: {fileID: 0}
 --- !u!65 &904882559248335873
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4705,7 +4707,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 2606300986020833788}
-  LevelManager: {fileID: 0}
+  GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  GemsAvailable: {fileID: 0}
 --- !u!65 &1062163311639538642
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9301,7 +9304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 7595074059543285503}
-  LevelManager: {fileID: 0}
+  GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  GemsAvailable: {fileID: 0}
 --- !u!65 &1062163311703945869
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13928,7 +13932,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 4377883336967182750}
-  LevelManager: {fileID: 0}
+  GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  GemsAvailable: {fileID: 0}
 --- !u!65 &1062163312288693832
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18523,7 +18528,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 415116486}
-  LevelManager: {fileID: 0}
+  GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  GemsAvailable: {fileID: 0}
 --- !u!65 &1062163312294521785
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23107,7 +23113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 3837059623706994657}
-  LevelManager: {fileID: 0}
+  GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  GemsAvailable: {fileID: 0}
 --- !u!65 &1062163312442181022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28205,7 +28212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 7833517147718471930}
-  LevelManager: {fileID: 0}
+  GemCollect: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  GemsAvailable: {fileID: 0}
 --- !u!65 &4015525060202196427
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class GemBase : MonoBehaviour
     public ParticleSystem Effect;
     public GemCollected GemCollect;
 
+    private GemSystem GemsAvailable;
     private LevelManager LevelManager;
     private Colored ColorGem;
     private Hidden HiddenGem;
@@ -17,6 +18,7 @@ public class GemBase : MonoBehaviour
         ColorGem = GetComponent<Colored>();
         HiddenGem = GetComponent<Hidden>();
         LevelManager = GetComponentInParent<LevelManager>();
+        GemsAvailable = GetComponentInParent<GemSystem>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,12 +32,28 @@ public class GemBase : MonoBehaviour
                 {
                     if (LevelManager != null)
                     {
-                        GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
-                        for (int i = 0; i < LevelManager.BoxCounters.Count; i++)
+                        for (int j = 0; j < GemsAvailable.Gems.Count; j++)
                         {
-                            Destroy(LevelManager.BoxCounters[i].GetComponentInParent<CheckAmount>().gameObject);
+                            if (GemCollect.GemsCollected.Contains(j))
+                            {
+                                if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(GemColour.WhiteBox))
+                                {
+                                    if (GemCollect.GemsCollected.Contains(GemsAvailable.Gems[j].GetComponent<Gem>().ID))
+                                    {
+                                        for (int i = 0; i < LevelManager.BoxCounters.Count; i++)
+                                        {
+                                            Destroy(LevelManager.BoxCounters[i].GetComponentInParent<CheckAmount>().gameObject);
+                                        }
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
+                                    }
+                                }
+                            }
                         }
-                        DestroyGem();
+                        DisableGem();
                         return;
                     }
                     GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
@@ -47,12 +65,12 @@ public class GemBase : MonoBehaviour
                 GemCollect.GemsCollected.Add(gameObject.GetComponentInParent<Gem>().ID);
             }           
         }
-        DestroyGem();
+        DisableGem();
     }
 
-    private void DestroyGem()
+    private void DisableGem()
     {
         gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
-        Destroy(gameObject, 0.5f);
+        gameObject.SetActive(false);
     }
 }

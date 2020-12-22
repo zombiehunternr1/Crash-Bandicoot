@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (fileName="Playerinfo", menuName ="ScriptableObjects/Player")]
 [System.Serializable]
-public class PlayerInfo : ScriptableObject
+public class Save
 {
     public int Lives;
     public int ExtraHit;
     public int Woompa;
+
+    public Save (PlayerInfo Player)
+    {
+        Lives = Player.Lives;
+        ExtraHit = Player.ExtraHit;
+        Woompa = Player.Woompa;
+    }
 }

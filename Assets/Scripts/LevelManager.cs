@@ -100,7 +100,11 @@ public class LevelManager : MonoBehaviour
                         {
                             if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(SpawnColorGem.gemColour))
                             {
-                                GemsAvailable.Gems[j].gameObject.SetActive(false);
+                                if (GemCollection.GemsCollected.Contains(GemsAvailable.Gems[j].GetComponent<Gem>().ID))
+                                {
+                                    Destroy(SpawnColorGem);
+                                    GemsAvailable.Gems[j].gameObject.SetActive(false);
+                                }
                             }
                         }
                     }
@@ -260,7 +264,11 @@ public class LevelManager : MonoBehaviour
                         {
                             if (GemsAvailable.Gems[j].GetComponent<Gem>().GemColour.Equals(SpawnColorGem.gemColour))
                             {
-                                GemsAvailable.Gems[j].gameObject.SetActive(false);
+                                if (GemCollection.GemsCollected.Contains(GemsAvailable.Gems[j].GetComponent<Gem>().ID))
+                                {
+                                    Destroy(SpawnColorGem);
+                                    GemsAvailable.Gems[j].gameObject.SetActive(false);
+                                }                                    
                             }
                         }
                     }
