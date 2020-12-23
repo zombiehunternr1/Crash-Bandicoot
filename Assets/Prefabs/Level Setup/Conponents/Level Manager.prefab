@@ -58,7 +58,6 @@ GameObject:
   - component: {fileID: 8499069700507842192}
   - component: {fileID: 8998394292487094848}
   - component: {fileID: 6267176244930053851}
-  - component: {fileID: 8266646043517145881}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -218,33 +217,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8266646043517145881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2953217173423938676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90749240303c2b24e8c1aea0adbdc041, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 11400000, guid: afccb93aa576ae34099d84b63cc617c1, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2953217173423938678}
-        m_MethodName: LevelChecker
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &2953217172265796866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,16 +284,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8386462191274096048, guid: 2ca6edd2b0974044899b75f7d20fe33f,
-        type: 3}
-      propertyPath: gemColour
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8386462191274096048, guid: 2ca6edd2b0974044899b75f7d20fe33f,
-        type: 3}
-      propertyPath: GemsAvailable
-      value: 
-      objectReference: {fileID: 1717094339284853000}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ca6edd2b0974044899b75f7d20fe33f, type: 3}
 --- !u!4 &8609475606196822212 stripped
@@ -397,12 +359,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4166531876570917800, guid: 2416d0ca7abbcae44ba608fdd1733b56,
-        type: 3}
-      propertyPath: gemHolder
-      value: 
-      objectReference: {fileID: 2468713407287234603, guid: 98e25f596f3a3bc4abd5f6aa3a569557,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2416d0ca7abbcae44ba608fdd1733b56, type: 3}
 --- !u!4 &2953217172957317038 stripped

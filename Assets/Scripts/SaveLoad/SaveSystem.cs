@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using static Save;
 
 public static class SaveSystem
 { 
-    public static void SaveProgress(PlayerInfo Player, GemCollected Gems)
+    public static void SaveProgress(PlayerInfo Player, Level Level)
     {
         BinaryFormatter Formatter = new BinaryFormatter();
         string Path = Application.persistentDataPath + "/Save.cbr";
         FileStream Stream = new FileStream(Path, FileMode.Create);
 
-        Save Progress = new Save(Player, Gems);
+        Save Progress = new Save(Player);
         Formatter.Serialize(Stream, Progress);
         Stream.Close();
     }

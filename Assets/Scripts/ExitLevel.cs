@@ -11,8 +11,9 @@ public class ExitLevel : MonoBehaviour
     {
         if (other.GetComponent<PlayerActions>())
         {
-            SaveSystem.SaveProgress(other.GetComponent<PlayerStatus>().Player, Gems);
-            SceneManager.LoadScene("Testscene");
+            //LevelData.Instance.Data.GemsCollected = Gems.GemsCollected.ToArray();
+            SaveSystem.SaveProgress(other.GetComponent<PlayerStatus>().Player, LevelData.Instance.Data);
+            //SceneManager.LoadScene("Testscene");
         }
     }
 }

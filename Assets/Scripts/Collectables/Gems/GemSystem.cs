@@ -12,7 +12,7 @@ public class GemSystem : MonoBehaviour
 
     private int LastUsedIndex;
 
-    private void Awake()
+    public void SpawnGems()
     {
         CollectedIds = GemCollectionSO.GemsCollected;
 
@@ -30,10 +30,7 @@ public class GemSystem : MonoBehaviour
             BoxCounters[i].ID = LastUsedIndex;
         }
         LastUsedIndex += 2;
-    }
 
-    private void Start()
-    {
         foreach (var x in GemHolders)
         {
             if (!CollectedIds.Contains(x.ID))

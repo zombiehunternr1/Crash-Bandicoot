@@ -8,17 +8,21 @@ public class Save
     public int Lives;
     public int ExtraHit;
     public int Woompa;
-    public List<int> GemsCollected = new List<int>();
+    public Level[] Levels;
 
-    public Save (PlayerInfo Player, GemCollected Gems)
+    public Save(PlayerInfo Player)
     {
         Lives = Player.Lives;
         ExtraHit = Player.ExtraHit;
         Woompa = Player.Woompa;
+        LevelData.Instance.AddLevel();
+        Levels = LevelData.Instance.Levels.ToArray();
+    }
 
-        for (int i = 0; i < Gems.GemsCollected.Count; i++)
-        {
-            GemsCollected.Add(Gems.GemsCollected[i]);
-        }
+    [System.Serializable]
+    public class Level
+    {
+        public int LevelID;
+        public int[] GemsCollected;
     }
 }
