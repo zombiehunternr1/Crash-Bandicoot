@@ -957,6 +957,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 7127039781464441021, guid: 859a6c6f24a762b4c90319c0169e5906,
+        type: 3}
+      propertyPath: FadePanel
+      value: 
+      objectReference: {fileID: 1831760331591189004}
     - target: {fileID: 7127039781464441025, guid: 859a6c6f24a762b4c90319c0169e5906,
         type: 3}
       propertyPath: m_RootOrder

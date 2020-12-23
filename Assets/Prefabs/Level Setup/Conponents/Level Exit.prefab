@@ -167,3 +167,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gems: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}
+  FadePanel: {fileID: 2454021396260999003, guid: f894d9ba153dad041a420078ac3d7769,
+    type: 3}
