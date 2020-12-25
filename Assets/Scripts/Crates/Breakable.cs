@@ -84,9 +84,13 @@ public class Breakable : MonoBehaviour
             case 7:
                 Attack();
                 break;
-            //Effect or enemy
+            //Explosion
             case 8:
-                EntityOrEffect();
+                Explosion();
+                break;
+            //Entity
+            case 9:
+                Entity();
                 break;
         }          
     }
@@ -242,7 +246,7 @@ public class Breakable : MonoBehaviour
         }
     }
 
-    void EntityOrEffect()
+    void Explosion()
     {
         if (!CheckpointCrate)
         {
@@ -273,6 +277,39 @@ public class Breakable : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }      
+    }
+
+    void Entity()
+    {
+        if (!CheckpointCrate)
+        {
+            if (TntCrate)
+            {
+                TntCrate.ExplodeCrate();
+            }
+            else if (NitroCrate)
+            {
+                NitroCrate.ExplodeCrate();
+            }
+
+            else if (BreakOverTime)
+            {
+                Player.Woompa++;
+                BreakOverTime.BreakCrate();
+            }
+            else if (Bouncing)
+            {
+                breakCrate();
+            }
+            else if (QuestionmarkCrate)
+            {
+                QuestionmarkCrate.DropItems();
+            }
+            else
+            {
+                breakCrate();
+            }
+        }
     }
 
     //This coroutine lets the player bounce of the crate before getting deactivated.

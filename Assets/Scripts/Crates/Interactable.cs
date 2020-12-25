@@ -38,9 +38,9 @@ public class Interactable : MonoBehaviour
             case 7:
                 Attack();
                 break;
-            //Effect or Enemy
+            //Explosion
             case 8:
-                EntityOrEffect();
+                Explosion();
                 break;
         }        
     }
@@ -105,7 +105,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    void EntityOrEffect()
+    void Explosion()
     {
         if (ActivatorCrate)
         {
