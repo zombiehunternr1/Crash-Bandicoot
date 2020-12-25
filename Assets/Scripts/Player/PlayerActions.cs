@@ -30,7 +30,12 @@ public class PlayerActions : MonoBehaviour
     private bool GotWoompa = false;
     private bool GotLife = false;
     private bool DisplayHud = false;
-    
+    [HideInInspector]
+    public bool StandingIdle = true;
+    [HideInInspector]
+    public float StartIdle = 0f;
+
+    private float StartIdle2 = 15f;
     float TimerHUD = 0f;
     [HideInInspector]
     public float TimerWoompa = 0f;
@@ -74,9 +79,19 @@ public class PlayerActions : MonoBehaviour
         }       
     }
 
-    //Checks if the player is colliding with an object or is still falling down.
     void Update()
     {
+        StartIdle += Time.deltaTime;
+        if(StandingIdle)
+        {
+            if (StartIdle > StartIdle2)
+            {
+                PlayerAnimator.ResetTrigger("LongIdle");
+                PlayerAnimator.SetTrigger("LongIdle");
+                StandingIdle = false;
+            }
+        }
+
         IsGrounded = Physics.CheckSphere(GroundChecker.position, GroundCheckRadius, GroundMask);
 
         if (CurrentJumpingCooldown >= 0)
