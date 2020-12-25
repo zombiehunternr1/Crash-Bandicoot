@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 688840858002290577}
   - component: {fileID: 688840858002290578}
   - component: {fileID: 688840858002290579}
+  - component: {fileID: 8805783220774613388}
   m_Layer: 0
   m_Name: Questionmark Crate
   m_TagString: Untagged
@@ -160,3 +161,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SideHitValue: 0
+--- !u!114 &8805783220774613388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688840858002290580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8824b79d868214187ccb799b9d03bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Woompa: {fileID: 4901675930758871217, guid: 63f7fc1de0254954ab40699237190102, type: 3}
+  Live: {fileID: 6582141423870494324, guid: 8737ae43eff11a74b9d790640168c875, type: 3}
+  DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
+  DropWoompaAmount: 1
+  Lives: 0
+  Woompas: 1
+  AutoAdd: 0

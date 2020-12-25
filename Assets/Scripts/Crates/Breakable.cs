@@ -22,6 +22,7 @@ public class Breakable : MonoBehaviour
     private Tnt TntCrate;
     private Nitro NitroCrate;
     private CheckPoint CheckpointCrate;
+    private Questionmark QuestionmarkCrate;
     private CrateBase Crate;
     private float CurrentHeight;
     private float PreviousHeight;   
@@ -34,6 +35,7 @@ public class Breakable : MonoBehaviour
         TntCrate = GetComponent<Tnt>();
         NitroCrate = GetComponent<Nitro>();
         CheckpointCrate = GetComponent<CheckPoint>();
+        QuestionmarkCrate = GetComponent<Questionmark>();
     }
 
     private void FixedUpdate()
@@ -122,6 +124,10 @@ public class Breakable : MonoBehaviour
         {
             CheckpointCrate.SetCheckpoint();
         }
+        else if (QuestionmarkCrate)
+        {
+            QuestionmarkCrate.DropItems();
+        }
         else
         {
             Crate.BounceUpPlayer();
@@ -157,6 +163,10 @@ public class Breakable : MonoBehaviour
         else if (NitroCrate)
         {
             NitroCrate.ExplodeCrate();
+        }
+        else if (QuestionmarkCrate)
+        {
+            QuestionmarkCrate.DropItems();
         }
         else
         {
@@ -222,6 +232,10 @@ public class Breakable : MonoBehaviour
         {
             CheckpointCrate.SetCheckpoint();
         }
+        else if (QuestionmarkCrate)
+        {
+            QuestionmarkCrate.DropItems();
+        }
         else
         {
             breakCrate();
@@ -248,6 +262,10 @@ public class Breakable : MonoBehaviour
             else if (Bouncing)
             {
                 Bouncing.breakCrate();
+            }
+            else if (QuestionmarkCrate)
+            {
+                QuestionmarkCrate.BreakCrate();
             }
             else
             {
