@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2041183307724420672}
   - component: {fileID: 3373047832408134320}
+  - component: {fileID: 2417450777630213044}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -238,6 +239,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2417450777630213044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664200784196054266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e796d6c72dee0924ab7bd60b0793c474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2085585084948524406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1056,14 @@ MonoBehaviour:
   SpinCollider: {fileID: 7058704476864813323}
   HUDObjects: {fileID: 0}
   HUDText: {fileID: 0}
+  UILivesObject: {fileID: 0}
+  UILivesText: {fileID: 0}
+  UIWoompaObject: {fileID: 0}
+  UIWoompaText: {fileID: 0}
+  StandingIdle: 1
+  StartIdle: 0
+  TimerWoompa: 0
+  TimerLife: 0
 --- !u!114 &6989627018079205026
 MonoBehaviour:
   m_ObjectHideFlags: 0
