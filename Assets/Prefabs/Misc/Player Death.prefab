@@ -106,4 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054819426d336ac4a96c89c678b11cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CrateReset: {fileID: 11400000, guid: 2786c6c203f9e1144bc5dcb34ea8f653, type: 2}
+  PlayerHit: {fileID: 11400000, guid: 2786c6c203f9e1144bc5dcb34ea8f653, type: 2}
