@@ -53,7 +53,7 @@ public class DamagePlayer : MonoBehaviour
         {
             if (Player.GetComponent<PlayerStatus>().Player.ExtraHit != 3)
             {
-                if (Player.GetComponent<PlayerStatus>().Player.ExtraHit <= 0)
+                if (Player.GetComponent<PlayerStatus>().Player.ExtraHit == 0)
                 {
                     Player.GetComponent<PlayerActions>().CanMove = false;
                     PlayerHit.Raise();
