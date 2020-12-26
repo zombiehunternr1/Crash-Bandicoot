@@ -27,8 +27,8 @@ public class Questionmark : MonoBehaviour
             {
                 for (int i = 0; i < DropWoompaAmount; i++)
                 {
-                    var x = Random.Range(-1f, 1f);
-                    var z = Random.Range(-1f, 1f);
+                    var x = Random.Range(-0.5f, 0.5f);
+                    var z = Random.Range(-0.5f, 0.5f);
                     Instantiate(Woompa, new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z), transform.rotation);
                 }
             }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    private DamagePlayer HitPlayer;
     private SphereCollider ExplosionArea;
     private int ExplodeCrate = 8;
 
@@ -11,6 +12,7 @@ public class Explosion : MonoBehaviour
     //Afterwards it destroys itself after 1 second.
     void Awake()
     {
+        HitPlayer = GetComponent<DamagePlayer>();
         ExplosionArea = GetComponent<SphereCollider>();
         Destroy(gameObject, 1f);
     }
@@ -36,9 +38,7 @@ public class Explosion : MonoBehaviour
         }
         else if (other.GetComponent<PlayerActions>())
         {
-            //Build in check to see if the player has invinsibility active
-            //If so it shouldn't kill the player.
-            //If the player has an extra hit available destroy the extra hit.
+            HitPlayer.PlayerGotHit();
             Debug.Log("I am the player");
         }
     }

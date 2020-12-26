@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4849131431956232690}
   - component: {fileID: 2636682230749699583}
   - component: {fileID: 1532951253503307805}
+  - component: {fileID: 3099266860367916014}
   m_Layer: 0
   m_Name: Nitro explosion
   m_TagString: Untagged
@@ -4679,6 +4680,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e5d8a7c64b1d442955104a9cff78b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3099266860367916014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722837491751314654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054819426d336ac4a96c89c678b11cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerHit: {fileID: 11400000, guid: 2786c6c203f9e1144bc5dcb34ea8f653, type: 2}
+  Instakill: 0
 --- !u!1 &4722837494011736280
 GameObject:
   m_ObjectHideFlags: 0

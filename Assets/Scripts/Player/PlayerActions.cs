@@ -63,8 +63,8 @@ public class PlayerActions : MonoBehaviour
         PlayerAnimator = GetComponentInChildren<Animator>();
         SpinCollider = GetComponent<BoxCollider>();
         AnimSpinAttack = GetComponentInChildren<Animation>();
-        AnimSpinAttack.gameObject.SetActive(false);
         PlayerStatus = GetComponent<PlayerStatus>();
+        AnimSpinAttack.gameObject.SetActive(false);
         OriginPosition = gameObject.transform.position;
         Rb = GetComponent<Rigidbody>();
         JumpHeight = new Vector3(0.0f, JumpHeightFloat, 0.0f);
