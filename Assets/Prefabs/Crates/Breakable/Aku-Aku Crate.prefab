@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3859375919710697919}
   - component: {fileID: 3859375919710697918}
   - component: {fileID: 3859375919710697913}
+  - component: {fileID: -4775725206335896806}
   m_Layer: 0
   m_Name: Aku-Aku Crate
   m_TagString: Untagged
@@ -160,3 +161,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SideHitValue: 0
+--- !u!114 &-4775725206335896806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859375919710697912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d5253b1d32b04469a1635209433310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
+  AkuAku: {fileID: 6428452275724738495, guid: f672830f08e5871439507d62a4761878, type: 3}
+  Player: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}

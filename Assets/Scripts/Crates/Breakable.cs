@@ -23,6 +23,7 @@ public class Breakable : MonoBehaviour
     private Nitro NitroCrate;
     private CheckPoint CheckpointCrate;
     private Questionmark QuestionmarkCrate;
+    private AkuAkuCrate AkuAkuCrate;
     private CrateBase Crate;
     private float CurrentHeight;
     private float PreviousHeight;   
@@ -36,6 +37,7 @@ public class Breakable : MonoBehaviour
         NitroCrate = GetComponent<Nitro>();
         CheckpointCrate = GetComponent<CheckPoint>();
         QuestionmarkCrate = GetComponent<Questionmark>();
+        AkuAkuCrate = GetComponent<AkuAkuCrate>();
     }
 
     private void FixedUpdate()
@@ -132,6 +134,10 @@ public class Breakable : MonoBehaviour
         {
             QuestionmarkCrate.DropItems();
         }
+        else if (AkuAkuCrate)
+        {
+            AkuAkuCrate.DropItem();
+        }
         else
         {
             Crate.BounceUpPlayer();
@@ -171,6 +177,10 @@ public class Breakable : MonoBehaviour
         else if (QuestionmarkCrate)
         {
             QuestionmarkCrate.DropItems();
+        }
+        else if (AkuAkuCrate)
+        {
+            AkuAkuCrate.DropItem();
         }
         else
         {
@@ -240,6 +250,10 @@ public class Breakable : MonoBehaviour
         {
             QuestionmarkCrate.DropItems();
         }
+        else if (AkuAkuCrate)
+        {
+            AkuAkuCrate.DropItem();
+        }
         else
         {
             breakCrate();
@@ -270,6 +284,10 @@ public class Breakable : MonoBehaviour
             else if (QuestionmarkCrate)
             {
                 QuestionmarkCrate.BreakCrate();
+            }
+            else if (AkuAkuCrate)
+            {
+                AkuAkuCrate.DropItem();
             }
             else
             {
@@ -304,6 +322,10 @@ public class Breakable : MonoBehaviour
             else if (QuestionmarkCrate)
             {
                 QuestionmarkCrate.DropItems();
+            }
+            else if (AkuAkuCrate)
+            {
+                AkuAkuCrate.AutoAdd();
             }
             else
             {

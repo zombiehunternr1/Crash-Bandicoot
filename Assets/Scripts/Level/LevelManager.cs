@@ -29,6 +29,8 @@ public class LevelManager : MonoBehaviour
     public List<Breakable> TotalCrates = new List<Breakable>();
     [HideInInspector]
     public List<BoxCounter> BoxCounters = new List<BoxCounter>();
+    //[HideInInspector]
+    public List<AkuAku> AkuAkuCrateSpawns = new List<AkuAku>();
 
     private List<Activator> ActivatorCrates = new List<Activator>();
     private List<NitroDetonator> NitroDetanorCrates = new List<NitroDetonator>();   
@@ -218,6 +220,12 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+        for(int i = 0; i < AkuAkuCrateSpawns.Count; i++)
+        {
+            Destroy(AkuAkuCrateSpawns[i].gameObject);
+            AkuAkuCrateSpawns.RemoveAt(i);
+        }
+
         for (int i = 0; i < ActivatorCrates.Count; i++)
         {
             ActivatorCrates[i].DeactivateCrates();
