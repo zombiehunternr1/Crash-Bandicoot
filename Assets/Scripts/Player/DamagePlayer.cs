@@ -10,14 +10,21 @@ public class DamagePlayer : MonoBehaviour
     public bool Instakill;
 
     private float Invulnerable = 3;
-    private float Blink = 0.2f;
+    private float Blink = 1f;
     private bool CanHit = true;
+
+    private Renderer[] Rend;
+
+    private void Awake()
+    {
+        Player = FindObjectOfType<PlayerActions>();
+        Rend = Player.GetComponentsInChildren<Renderer>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<PlayerActions>())
         {
-            Player = other.GetComponent<PlayerActions>();
             PlayerGotHit();
         }
     }
@@ -25,7 +32,6 @@ public class DamagePlayer : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerActions>())
         {
-            Player = collision.gameObject.GetComponent<PlayerActions>();
             PlayerGotHit();
         }
     }
@@ -56,33 +62,39 @@ public class DamagePlayer : MonoBehaviour
                 {
                     if (CanHit)
                     {
-                        StartCoroutine(Tempinvulnerability(Invulnerable, 0.2f));
                         Player.GetComponent<PlayerStatus>().Player.ExtraHit--;
+                        StartCoroutine(TempInvulnerability());
+                        //Kill enemy if allowed.
                     }
                 }
             }
             else
             {
-                //Kill enemy.
+                //Kill enemy if allowed.
             }
         }
     }
 
-    //This coroutine temporarely turns the mesh of the player on and off again until the Invulnerable time isn't greater then 0 anymore. After that it enables all the meshes and set the bool CanHit back to true.
-    IEnumerator Tempinvulnerability(float Duration, float Blink)
+    //This coroutine Displays the player being hit and is temporarely invulnerability to other enemies to give the player a fair change to save himself for a short period of time.
+    IEnumerator TempInvulnerability()
     {
         CanHit = false;
-        SkinnedMeshRenderer Mesh = Player.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();  
-
-        while(Invulnerable > 0f)
+        while (Invulnerable > 0)
         {
-            if(Invulnerable > 0f)
+            Invulnerable -= Time.deltaTime;
+            foreach (Renderer rend in Rend)
             {
-                Mesh.enabled = !Mesh.enabled;
-                Invulnerable -= Time.deltaTime;
+                rend.enabled = !rend.enabled;
+                new WaitForSeconds(Blink);
             }
+            yield return null;
         }
-        Mesh.enabled = true;
+        foreach (Renderer rend in Rend)
+        {
+            rend.enabled = true;
+        }
+        CanHit = true;
+        Invulnerable = 3;
         yield return null;
     }
 }
