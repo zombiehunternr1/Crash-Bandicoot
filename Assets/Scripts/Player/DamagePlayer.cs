@@ -5,10 +5,9 @@ using UnityEngine;
 public class DamagePlayer : MonoBehaviour
 {
     public GameEvent PlayerHit;
-    public PlayerActions Player;
-
     public bool Instakill;
 
+    private PlayerActions Player;
     private float Invulnerable = 3;
     private float Blink = 1f;
     private bool CanHit = true;
