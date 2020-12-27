@@ -18,10 +18,24 @@ public class AkuAku : MonoBehaviour
         Manager.AkuAkuCrateSpawns.Remove(this);
         if (other.GetComponent<PlayerActions>())
         {
-            if(Player.ExtraHit != 3)
+            if(Player.ExtraHit < 3)
             {
                 Player.ExtraHit++;
-                gameObject.GetComponent<BoxCollider>().enabled = false;
+                if(Player.ExtraHit == 1)
+                {
+                    gameObject.GetComponent<BoxCollider>().enabled = false;
+                    gameObject.transform.position = new Vector3(other.transform.position.x + 1.5f, other.transform.position.y, other.transform.position.z);
+                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                    gameObject.transform.parent = other.transform;
+                }
+                else
+                {
+                    //Replace this with an new AkuAku material
+                    gameObject.GetComponent<BoxCollider>().enabled = false;
+                    gameObject.transform.position = new Vector3(other.transform.position.x + 1.5f, other.transform.position.y, other.transform.position.z);
+                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                    gameObject.transform.parent = other.transform;
+                }
             }
             else
             {
