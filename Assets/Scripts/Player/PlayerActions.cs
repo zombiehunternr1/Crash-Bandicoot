@@ -165,7 +165,7 @@ public class PlayerActions : MonoBehaviour
         //This condition prevents from spamming "Look rotation viewing vector is zero" when not moving.
         if (facingrotation != Vector3.zero)
         {
-            transform.forward = Vector3.Lerp(transform.forward, facingrotation, TurningSpeed * Time.deltaTime);
+            transform.forward = Vector3.Slerp(transform.forward, facingrotation, TurningSpeed * Time.deltaTime);
         }
     }
 
