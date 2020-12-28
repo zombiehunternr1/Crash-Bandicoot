@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerActions : MonoBehaviour
 {
-    public float Speed;
+    public float MovementSpeed;
+    public float TurningSpeed;
     public float JumpForce;
     public float JumpHeightFloat;
     public float Bounce;
@@ -157,14 +158,14 @@ public class PlayerActions : MonoBehaviour
         //Gets the direction of the players input
         Vector3 direction = new Vector3(InputValue.x, 0, InputValue.y);
 
-        Vector3 velocity = direction * Speed * FallingMovement;
+        Vector3 velocity = direction * MovementSpeed * FallingMovement;
         Rb.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
         Vector3 facingrotation = Vector3.Normalize(new Vector3(InputValue.x, 0, InputValue.y));
 
         //This condition prevents from spamming "Look rotation viewing vector is zero" when not moving.
         if (facingrotation != Vector3.zero)
         {
-            transform.forward = facingrotation;
+            transform.forward = Vector3.Lerp(transform.forward, facingrotation, TurningSpeed * Time.deltaTime);
         }
     }
 
