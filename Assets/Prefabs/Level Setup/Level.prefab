@@ -64,6 +64,7 @@ MonoBehaviour:
   CurrentCrates: 0
   TotalCrates: []
   BoxCounters: []
+  AkuAkuCrateSpawns: []
 --- !u!114 &1831760331947706401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +457,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crash
       objectReference: {fileID: 0}
+    - target: {fileID: 6989627018079205035, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8412249235358031459, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e67dfdbd503d5498cfdaee114a90cd, type: 3}
 --- !u!4 &8677201647086941518 stripped
@@ -727,6 +738,11 @@ PrefabInstance:
       propertyPath: PlayerTransform
       value: 
       objectReference: {fileID: 8677201647086941518}
+    - target: {fileID: 6232772315551913176, guid: d3e1510dd6e33e74592d9ca4e98e9b4b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 310
+      objectReference: {fileID: 0}
     - target: {fileID: 6388435473583806801, guid: d3e1510dd6e33e74592d9ca4e98e9b4b,
         type: 3}
       propertyPath: m_CastShadows

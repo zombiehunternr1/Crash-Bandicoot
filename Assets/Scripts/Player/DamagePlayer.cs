@@ -62,6 +62,7 @@ public class DamagePlayer : MonoBehaviour
                     if (CanHit)
                     {
                         Player.GetComponent<PlayerStatus>().Player.ExtraHit--;
+                        Destroy(Player.GetComponentInChildren<AkuAku>().gameObject);
                         StartCoroutine(TempInvulnerability());
                         //Kill enemy if allowed.
                     }

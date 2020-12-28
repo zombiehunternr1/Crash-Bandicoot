@@ -21,20 +21,14 @@ public class AkuAku : MonoBehaviour
             if(Player.ExtraHit < 3)
             {
                 Player.ExtraHit++;
-                if(Player.ExtraHit == 1)
+                if (Player.ExtraHit == 1)
                 {
                     gameObject.GetComponent<BoxCollider>().enabled = false;
-                    gameObject.transform.position = new Vector3(other.transform.position.x + 1.5f, other.transform.position.y, other.transform.position.z);
-                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                     gameObject.transform.parent = other.transform;
-                }
-                else
-                {
-                    //Replace this with an new AkuAku material
-                    gameObject.GetComponent<BoxCollider>().enabled = false;
-                    gameObject.transform.position = new Vector3(other.transform.position.x + 1.5f, other.transform.position.y, other.transform.position.z);
-                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                    gameObject.transform.parent = other.transform;
+                    var X = Vector3.zero;
+                    X.x = 1.5f;
+                    gameObject.transform.localPosition = X;
+                    transform.rotation = other.transform.rotation;
                 }
             }
             else
