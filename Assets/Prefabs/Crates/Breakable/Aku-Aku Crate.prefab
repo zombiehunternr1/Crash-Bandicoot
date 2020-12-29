@@ -174,5 +174,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
-  AkuAku: {fileID: 6428452275724738495, guid: f672830f08e5871439507d62a4761878, type: 3}
+  AkuAku: {fileID: 164543506062736876, guid: f672830f08e5871439507d62a4761878, type: 3}
   Player: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
