@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 560199959955283769}
   - component: {fileID: 8763270573489090250}
   - component: {fileID: 7636570767235387454}
-  - component: {fileID: 9051189292027218756}
   m_Layer: 0
   m_Name: AkuAku
   m_TagString: Untagged
@@ -81,33 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerInfo: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
   Children: []
---- !u!114 &9051189292027218756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164543506062736876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90749240303c2b24e8c1aea0adbdc041, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 11400000, guid: 58d39faec06df57479b8f3e4ac065817, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7636570767235387454}
-        m_MethodName: WithdrawAkuAku
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &339258700728728234
 GameObject:
   m_ObjectHideFlags: 0

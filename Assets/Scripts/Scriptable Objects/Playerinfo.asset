@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Playerinfo
   m_EditorClassIdentifier: 
   Lives: 7
-  ExtraHit: 3
+  ExtraHit: 0
   Woompa: 62

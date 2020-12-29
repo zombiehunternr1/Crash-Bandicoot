@@ -5,7 +5,6 @@ using UnityEngine;
 public class DamagePlayer : MonoBehaviour
 {
     public GameEvent PlayerHit;
-    public GameEvent AkuAkuUpdate;
     public bool Instakill;
 
     private PlayerActions Player;
@@ -62,8 +61,9 @@ public class DamagePlayer : MonoBehaviour
                 {
                     if (CanHit)
                     {
-                        AkuAkuUpdate.Raise();
-                        StartCoroutine(TempInvulnerability());
+                        CanHit = false;
+                        Player.GetComponentInChildren<AkuAku>().WithdrawAkuAku();
+                        StartCoroutine(TempInvulnerability());                   
                         //Kill enemy if allowed.
                     }
                 }
@@ -78,7 +78,6 @@ public class DamagePlayer : MonoBehaviour
     //This coroutine Displays the player being hit and is temporarely invulnerability to other enemies to give the player a fair change to save himself for a short period of time.
     IEnumerator TempInvulnerability()
     {
-        CanHit = false;
         while (Invulnerable > 0)
         {
             Invulnerable -= Time.deltaTime;
