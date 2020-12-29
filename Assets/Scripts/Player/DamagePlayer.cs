@@ -5,6 +5,7 @@ using UnityEngine;
 public class DamagePlayer : MonoBehaviour
 {
     public GameEvent PlayerHit;
+    public GameEvent AkuAkuUpdate;
     public bool Instakill;
 
     private PlayerActions Player;
@@ -61,8 +62,7 @@ public class DamagePlayer : MonoBehaviour
                 {
                     if (CanHit)
                     {
-                        Player.GetComponent<PlayerStatus>().Player.ExtraHit--;
-                        Destroy(Player.GetComponentInChildren<AkuAku>().gameObject);
+                        AkuAkuUpdate.Raise();
                         StartCoroutine(TempInvulnerability());
                         //Kill enemy if allowed.
                     }

@@ -220,6 +220,11 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+        if (Player.GetComponentInChildren<AkuAku>())
+        {
+            Destroy(Player.GetComponentInChildren<AkuAku>().gameObject);
+        }
+
         for(int i = 0; i < AkuAkuCrateSpawns.Count; i++)
         {
             Destroy(AkuAkuCrateSpawns[i].gameObject);
