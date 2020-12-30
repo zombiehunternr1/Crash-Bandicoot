@@ -38,8 +38,12 @@ public class Interactable : MonoBehaviour
             case 7:
                 Attack();
                 break;
-            //Explosion
+            //Invincibility
             case 8:
+                Invincibility();
+                break;
+            //Explosion
+            case 10:
                 Explosion();
                 break;
         }        
@@ -106,6 +110,14 @@ public class Interactable : MonoBehaviour
     }
 
     void Explosion()
+    {
+        if (ActivatorCrate)
+        {
+            ActivatorCrate.ActivateCrates();
+        }
+    }
+
+    void Invincibility()
     {
         if (ActivatorCrate)
         {

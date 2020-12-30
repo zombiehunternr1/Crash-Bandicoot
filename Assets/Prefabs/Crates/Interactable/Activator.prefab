@@ -165,12 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f57c3d7ddd4aef46b182b8dfc0938b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Crates:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Crates: []
   InActiveCrate: {fileID: 3748311121310577669, guid: f8f4fb98846101044bc1b04904c44ccd,
     type: 3}
   Effect: {fileID: 601080499792891693, guid: 037fef34b8231124db08904fd6af2cfd, type: 3}
