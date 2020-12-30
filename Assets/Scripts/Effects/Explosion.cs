@@ -6,7 +6,7 @@ public class Explosion : MonoBehaviour
 {
     private DamagePlayer HitPlayer;
     private SphereCollider ExplosionArea;
-    private int ExplodeCrate = 8;
+    private int ExplodeCrate = 10;
 
     //Gets the collider and stores it in the variable ExplosionArea.
     //Afterwards it destroys itself after 1 second.
@@ -38,8 +38,10 @@ public class Explosion : MonoBehaviour
         }
         else if (other.GetComponent<PlayerActions>())
         {
-            HitPlayer.PlayerGotHit();
-            Debug.Log("I am the player");
+            if (other.GetComponentInChildren<AkuAku>().NotInvinsible)
+            {
+                HitPlayer.PlayerGotHit();
+            }            
         }
     }
 }

@@ -10,7 +10,7 @@ public class CrateBase : MonoBehaviour
     [HideInInspector]
     public bool GravityEnabled = false;
 
-    private enum CrateDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
+    private enum CrateDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin, Invincibility }
     private Interactable Interact;
     private Breakable Break;
     private Rigidbody Rb;
@@ -57,6 +57,10 @@ public class CrateBase : MonoBehaviour
             //Spin
             case 7:
                 Attack();
+                break;
+            //Invincibility
+            case 8:
+                Invincibility();
                 break;
         }
     }
@@ -144,6 +148,19 @@ public class CrateBase : MonoBehaviour
     void Attack()
     {
         CrateSide = Convert.ToInt32(CrateDirection.Spin);
+        if (Interact)
+        {
+            Interact.CrateAction(CrateSide);
+        }
+        if (Break)
+        {
+            Break.CrateAction(CrateSide);
+        }
+    }
+
+    void Invincibility()
+    {
+        CrateSide = Convert.ToInt32(CrateDirection.Invincibility);
         if (Interact)
         {
             Interact.CrateAction(CrateSide);

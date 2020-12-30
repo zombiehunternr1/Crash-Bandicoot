@@ -9,7 +9,7 @@ public class AkuAku : MonoBehaviour
     private Stage[] Children;
     [HideInInspector]
     public DamagePlayer KillPlayer;
-    [HideInInspector]
+    //[HideInInspector]
     public bool NotInvinsible = true;
 
     private PlayerActions Player;
@@ -59,9 +59,9 @@ public class AkuAku : MonoBehaviour
             {
                 if (NotInvinsible)
                 {
-                    NotInvinsible = false;
-                    Destroy(gameObject);
+                    Player.GetComponentInChildren<AkuAku>().NotInvinsible = false;
                     KillPlayer.CanHit = false;
+                    Destroy(gameObject);
                     Player.GetComponentInChildren<AkuAku>().transform.localPosition = new Vector3(0, -0.2f, 0.7f);
                     StartCoroutine(Player.GetComponentInChildren<AkuAku>().InvinsibilityTimer());
                 }

@@ -86,13 +86,17 @@ public class Breakable : MonoBehaviour
             case 7:
                 Attack();
                 break;
-            //Explosion
+            //Invincibility
             case 8:
-                Explosion();
+                Invincibility();
                 break;
             //Entity
             case 9:
                 Entity();
+                break;
+            //Explosion
+            case 10:
+                Explosion();
                 break;
         }          
     }
@@ -317,6 +321,7 @@ public class Breakable : MonoBehaviour
             }
             else if (Bouncing)
             {
+                Player.Woompa++;
                 breakCrate();
             }
             else if (QuestionmarkCrate)
@@ -329,8 +334,51 @@ public class Breakable : MonoBehaviour
             }
             else
             {
+                Player.Woompa++;
                 breakCrate();
             }
+        }
+    }
+
+    void Invincibility()
+    {
+        if (!CheckpointCrate)
+        {
+            if (TntCrate)
+            {
+                TntCrate.ExplodeCrate();
+            }
+            else if (NitroCrate)
+            {
+                NitroCrate.ExplodeCrate();
+            }
+            else if (BreakOverTime)
+            {
+                Player.Woompa += 5;
+                BreakOverTime.BreakCrate();
+            }
+            else if (Bouncing)
+            {
+                Player.Woompa++;
+                Bouncing.breakCrate();
+            }
+            else if (QuestionmarkCrate)
+            {
+                QuestionmarkCrate.AutoAdd = true;
+                QuestionmarkCrate.DropItems();
+            }
+            else if (AkuAkuCrate)
+            {
+                AkuAkuCrate.DropItem();
+            }
+            else
+            {
+                breakCrate();
+            }
+        }
+        else
+        {
+            CheckpointCrate.SetCheckpoint();
         }
     }
 

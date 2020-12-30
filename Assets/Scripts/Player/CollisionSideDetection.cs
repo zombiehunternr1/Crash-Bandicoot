@@ -6,7 +6,7 @@ using UnityEngine;
 public class CollisionSideDetection : MonoBehaviour
 {
     //Enums to help check which side the player hit a certain object or with his attack.
-    private enum HitPlayerDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin }
+    private enum HitPlayerDirection { None, Top, Bottom, Forward, Back, Left, Right, Spin, Invincibility }
 
     [HideInInspector]
     public int SideHitValue;
@@ -51,7 +51,16 @@ public class CollisionSideDetection : MonoBehaviour
                 ReturnDirection(collision.gameObject, this.gameObject);
                 if (Crate)
                 {
-                    Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);
+                    if (collision.gameObject.GetComponentInChildren<AkuAku>().NotInvinsible)
+                    {
+                        Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);
+                    }
+                    else
+                    {
+                        HitPlayerDirection Invincibility = HitPlayerDirection.Invincibility;
+                        SideHitValue = Convert.ToInt32(Invincibility);
+                        Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);
+                    }                    
                 }
                 if (Enemy)
                 {
