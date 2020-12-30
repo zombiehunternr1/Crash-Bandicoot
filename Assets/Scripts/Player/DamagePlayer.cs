@@ -10,7 +10,8 @@ public class DamagePlayer : MonoBehaviour
     private PlayerActions Player;
     private float Invulnerable = 3;
     private float Blink = 1f;
-    private bool CanHit = true;
+    //[HideInInspector]
+    public bool CanHit = true;
 
     private Renderer[] Rend;
 

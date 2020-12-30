@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     public List<Breakable> TotalCrates = new List<Breakable>();
     [HideInInspector]
     public List<BoxCounter> BoxCounters = new List<BoxCounter>();
-    //[HideInInspector]
+    [HideInInspector]
     public List<AkuAku> AkuAkuCrateSpawns = new List<AkuAku>();
 
     private List<Activator> ActivatorCrates = new List<Activator>();
@@ -222,7 +222,12 @@ public class LevelManager : MonoBehaviour
         }
         if (Player.GetComponentInChildren<AkuAku>())
         {
-            Destroy(Player.GetComponentInChildren<AkuAku>().gameObject);
+            var AkuAku = Player.GetComponentInChildren<AkuAku>();
+
+            StopCoroutine(Player.GetComponentInChildren<AkuAku>().InvinsibilityTimer());
+            AkuAku.NotInvinsible = true;
+            AkuAku.KillPlayer.CanHit = true;
+            Destroy(AkuAku.gameObject);
         }
 
         for(int i = 0; i < AkuAkuCrateSpawns.Count; i++)

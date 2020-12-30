@@ -6,14 +6,21 @@ public class AkuAku : MonoBehaviour
 {
     public PlayerInfo PlayerInfo;
     private LevelManager Manager;
-    public Stage[] Children;
+    private Stage[] Children;
+    [HideInInspector]
+    public DamagePlayer KillPlayer;
+    [HideInInspector]
+    public bool NotInvinsible = true;
 
     private PlayerActions Player;
+    private bool Done;
+    private float TimeRemaining = 20f;
 
     public void Awake()
     {
         Children = GetComponentsInChildren<Stage>();
         Manager = FindObjectOfType<LevelManager>();
+        KillPlayer = FindObjectOfType<DamagePlayer>();
         Manager.AkuAkuCrateSpawns.Add(this);
         Children[1].gameObject.SetActive(false);
     }
@@ -28,7 +35,7 @@ public class AkuAku : MonoBehaviour
         }
     }
 
-    public void AddAkuAku()
+    private void AddAkuAku()
     {
         if (PlayerInfo.ExtraHit < 3)
         {
@@ -48,10 +55,16 @@ public class AkuAku : MonoBehaviour
                 Destroy(gameObject);
                 Player.GetComponentInChildren<AkuAku>().Children[1].gameObject.SetActive(true);
             }
-            else if(PlayerInfo.ExtraHit == 3)
+            else if (PlayerInfo.ExtraHit == 3)
             {
-                Destroy(gameObject);
-                Player.GetComponentInChildren<AkuAku>().transform.localPosition = new Vector3(0, -0.2f, 0.7f);
+                if (NotInvinsible)
+                {
+                    NotInvinsible = false;
+                    Destroy(gameObject);
+                    KillPlayer.CanHit = false;
+                    Player.GetComponentInChildren<AkuAku>().transform.localPosition = new Vector3(0, -0.2f, 0.7f);
+                    StartCoroutine(Player.GetComponentInChildren<AkuAku>().InvinsibilityTimer());
+                }
             }
         }
         else
@@ -75,15 +88,36 @@ public class AkuAku : MonoBehaviour
                 {
                     Player.GetComponentInChildren<AkuAku>().Children[1].gameObject.SetActive(false);
                 }              
-            }
-            else if(PlayerInfo.ExtraHit == 2)
-            {
-                Player.GetComponentInChildren<AkuAku>().gameObject.transform.parent = Player.transform;
-                var X = Vector3.zero;
-                X.x = 1.5f;
-                Player.GetComponentInChildren<AkuAku>().gameObject.transform.localPosition = X;
-                transform.rotation = Player.GetComponentInChildren<AkuAku>().transform.rotation;
-            }
+            }          
         }
+        else
+        {
+            PlayerInfo.ExtraHit--;
+            Player.GetComponentInChildren<AkuAku>().transform.localPosition = new Vector3(1.5f, 0, 0);
+            transform.rotation = Player.transform.rotation;
+        }
+    }
+
+    public IEnumerator InvinsibilityTimer()
+    {
+        var AkuAku = Player.GetComponentInChildren<AkuAku>();
+        if (!Done)
+        {
+            while (TimeRemaining > 0)
+            {
+                TimeRemaining -= Time.deltaTime;
+            }
+            TimeRemaining = 20f;
+            Done = true;
+            StartCoroutine(InvinsibilityTimer());
+        }
+        else
+        {
+            yield return new WaitForSeconds(TimeRemaining);
+            AkuAku.WithdrawAkuAku();
+            AkuAku.NotInvinsible = true;
+            AkuAku.KillPlayer.CanHit = true;
+        }
+        yield return null;
     }
 }
