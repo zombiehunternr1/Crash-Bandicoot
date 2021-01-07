@@ -9,15 +9,20 @@ public class AkuAku : MonoBehaviour
     private Stage[] Children;
     [HideInInspector]
     public DamagePlayer KillPlayer;
-    //[HideInInspector]
+    [HideInInspector]
     public bool NotInvinsible = true;
+
+    private SkinnedMeshRenderer CrashSkin;
 
     private PlayerActions Player;
     private bool Done;
     private float TimeRemaining = 20f;
+    private bool Flashing;
 
     public void Awake()
     {
+        Player = FindObjectOfType<PlayerActions>();
+        CrashSkin = Player.GetComponentInChildren<SkinnedMeshRenderer>();
         Children = GetComponentsInChildren<Stage>();
         Manager = FindObjectOfType<LevelManager>();
         KillPlayer = FindObjectOfType<DamagePlayer>();
@@ -61,9 +66,9 @@ public class AkuAku : MonoBehaviour
                 {
                     Player.GetComponentInChildren<AkuAku>().NotInvinsible = false;
                     KillPlayer.CanHit = false;
-                    Destroy(gameObject);
                     Player.GetComponentInChildren<AkuAku>().transform.localPosition = new Vector3(0, -0.2f, 0.7f);
-                    StartCoroutine(Player.GetComponentInChildren<AkuAku>().InvinsibilityTimer());
+                    Player.GetComponentInChildren<AkuAku>().StartCoroutine(Player.GetComponentInChildren<AkuAku>().InvinsibilityTimer(TimeRemaining));
+                    Destroy(gameObject);
                 }
             }
         }
@@ -98,26 +103,16 @@ public class AkuAku : MonoBehaviour
         }
     }
 
-    public IEnumerator InvinsibilityTimer()
+    public IEnumerator InvinsibilityTimer(float TimeRemaining)
     {
-        var AkuAku = Player.GetComponentInChildren<AkuAku>();
-        if (!Done)
-        {
-            while (TimeRemaining > 0)
-            {
-                TimeRemaining -= Time.deltaTime;
-            }
-            TimeRemaining = 20f;
-            Done = true;
-            StartCoroutine(InvinsibilityTimer());
-        }
-        else
-        {
-            yield return new WaitForSeconds(TimeRemaining);
-            AkuAku.WithdrawAkuAku();
-            AkuAku.NotInvinsible = true;
-            AkuAku.KillPlayer.CanHit = true;
-        }
+        Flashing = true;
+        Player.PlayerAnimator.SetBool("Flashing", Flashing);
+        yield return new WaitForSeconds(TimeRemaining);
+        Flashing = false;
+        Player.PlayerAnimator.SetBool("Flashing", Flashing);
+        Player.GetComponentInChildren<AkuAku>().WithdrawAkuAku();
+        Player.GetComponentInChildren<AkuAku>().NotInvinsible = true;
+        Player.GetComponentInChildren<AkuAku>().KillPlayer.CanHit = true;
         yield return null;
     }
 }

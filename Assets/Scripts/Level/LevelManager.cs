@@ -224,7 +224,7 @@ public class LevelManager : MonoBehaviour
         {
             var AkuAku = Player.GetComponentInChildren<AkuAku>();
 
-            StopCoroutine(Player.GetComponentInChildren<AkuAku>().InvinsibilityTimer());
+            //StopCoroutine(Player.GetComponentInChildren<AkuAku>().InvinsibilityTimer(TimeRemaining));
             AkuAku.NotInvinsible = true;
             AkuAku.KillPlayer.CanHit = true;
             Destroy(AkuAku.gameObject);

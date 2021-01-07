@@ -42,9 +42,10 @@ public class PlayerActions : MonoBehaviour
     public float TimerWoompa = 0f;
     [HideInInspector]
     public float TimerLife = 0f;
+    [HideInInspector]
+    public Animator PlayerAnimator;
 
     private Animation AnimSpinAttack;
-    private Animator PlayerAnimator;
     private bool IsGrounded;
     private bool HasDoubleJumped;
     private bool HoldingJump;
