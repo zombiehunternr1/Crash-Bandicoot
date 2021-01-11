@@ -46,46 +46,49 @@ public class CollisionSideDetection : MonoBehaviour
             //gets the boxcollider of the player and stores it in SpinAttack.
             SpinAttack = collision.gameObject.GetComponent<BoxCollider>();
 
-            if (!SpinAttack.enabled)
+            if (collision.gameObject.GetComponentInChildren<AkuAku>())
             {
-                ReturnDirection(collision.gameObject, this.gameObject);
-                if (Crate)
+                if (collision.gameObject.GetComponentInChildren<AkuAku>().NotInvinsible)
                 {
-                    if (collision.gameObject.GetComponentInChildren<AkuAku>().NotInvinsible)
+                    if (SpinAttack.enabled)
                     {
+                        HitPlayerDirection SpinAttack = HitPlayerDirection.Spin;
+                        SideHitValue = Convert.ToInt32(SpinAttack);
                         Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);
                     }
                     else
                     {
-                        HitPlayerDirection Invincibility = HitPlayerDirection.Invincibility;
-                        SideHitValue = Convert.ToInt32(Invincibility);
-                        Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);
-                    }                    
+                        ReturnDirection(collision.gameObject, this.gameObject);
+                        if (Crate)
+                        {
+                            Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);
+                        }
+                    }
                 }
-                if (Enemy)
+                else
                 {
-                    Enemy.EnemyDirectionHit(SideHitValue);
-                }
+                    HitPlayerDirection Invincibility = HitPlayerDirection.Invincibility;
+                    SideHitValue = Convert.ToInt32(Invincibility);
+                    Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);
+                }     
             }
             else
             {
-                HitPlayerDirection SpinAttack = HitPlayerDirection.Spin;
-                SideHitValue = Convert.ToInt32(SpinAttack);
-                if (Crate)
+                if (SpinAttack.enabled)
                 {
-                    if (Crate.gameObject.activeSelf)
+                    HitPlayerDirection SpinAttack = HitPlayerDirection.Spin;
+                    SideHitValue = Convert.ToInt32(SpinAttack);
+                    Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);
+                }
+                else
+                {
+                    ReturnDirection(collision.gameObject, this.gameObject);
+                    if (Crate)
                     {
                         Crate.CrateDirectionHit(SideHitValue, collision.gameObject.GetComponent<Rigidbody>().velocity);
-                    }                  
+                    }
                 }
-                if (Enemy)
-                {
-                    if (Enemy.gameObject.activeSelf)
-                    {
-                        Enemy.EnemyDirectionHit(SideHitValue);
-                    }                  
-                }
-            }                            
+            }
         }
         else if(collision.gameObject.GetComponent<CrateBase>() != null)
         {

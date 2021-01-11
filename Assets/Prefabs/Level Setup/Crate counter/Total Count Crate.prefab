@@ -113,12 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoxCount: {fileID: 7035590090818244888, guid: 735372843f6ec624a819e6bf99f69e24,
     type: 3}
-  BoxesInLevel: {fileID: 496300158144228244, guid: e7f56de8c7b0fe043b4ddce7b391702b,
-    type: 3}
-  Gem: {fileID: 576299705350671408, guid: d62b872833ecc8a40889308f3d25ec96, type: 3}
-  Parent: {fileID: 0}
-  NitroDetonator: {fileID: 5453635738975193679, guid: 4c0122fc560f27e4cb84006e7cc6903b,
-    type: 3}
+  ID: 0
 --- !u!114 &6181015333678879935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +131,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7545065300541496425}
-        m_MethodName: AddCrate
+        m_MethodName: SpawnGem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -164,7 +159,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7545065300541496425}
-        m_MethodName: CheckPointReached
+        m_MethodName: UpdateSpawnGemUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
