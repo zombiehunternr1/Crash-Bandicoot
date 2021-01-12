@@ -38,10 +38,13 @@ public class Explosion : MonoBehaviour
         }
         else if (other.GetComponent<PlayerActions>())
         {
-            if (other.GetComponentInChildren<AkuAku>().NotInvinsible)
+            if (other.GetComponentInChildren<AkuAku>())
             {
-                HitPlayer.PlayerGotHit();
-            }            
+                if (other.GetComponentInChildren<AkuAku>().NotInvinsible)
+                {
+                    HitPlayer.PlayerGotHit();
+                }
+            }                
         }
     }
 }

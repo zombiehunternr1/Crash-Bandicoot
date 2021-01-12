@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 931278571397417573}
   - component: {fileID: 931278571397417574}
   - component: {fileID: 8818166161423400685}
+  - component: {fileID: 8934829984771198563}
   m_Layer: 0
   m_Name: TNT Crate
   m_TagString: Untagged
@@ -137,8 +138,25 @@ MonoBehaviour:
   CrateDestroyed: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
   ExplosionEffect: {fileID: 793958401758990990, guid: a27c626cc9dfd9d46aa3ae9b9d46bed3,
     type: 3}
+  TntCountdown: {fileID: 0}
   HasExploded: 0
   HasStarted: 0
+--- !u!111 &8934829984771198563
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931278571397417575}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 2c60c710331bb414d942ae3cce94bdf7, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 2c60c710331bb414d942ae3cce94bdf7, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &722150538073477442
 PrefabInstance:
   m_ObjectHideFlags: 0

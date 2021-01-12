@@ -8,19 +8,22 @@ public class Tnt : MonoBehaviour
     public ParticleSystem ExplosionEffect;
     [HideInInspector]
     public bool HasExploded = false;
-    [HideInInspector]
+    //[HideInInspector]
     public bool HasStarted = false;
+    private Animation TntCountdown;
     private ParticleSystem Explode;
     private Transform Crate;
     private MeshRenderer[] GetChildren;
     private List<MeshRenderer> Countdown = new List<MeshRenderer>();
 
+    //Gets the animation that is attached to itself and stores it in the variable TntCoundown.
     //Gets the transform position of itself and stores it in the Transform variable Crate.
     //Gets all the MeshRenderers from it's children and itself and stores it in it's own variables.
     //Goes over each child object and adds it to the MeshRenderer list and disables the mesh renderer.
     //Afterwards it gets the first in the list and enables the mesh renderer.
     void Awake()
     {
+        TntCountdown = GetComponent<Animation>();
         Crate = GetComponent<Transform>();
         GetChildren = GetComponentsInChildren<MeshRenderer>();
 
@@ -32,12 +35,13 @@ public class Tnt : MonoBehaviour
         Countdown[0].enabled = true;
     }
 
-    //Once this function gets called it checks if the bool Hasstarted is false. If so it starts the coroutine StartCountdown.
+    //Once this function gets called it checks if the bool Hasstarted is false. If so it plays the animation.
     public void Activate()
     {
         if (!HasStarted)
         {
-            StartCoroutine(StartCountdown());
+            TntCountdown.Play();
+            //StartCoroutine(StartCountdown());
         }
         
     }
