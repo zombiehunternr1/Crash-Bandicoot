@@ -8,18 +8,6 @@ public class DamagePlayer : MonoBehaviour
     public bool Instakill;
 
     private PlayerActions Player;
-    private float Invulnerable = 3;
-    private float Blink = 1f;
-    //[HideInInspector]
-    public bool CanHit = true;
-
-    private Renderer[] Rend;
-
-    private void Awake()
-    {
-        Player = FindObjectOfType<PlayerActions>();
-        Rend = Player.GetComponentsInChildren<Renderer>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -55,16 +43,19 @@ public class DamagePlayer : MonoBehaviour
             {
                 if (Player.GetComponent<PlayerStatus>().Player.ExtraHit == 0)
                 {
-                    Player.GetComponent<PlayerActions>().CanMove = false;
-                    PlayerHit.Raise();
+                    if (Player.CanHit)
+                    {
+                        Player.GetComponent<PlayerActions>().CanMove = false;
+                        PlayerHit.Raise();
+                    }
                 }
                 else
                 {
-                    if (CanHit)
+                    if (Player.CanHit)
                     {
-                        CanHit = false;
+                        Player.CanHit = false;
                         Player.GetComponentInChildren<AkuAku>().WithdrawAkuAku();
-                        StartCoroutine(TempInvulnerability());                   
+                        StartCoroutine(Player.TempInvulnerability());                   
                         //Kill enemy if allowed.
                     }
                 }
@@ -74,27 +65,5 @@ public class DamagePlayer : MonoBehaviour
                 //Kill enemy if allowed.
             }
         }
-    }
-
-    //This coroutine Displays the player being hit and is temporarely invulnerability to other enemies to give the player a fair change to save himself for a short period of time.
-    IEnumerator TempInvulnerability()
-    {
-        while (Invulnerable > 0)
-        {
-            Invulnerable -= Time.deltaTime;
-            foreach (Renderer rend in Rend)
-            {
-                rend.enabled = !rend.enabled;
-                new WaitForSeconds(Blink);
-            }
-            yield return null;
-        }
-        foreach (Renderer rend in Rend)
-        {
-            rend.enabled = true;
-        }
-        CanHit = true;
-        Invulnerable = 3;
-        yield return null;
     }
 }

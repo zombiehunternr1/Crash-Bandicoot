@@ -64,8 +64,16 @@ public class PlayerActions : MonoBehaviour
     public AudioSource ExtraLifeSource;
     public AudioSource WoompaSource;
 
+    //[HideInInspector]
+    public bool CanHit = true;
+    public bool NotPlaying = true;
+    private float Invulnerable = 3;
+    private float Blink = 1f;
+    private Renderer[] Rend;
+
     private void Awake()
     {
+        Rend = GetComponentsInChildren<Renderer>();
         PlayerAnimator = GetComponentInChildren<Animator>();
         SpinCollider = GetComponent<BoxCollider>();
         AnimSpinAttack = GetComponentInChildren<Animation>();
@@ -356,6 +364,35 @@ public class PlayerActions : MonoBehaviour
             IsSpinning = false;
         }
     }
+
+    //This coroutine Displays the player being hit and is temporarely invulnerability to other enemies to give the player a fair change to save himself for a short period of time.
+    public IEnumerator TempInvulnerability()
+    {
+        if (NotPlaying)
+        {
+            NotPlaying = false;
+            while (Invulnerable > 0)
+            {
+                Invulnerable -= Time.deltaTime;
+                foreach (Renderer rend in Rend)
+                {
+                    rend.enabled = !rend.enabled;
+                    new WaitForSeconds(Blink);
+                }
+                yield return null;
+            }           
+            foreach (Renderer rend in Rend)
+            {
+                rend.enabled = true;
+            }
+            CanHit = true;
+            NotPlaying = true;
+            Invulnerable = 3;
+            yield return null;
+        }     
+    }
+
+
     /*//Testing purposes only. Remove at final build!!!
     private void OnDrawGizmosSelected()
     {

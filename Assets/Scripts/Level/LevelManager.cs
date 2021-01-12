@@ -207,6 +207,7 @@ public class LevelManager : MonoBehaviour
                         if (crate.GetComponent<Tnt>())
                         {
                             TntCrate = crate.GetComponent<Tnt>();
+                            TntCrate.TntCountdown.Stop();
                             TntCrate.ResetCountdown();
                         }
                         CurrentCrates--;
@@ -220,6 +221,13 @@ public class LevelManager : MonoBehaviour
                         CheckpointCrate = crate.GetComponent<CheckPoint>();
                         CheckpointCrate.hasSet = false;
                     }
+                    if (crate.GetComponent<Tnt>())
+                    {
+                        TntCrate = crate.GetComponent<Tnt>();
+                        TntCrate.ExplosionSource.Stop();
+                        TntCrate.TntCountdown.Stop();
+                        TntCrate.ResetCountdown();
+                    }
                 }
             }
         }
@@ -231,8 +239,8 @@ public class LevelManager : MonoBehaviour
             Player.GetComponentInChildren<AkuAku>().InvincibilitySource.Stop();
             Player.GetComponentInChildren<AkuAku>().Flashing = false;
             Player.PlayerAnimator.SetBool("Flashing", Player.GetComponentInChildren<AkuAku>().Flashing);
+            Player.CanHit = true;
             AkuAku.NotInvinsible = true;
-            AkuAku.KillPlayer.CanHit = true;
             Destroy(AkuAku.gameObject);
         }
 

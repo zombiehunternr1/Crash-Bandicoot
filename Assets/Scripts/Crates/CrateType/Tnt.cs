@@ -8,9 +8,12 @@ public class Tnt : MonoBehaviour
     public ParticleSystem ExplosionEffect;
     [HideInInspector]
     public bool HasExploded = false;
-    //[HideInInspector]
+    [HideInInspector]
     public bool HasStarted = false;
-    private Animation TntCountdown;
+    [HideInInspector]
+    public Animation TntCountdown;
+    [HideInInspector]
+    public AudioSource ExplosionSource;
     private ParticleSystem Explode;
     private Transform Crate;
     private MeshRenderer[] GetChildren;
@@ -23,6 +26,7 @@ public class Tnt : MonoBehaviour
     //Afterwards it gets the first in the list and enables the mesh renderer.
     void Awake()
     {
+        ExplosionSource = GetComponent<AudioSource>();
         TntCountdown = GetComponent<Animation>();
         Crate = GetComponent<Transform>();
         GetChildren = GetComponentsInChildren<MeshRenderer>();
@@ -40,8 +44,8 @@ public class Tnt : MonoBehaviour
     {
         if (!HasStarted)
         {
+            ExplosionSource.Play();
             TntCountdown.Play();
-            //StartCoroutine(StartCountdown());
         }
         
     }
@@ -62,27 +66,9 @@ public class Tnt : MonoBehaviour
     public void ResetCountdown()
     {
         HasExploded = false;
-        StopCoroutine(StartCountdown());
         Countdown[0].enabled = true;
         Countdown[1].enabled = false;
         Countdown[2].enabled = false;
         Countdown[3].enabled = false;
-    }
-
-    //This coroutine disables each meshrenderer after a certain amount of seconds has passed.
-    //Once it reaches the last one it disables the gameobject, instanciates the explosion effect, calls the ExploteCrate function.
-    private IEnumerator StartCountdown()
-    {
-        HasStarted = true;
-        Countdown[0].enabled = false;
-        Countdown[1].enabled = true;
-        yield return new WaitForSeconds(1);
-        Countdown[1].enabled = false;
-        Countdown[2].enabled = true;
-        yield return new WaitForSeconds(1);
-        Countdown[2].enabled = false;
-        Countdown[3].enabled = true;
-        yield return new WaitForSeconds(1);
-        ExplodeCrate();     
     }
 }

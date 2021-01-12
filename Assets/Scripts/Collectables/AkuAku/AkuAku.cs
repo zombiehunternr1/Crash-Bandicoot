@@ -8,8 +8,6 @@ public class AkuAku : MonoBehaviour
     private LevelManager Manager;
     private Stage[] Children;
     [HideInInspector]
-    public DamagePlayer KillPlayer;
-    [HideInInspector]
     public bool NotInvinsible = true;
     [HideInInspector]
     public bool Flashing;
@@ -29,7 +27,6 @@ public class AkuAku : MonoBehaviour
         CrashSkin = Player.GetComponentInChildren<SkinnedMeshRenderer>();
         Children = GetComponentsInChildren<Stage>();
         Manager = FindObjectOfType<LevelManager>();
-        KillPlayer = FindObjectOfType<DamagePlayer>();
         Manager.AkuAkuCrateSpawns.Add(this);
         Children[1].gameObject.SetActive(false);
     }
@@ -72,7 +69,7 @@ public class AkuAku : MonoBehaviour
                 if (NotInvinsible)
                 {
                     Player.GetComponentInChildren<AkuAku>().NotInvinsible = false;
-                    KillPlayer.CanHit = false;
+                    Player.CanHit = false;
                     Player.GetComponentInChildren<AkuAku>().transform.localPosition = new Vector3(0, -0.2f, 0.7f);
                     Player.GetComponentInChildren<AkuAku>().StartCoroutine(Player.GetComponentInChildren<AkuAku>().InvinsibilityTimer(TimeRemaining));
                     Destroy(gameObject);
@@ -122,7 +119,7 @@ public class AkuAku : MonoBehaviour
         Player.PlayerAnimator.SetBool("Flashing", Flashing);
         Player.GetComponentInChildren<AkuAku>().WithdrawAkuAku();
         Player.GetComponentInChildren<AkuAku>().NotInvinsible = true;
-        Player.GetComponentInChildren<AkuAku>().KillPlayer.CanHit = true;
+        Player.GetComponentInChildren<AkuAku>().Player.CanHit = true;
         yield return null;
     }
 }
