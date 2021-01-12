@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-    public PlayerActions Player;
     public GameEvent CrateDestroyed;
+    private PlayerActions Player;
+
+    public void Awake()
+    {
+        Player = FindObjectOfType<PlayerActions>();
+    }
 
     //Once this function gets called it bounces the player up.
     public void Up()

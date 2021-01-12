@@ -73,10 +73,12 @@ public class CrateBase : MonoBehaviour
         if (Interact)
         {
             Interact.CrateAction(CrateSide);
+            return;
         }
         if (Break && (PlayerVelicoty.y < 0.01f) || (PlayerVelicoty.y > 0.01f))
         {
             Break.CrateAction(CrateSide);
+            return;
         }
     }
 
