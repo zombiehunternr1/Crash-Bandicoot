@@ -60,6 +60,8 @@ public class PlayerActions : MonoBehaviour
     private Vector3 OriginPosition;
     private PlayerStatus PlayerStatus;
 
+    public AudioSource AkuAkuWithDrawSource;
+
     private void Awake()
     {
         PlayerAnimator = GetComponentInChildren<Animator>();

@@ -597,20 +597,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5059694160885638932}
     m_Modifications:
-    - target: {fileID: 1803828500, guid: 34e67dfdbd503d5498cfdaee114a90cd, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664200784196054266, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3932433912432727054, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6989627018079205029, guid: 34e67dfdbd503d5498cfdaee114a90cd,
         type: 3}
       propertyPath: m_RootOrder
@@ -700,16 +686,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Crash
-      objectReference: {fileID: 0}
-    - target: {fileID: 6989627018079205035, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8412249235358031459, guid: 34e67dfdbd503d5498cfdaee114a90cd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e67dfdbd503d5498cfdaee114a90cd, type: 3}
@@ -1548,7 +1524,7 @@ PrefabInstance:
     - target: {fileID: 5146495724837922489, guid: f0254d96daae17b4daaec346b33e3679,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.06
+      value: 2.16
       objectReference: {fileID: 0}
     - target: {fileID: 5146495724837922489, guid: f0254d96daae17b4daaec346b33e3679,
         type: 3}
@@ -1558,7 +1534,7 @@ PrefabInstance:
     - target: {fileID: 5146495724837922489, guid: f0254d96daae17b4daaec346b33e3679,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6677475
+      value: 3.34
       objectReference: {fileID: 0}
     - target: {fileID: 5146495724837922489, guid: f0254d96daae17b4daaec346b33e3679,
         type: 3}
@@ -1598,7 +1574,7 @@ PrefabInstance:
     - target: {fileID: 5487590192883153922, guid: f0254d96daae17b4daaec346b33e3679,
         type: 3}
       propertyPath: Instakill
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5487590192883153923, guid: f0254d96daae17b4daaec346b33e3679,
         type: 3}

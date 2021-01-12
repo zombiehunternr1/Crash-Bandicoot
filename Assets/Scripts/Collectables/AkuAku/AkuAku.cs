@@ -11,13 +11,17 @@ public class AkuAku : MonoBehaviour
     public DamagePlayer KillPlayer;
     [HideInInspector]
     public bool NotInvinsible = true;
+    [HideInInspector]
+    public bool Flashing;
+
+    public AudioSource AddSource;
+    public AudioSource WithdrawSource;
+    public AudioSource InvincibilitySource;
 
     private SkinnedMeshRenderer CrashSkin;
-
     private PlayerActions Player;
     private bool Done;
     private float TimeRemaining = 20f;
-    private bool Flashing;
 
     public void Awake()
     {
@@ -41,12 +45,13 @@ public class AkuAku : MonoBehaviour
     }
 
     private void AddAkuAku()
-    {
+    {       
         if (PlayerInfo.ExtraHit < 3)
-        {
+        {           
             PlayerInfo.ExtraHit++;
             if (PlayerInfo.ExtraHit == 1)
             {
+                AddSource.Play();
                 Children[1].gameObject.SetActive(false);
                 gameObject.GetComponent<BoxCollider>().enabled = false;
                 gameObject.transform.parent = Player.transform;
@@ -57,11 +62,13 @@ public class AkuAku : MonoBehaviour
             }
             else if (PlayerInfo.ExtraHit == 2)
             {
+                Player.GetComponentInChildren<AkuAku>().AddSource.Play();
                 Destroy(gameObject);
                 Player.GetComponentInChildren<AkuAku>().Children[1].gameObject.SetActive(true);
             }
             else if (PlayerInfo.ExtraHit == 3)
             {
+                Player.GetComponentInChildren<AkuAku>().InvincibilitySource.Play();
                 if (NotInvinsible)
                 {
                     Player.GetComponentInChildren<AkuAku>().NotInvinsible = false;
@@ -82,9 +89,11 @@ public class AkuAku : MonoBehaviour
     {
         if(PlayerInfo.ExtraHit < 3)
         {
+            Player.GetComponentInChildren<AkuAku>().WithdrawSource.Play();
             PlayerInfo.ExtraHit--;
             if(PlayerInfo.ExtraHit == 0)
             {
+                Player.AkuAkuWithDrawSource.Play();
                 Destroy(Player.GetComponentInChildren<AkuAku>().gameObject);
             }
             else if(PlayerInfo.ExtraHit == 1)
@@ -97,6 +106,7 @@ public class AkuAku : MonoBehaviour
         }
         else
         {
+            Player.GetComponentInChildren<AkuAku>().WithdrawSource.Play();
             PlayerInfo.ExtraHit--;
             Player.GetComponentInChildren<AkuAku>().transform.localPosition = new Vector3(1.5f, 0, 0);
             transform.rotation = Player.transform.rotation;
