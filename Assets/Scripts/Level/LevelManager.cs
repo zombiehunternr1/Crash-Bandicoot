@@ -42,12 +42,14 @@ public class LevelManager : MonoBehaviour
     private Activator[] ActivatorsInLevel;
     private NitroDetonator[] NitroDetonatorsInLevel;
 
+    private AudioSource CrashDied;
     //Goes over all the gameobjects in LevelCrates to find the object that has the script SpawnColorGem attached to it. If so it adds it to the variable SpawnColorGem.
     //Gets all the crates with crate type Breakable, Activator and NitroDetonator and stores them in each individual array.
     //Then goes over each item in their individual array and adds them to their corresponding list.
     //At the end the Boxcounter will be displayed with the current amount of broken crates and the total breakable crates in the level.
     void Start()
     {
+        CrashDied = GetComponent<AudioSource>();
         SpawnColorGem = LevelCrates.GetComponentInChildren<SpawnColorGem>();
         CratesInLevel = LevelCrates.GetComponentsInChildren<Breakable>();
         ActivatorsInLevel = LevelCrates.GetComponentsInChildren<Activator>();
@@ -82,6 +84,7 @@ public class LevelManager : MonoBehaviour
     //Once this function gets called it sets the CanMove bool to false, starts the coroutine FadeToBack
     public void PlayerDied()
     {
+        CrashDied.Play();
         Player.CanMove = false;
         StartCoroutine(FadeToBlack());
     }
