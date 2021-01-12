@@ -10,9 +10,11 @@ public class GemBase : MonoBehaviour
 
     private GemSystem GemsAvailable;
     private LevelManager LevelManager;
+    public AudioSource CollectedSource;
 
     private void Awake()
     {
+        CollectedSource = GetComponentInParent<AudioSource>(); 
         LevelManager = GetComponentInParent<LevelManager>();
         GemsAvailable = GetComponentInParent<GemSystem>();
     }
@@ -22,6 +24,7 @@ public class GemBase : MonoBehaviour
         if (other.GetComponent<PlayerActions>())
         {
             GetComponent<BoxCollider>().enabled = false;
+            CollectedSource.Play();
             Effect.Play();
             GemCollect.GemsCollected.Add(this.GetComponentInParent<Gem>().ID);
             StartCoroutine(DisableGem());

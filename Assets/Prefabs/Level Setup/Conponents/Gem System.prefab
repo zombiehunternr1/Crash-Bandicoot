@@ -46,6 +46,6 @@ MonoBehaviour:
   CollectedIds: 
   GemHolders: []
   BoxCounters: []
-  gemPrefab: {fileID: 682547284330954397, guid: 324c6bed6a91bf64e869d04a22f05fac,
+  gemPrefab: {fileID: 2468713407287234603, guid: 98e25f596f3a3bc4abd5f6aa3a569557,
     type: 3}
   GemCollectionSO: {fileID: 11400000, guid: e6bab1eebaee357488b640f303aa8fe9, type: 2}

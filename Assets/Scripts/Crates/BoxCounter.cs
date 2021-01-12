@@ -10,9 +10,11 @@ public class BoxCounter : MonoBehaviour
     public int ID;
     private CheckAmount Parent;
     private LevelManager LevelManager;
+    private AudioSource BreakCrate;
 
     void Awake()
     {
+        BreakCrate = GetComponent<AudioSource>();
         LevelManager = GetComponentInParent<LevelManager>();
         Parent = GetComponentInParent<CheckAmount>();
         BoxCount = GetComponentInChildren<Text>();
@@ -32,6 +34,7 @@ public class BoxCounter : MonoBehaviour
     {
         if (LevelManager.CurrentCrates == LevelManager.TotalCrates.Count)
         {
+            BreakCrate.Play();
             var x = Instantiate(FindObjectOfType<GemSystem>().gemPrefab, transform.position, Quaternion.identity).GetComponent<Gem>();
             x.ID = ID;
             x.Enable(GemColour.White);
