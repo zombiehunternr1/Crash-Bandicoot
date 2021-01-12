@@ -61,6 +61,8 @@ public class PlayerActions : MonoBehaviour
     private PlayerStatus PlayerStatus;
 
     public AudioSource AkuAkuWithDrawSource;
+    public AudioSource ExtraLifeSource;
+    public AudioSource WoompaSource;
 
     private void Awake()
     {
@@ -283,6 +285,7 @@ public class PlayerActions : MonoBehaviour
     //This function adds Woompa fruit to the playerstatus SO, raises the UpdateUI event and if the player has over 99 Woompa fruit it resets the amount to 0 and calls the function AddExtraLife.
     public void AddWoompa()
     {
+        WoompaSource.Play();
         TimerWoompa = 5f;
         PlayerStatus.Player.Woompa++;
         UpdateUI.Raise();
@@ -295,7 +298,8 @@ public class PlayerActions : MonoBehaviour
 
     //This function sets the TimerLife to 5, adds an extra life to the playerstatus and raises the UpdateUI event.
     public void AddExtraLife()
-    {        
+    {
+        ExtraLifeSource.Play();
         TimerLife = 5;
         PlayerStatus.Player.Lives++;
         UpdateUI.Raise();
