@@ -5,17 +5,18 @@ using UnityEngine;
 public class AkuAku : MonoBehaviour
 {
     public PlayerInfo PlayerInfo;
-    private LevelManager Manager;
-    private Stage[] Children;
+    public GameObject WithdrawSFX;
+    public AudioSource AddSource;
+    public AudioSource WithdrawSource;
+    public AudioSource InvincibilitySource;
+
     [HideInInspector]
     public bool NotInvinsible = true;
     [HideInInspector]
     public bool Flashing;
 
-    public AudioSource AddSource;
-    public AudioSource WithdrawSource;
-    public AudioSource InvincibilitySource;
-
+    private Stage[] Children;
+    private LevelManager Manager;
     private SkinnedMeshRenderer CrashSkin;
     private PlayerActions Player;
     private bool Done;
@@ -78,6 +79,7 @@ public class AkuAku : MonoBehaviour
         }
         else
         {
+            Instantiate(WithdrawSFX);
             Destroy(gameObject);
         }
     }
@@ -90,7 +92,7 @@ public class AkuAku : MonoBehaviour
             PlayerInfo.ExtraHit--;
             if(PlayerInfo.ExtraHit == 0)
             {
-                Player.AkuAkuWithDrawSource.Play();
+                Instantiate(WithdrawSFX);
                 Destroy(Player.GetComponentInChildren<AkuAku>().gameObject);
             }
             else if(PlayerInfo.ExtraHit == 1)

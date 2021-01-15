@@ -5,6 +5,7 @@ using UnityEngine;
 public class Life : MonoBehaviour
 {
     public GameEvent AddLife;
+    public GameObject LiveSFX;
 
     private SphereCollider Collider;
 
@@ -19,6 +20,7 @@ public class Life : MonoBehaviour
     {
         if (other.GetComponent<PlayerActions>())
         {
+            Instantiate(LiveSFX);
             AddLife.Raise();
             Destroy(gameObject);
         }

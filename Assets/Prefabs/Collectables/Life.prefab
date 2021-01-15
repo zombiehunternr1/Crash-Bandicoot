@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AddLife: {fileID: 11400000, guid: d6cb9e0007850394a88d13df69ff02a3, type: 2}
+  LiveSFX: {fileID: 5745964970907092165, guid: bc5b5f39011a0234da56e2fa755bbcb0, type: 3}
 --- !u!95 &5316967098705447229
 Animator:
   serializedVersion: 3

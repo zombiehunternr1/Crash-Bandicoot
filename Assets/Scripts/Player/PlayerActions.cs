@@ -28,8 +28,6 @@ public class PlayerActions : MonoBehaviour
     public Animator UIWoompaObject;
     public Animator UIWoompaText;
 
-    private bool GotWoompa = false;
-    private bool GotLife = false;
     private bool DisplayHud = false;
     [HideInInspector]
     public bool StandingIdle = true;
@@ -60,13 +58,8 @@ public class PlayerActions : MonoBehaviour
     private Vector3 OriginPosition;
     private PlayerStatus PlayerStatus;
 
-    public AudioSource AkuAkuWithDrawSource;
-    public AudioSource ExtraLifeSource;
-    public AudioSource WoompaSource;
-
     //[HideInInspector]
     public bool CanHit = true;
-    public bool NotPlaying = true;
     private float Invulnerable = 3;
     private float Blink = 1f;
     private Renderer[] Rend;
@@ -293,7 +286,6 @@ public class PlayerActions : MonoBehaviour
     //This function adds Woompa fruit to the playerstatus SO, raises the UpdateUI event and if the player has over 99 Woompa fruit it resets the amount to 0 and calls the function AddExtraLife.
     public void AddWoompa()
     {
-        WoompaSource.Play();
         TimerWoompa = 5f;
         PlayerStatus.Player.Woompa++;
         UpdateUI.Raise();
@@ -307,7 +299,6 @@ public class PlayerActions : MonoBehaviour
     //This function sets the TimerLife to 5, adds an extra life to the playerstatus and raises the UpdateUI event.
     public void AddExtraLife()
     {
-        ExtraLifeSource.Play();
         TimerLife = 5;
         PlayerStatus.Player.Lives++;
         UpdateUI.Raise();
@@ -368,28 +359,23 @@ public class PlayerActions : MonoBehaviour
     //This coroutine Displays the player being hit and is temporarely invulnerability to other enemies to give the player a fair change to save himself for a short period of time.
     public IEnumerator TempInvulnerability()
     {
-        if (NotPlaying)
+        while (Invulnerable > 0)
         {
-            NotPlaying = false;
-            while (Invulnerable > 0)
-            {
-                Invulnerable -= Time.deltaTime;
-                foreach (Renderer rend in Rend)
-                {
-                    rend.enabled = !rend.enabled;
-                    new WaitForSeconds(Blink);
-                }
-                yield return null;
-            }           
+            Invulnerable -= Time.deltaTime;
             foreach (Renderer rend in Rend)
             {
-                rend.enabled = true;
+                rend.enabled = !rend.enabled;
+                new WaitForSeconds(Blink);
             }
-            CanHit = true;
-            NotPlaying = true;
-            Invulnerable = 3;
             yield return null;
-        }     
+        }           
+        foreach (Renderer rend in Rend)
+        {
+            rend.enabled = true;
+        }
+        CanHit = true;
+        Invulnerable = 3;
+        yield return null;    
     }
 
 

@@ -82,11 +82,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInfo: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
-  KillPlayer: {fileID: 0}
-  NotInvinsible: 1
+  WithdrawSFX: {fileID: 2826499585792566902, guid: 0a13fecf2e3745541aa9d35aacc139bb,
+    type: 3}
   AddSource: {fileID: 8156022799420859781}
   WithdrawSource: {fileID: 8757486352513081381}
   InvincibilitySource: {fileID: 5805245087350589630}
+  NotInvinsible: 1
+  Flashing: 0
 --- !u!82 &8156022799420859781
 AudioSource:
   m_ObjectHideFlags: 0

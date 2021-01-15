@@ -359,7 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9050568749575853574}
   m_Layer: 0
-  m_Name: Level 1
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -654,12 +654,19 @@ PrefabInstance:
       propertyPath: UIWoompaObject
       value: 
       objectReference: {fileID: 6576126417993824146}
+    - target: {fileID: 6989627018079205034, guid: 34e67dfdbd503d5498cfdaee114a90cd,
+        type: 3}
+      propertyPath: ExtraLifeSource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6989627018079205035, guid: 34e67dfdbd503d5498cfdaee114a90cd,
         type: 3}
       propertyPath: m_Name
       value: Crash
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7708135523910122725, guid: 34e67dfdbd503d5498cfdaee114a90cd, type: 3}
+    - {fileID: 954847054938872848, guid: 34e67dfdbd503d5498cfdaee114a90cd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 34e67dfdbd503d5498cfdaee114a90cd, type: 3}
 --- !u!4 &6534043451811531575 stripped
 Transform:

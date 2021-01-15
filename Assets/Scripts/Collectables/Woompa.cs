@@ -5,6 +5,7 @@ using UnityEngine;
 public class Woompa : MonoBehaviour
 {
     public GameEvent AddWoompa;
+    public GameObject SFX;
 
     private BoxCollider Collider;
 
@@ -19,6 +20,9 @@ public class Woompa : MonoBehaviour
     {
         if (other.GetComponent<PlayerActions>())
         {
+            Collider.enabled = false;
+
+            Instantiate(SFX);
             AddWoompa.Raise();
             Destroy(gameObject);
         }
