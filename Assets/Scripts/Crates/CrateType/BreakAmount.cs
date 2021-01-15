@@ -8,14 +8,20 @@ public class BreakAmount : MonoBehaviour
     public GameEvent UpdateUI;
     public PlayerActions Player;
     public PlayerInfo AddWoompa;
+    public GameObject WoompaSFX;
+    public GameObject LiveSFX;
     [HideInInspector]
     public bool Activated = false;
-
 
     int GiveWoompa = 3;
     int TotalBounce = 5;
     float StartTime = 0f;
     float MaxTime = 5f;
+
+    private void Awake()
+    {
+        Player = FindObjectOfType<PlayerActions>();
+    }
 
     //Checks if the player already jumped on top of the crate.
     //If not it starts the Timer coroutine.
@@ -39,6 +45,7 @@ public class BreakAmount : MonoBehaviour
             gameObject.SetActive(false);
             for(int i = 0; i < GiveWoompa; i++)
             {
+                Instantiate(WoompaSFX);
                 Player.TimerWoompa = 5f;
                 AddWoompa.Woompa++;              
                 UpdateUI.Raise();
@@ -52,12 +59,14 @@ public class BreakAmount : MonoBehaviour
         {
             for (int i = 0; i < GiveWoompa; i++)
             {
-                if(AddWoompa.Woompa <= 99)
+                Instantiate(WoompaSFX);
+                if (AddWoompa.Woompa <= 99)
                 {
                     AddWoompa.Woompa++;
                 }
                 else
                 {
+                    Instantiate(LiveSFX);
                     Player.TimerLife = 5f;
                     AddWoompa.Woompa = 0;
                     AddWoompa.Lives++;                   
@@ -76,12 +85,14 @@ public class BreakAmount : MonoBehaviour
         {
             for (int i = 0; i < GiveWoompa; i++)
             {
+                Instantiate(WoompaSFX);
                 if (AddWoompa.Woompa <= 99)
                 {
                     AddWoompa.Woompa++;
                 }
                 else
                 {
+                    Instantiate(LiveSFX);
                     Player.TimerLife = 5f;
                     AddWoompa.Woompa = 0;
                     AddWoompa.Lives++;

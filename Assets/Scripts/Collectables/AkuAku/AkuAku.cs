@@ -50,13 +50,7 @@ public class AkuAku : MonoBehaviour
             if (PlayerInfo.ExtraHit == 1)
             {
                 AddSource.Play();
-                Children[1].gameObject.SetActive(false);
-                gameObject.GetComponent<BoxCollider>().enabled = false;
-                gameObject.transform.parent = Player.transform;
-                var X = Vector3.zero;
-                X.x = 1.5f;
-                gameObject.transform.localPosition = X;
-                transform.rotation = Player.transform.rotation;
+                PositionFirstMask();
             }
             else if (PlayerInfo.ExtraHit == 2)
             {
@@ -123,5 +117,16 @@ public class AkuAku : MonoBehaviour
         Player.GetComponentInChildren<AkuAku>().NotInvinsible = true;
         Player.GetComponentInChildren<AkuAku>().Player.CanHit = true;
         yield return null;
+    }
+
+    public void PositionFirstMask()
+    {
+        Children[1].gameObject.SetActive(false);
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+        gameObject.transform.parent = Player.transform;
+        var X = Vector3.zero;
+        X.x = 1.5f;
+        gameObject.transform.localPosition = X;
+        transform.rotation = Player.transform.rotation;
     }
 }

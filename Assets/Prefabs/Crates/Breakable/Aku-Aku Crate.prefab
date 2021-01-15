@@ -143,6 +143,9 @@ MonoBehaviour:
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
   Woompa: {fileID: 0}
   life: {fileID: 0}
+  WoompaSFX: {fileID: 1232083191280894805, guid: 5db83c5e88e784c4b8db1c9ec3f9ac37,
+    type: 3}
+  LifeSFX: {fileID: 5745964970907092165, guid: bc5b5f39011a0234da56e2fa755bbcb0, type: 3}
   Player: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
   HasBounced: 0
   JumpAmount: 0
@@ -175,4 +178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
   AkuAku: {fileID: 164543506062736876, guid: f672830f08e5871439507d62a4761878, type: 3}
+  AkuAkuSFX: {fileID: 4617286498205736317, guid: a64658440f12c5e48b4880df36a394d7,
+    type: 3}
   Player: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}

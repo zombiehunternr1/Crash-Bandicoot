@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e348d2714c17b448b05b1d9dc415cc, type: 3}
   m_Name: Playerinfo
   m_EditorClassIdentifier: 
-  Lives: 4
+  Lives: 5
   ExtraHit: 0
   Woompa: 0

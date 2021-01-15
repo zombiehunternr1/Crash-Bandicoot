@@ -156,6 +156,9 @@ MonoBehaviour:
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
   Woompa: {fileID: 4901675930758871217, guid: 63f7fc1de0254954ab40699237190102, type: 3}
   life: {fileID: 0}
+  WoompaSFX: {fileID: 1232083191280894805, guid: 5db83c5e88e784c4b8db1c9ec3f9ac37,
+    type: 3}
+  LifeSFX: {fileID: 5745964970907092165, guid: bc5b5f39011a0234da56e2fa755bbcb0, type: 3}
   Player: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
   HasBounced: 0
   JumpAmount: 0
@@ -173,5 +176,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cbb1e90fc33cd4699b7561c0724e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   CrateDestroyed: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}

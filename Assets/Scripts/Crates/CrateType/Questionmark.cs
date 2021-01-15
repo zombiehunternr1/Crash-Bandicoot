@@ -5,7 +5,9 @@ using UnityEngine;
 public class Questionmark : MonoBehaviour
 {
     public GameObject Woompa;
-    public GameObject Live;
+    public GameObject Life;
+    public GameObject WoompaSFX;
+    public GameObject LifeSFX;
     public GameEvent DestroyedCrate;
     public int DropWoompaAmount;
 
@@ -36,6 +38,7 @@ public class Questionmark : MonoBehaviour
             {
                 for (int i = 0; i < DropWoompaAmount; i++)
                 {
+                    Instantiate(WoompaSFX);
                     Player.Woompa++;
                 }
             }
@@ -47,10 +50,11 @@ public class Questionmark : MonoBehaviour
         {
             if (!AutoAdd)
             {
-                Instantiate(Live, transform.position, transform.rotation);
+                Instantiate(Life, transform.position, transform.rotation);
             }
             else
             {
+                Instantiate(LifeSFX);
                 Player.Lives++;
             }
             DestroyedCrate.Raise();

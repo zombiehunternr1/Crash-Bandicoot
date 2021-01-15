@@ -7,6 +7,8 @@ public class Breakable : MonoBehaviour
     public GameEvent DestroyedCrate;
     public GameObject Woompa;
     public GameObject life;
+    public GameObject WoompaSFX;
+    public GameObject LifeSFX;
     public PlayerInfo Player;
     [HideInInspector]
     public bool HasBounced = false;
@@ -140,7 +142,14 @@ public class Breakable : MonoBehaviour
         }
         else if (AkuAkuCrate)
         {
-            AkuAkuCrate.DropItem();
+            if (AkuAkuCrate.AutoAdd)
+            {
+                AkuAkuCrate.AddItem();
+            }
+            else
+            {
+                AkuAkuCrate.DropItem();
+            }
         }
         else
         {
@@ -184,7 +193,14 @@ public class Breakable : MonoBehaviour
         }
         else if (AkuAkuCrate)
         {
-            AkuAkuCrate.DropItem();
+            if (AkuAkuCrate.AutoAdd)
+            {
+                AkuAkuCrate.AddItem();
+            }
+            else
+            {
+                AkuAkuCrate.DropItem();
+            }
         }
         else
         {
@@ -256,7 +272,14 @@ public class Breakable : MonoBehaviour
         }
         else if (AkuAkuCrate)
         {
-            AkuAkuCrate.DropItem();
+            if (AkuAkuCrate.AutoAdd)
+            {
+                AkuAkuCrate.AddItem();
+            }
+            else
+            {
+                AkuAkuCrate.DropItem();
+            }
         }
         else
         {
@@ -291,7 +314,14 @@ public class Breakable : MonoBehaviour
             }
             else if (AkuAkuCrate)
             {
-                AkuAkuCrate.DropItem();
+                if (AkuAkuCrate.AutoAdd)
+                {
+                    AkuAkuCrate.AddItem();
+                }
+                else
+                {
+                    AkuAkuCrate.DropItem();
+                }
             }
             else
             {
@@ -330,7 +360,7 @@ public class Breakable : MonoBehaviour
             }
             else if (AkuAkuCrate)
             {
-                AkuAkuCrate.AutoAdd();
+                AkuAkuCrate.AddItem();
             }
             else
             {
@@ -354,11 +384,16 @@ public class Breakable : MonoBehaviour
             }
             else if (BreakOverTime)
             {
-                Player.Woompa += 5;
+                for(int i = 0; i < 5; i++)
+                {
+                    Instantiate(WoompaSFX);
+                    Player.Woompa++;
+                }
                 BreakOverTime.BreakCrate();
             }
             else if (Bouncing)
             {
+                Instantiate(WoompaSFX);
                 Player.Woompa++;
                 Bouncing.breakCrate();
             }
@@ -369,10 +404,18 @@ public class Breakable : MonoBehaviour
             }
             else if (AkuAkuCrate)
             {
-                AkuAkuCrate.DropItem();
+                if (AkuAkuCrate.AutoAdd)
+                {
+                    AkuAkuCrate.AddItem();
+                }
+                else
+                {
+                    AkuAkuCrate.DropItem();
+                }
             }
             else
             {
+                AutoAdd = true;
                 breakCrate();
             }
         }
@@ -397,10 +440,12 @@ public class Breakable : MonoBehaviour
         {
             if (Woompa != null)
             {
+                Instantiate(WoompaSFX);
                 Player.Woompa++;
             }
             if (life != null)
             {
+                Instantiate(LifeSFX);
                 Player.Lives++;
             }
         }
