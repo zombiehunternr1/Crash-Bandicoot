@@ -44,7 +44,7 @@ public class PlayerActions : MonoBehaviour
     public Animator PlayerAnimator;
 
     private Animation AnimSpinAttack;
-    private bool IsGrounded;
+    public bool IsGrounded;
     private bool HasDoubleJumped;
     private bool HoldingJump;
     private Rigidbody Rb;
@@ -219,7 +219,7 @@ public class PlayerActions : MonoBehaviour
 
         if (HoldingJump)
         {
-            JumpHeight = 475f;
+            JumpHeight = 500f;
             ResetJumpingCooldown();
         }
         Rb.velocity = new Vector3(Rb.velocity.x, 0);

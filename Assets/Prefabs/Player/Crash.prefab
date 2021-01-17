@@ -1047,10 +1047,10 @@ MonoBehaviour:
   FallingCutoff: 0.4
   GroundMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 3895
   DoubleJumpMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 512
   GroundChecker: {fileID: 7261772002586717920}
   CanMove: 1
   UpdateUI: {fileID: 11400000, guid: 0a86eb7cbdaa4d14fb61576465619d86, type: 2}
@@ -1066,6 +1066,7 @@ MonoBehaviour:
   TimerWoompa: 0
   TimerLife: 0
   PlayerAnimator: {fileID: 0}
+  IsGrounded: 0
   CanHit: 1
 --- !u!114 &6989627018079205026
 MonoBehaviour:
