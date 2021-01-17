@@ -6,6 +6,7 @@ public class Bounce : MonoBehaviour
 {
     public GameEvent CrateDestroyed;
     private PlayerActions Player;
+    public AudioSource BounceSource;
 
     public void Awake()
     {
@@ -16,11 +17,13 @@ public class Bounce : MonoBehaviour
     public void Up()
     {
         Player.BounceUp();
+        BounceSource.Play();
     }
     //Once this function gets called it bounces the player down.
     public void Down()
     {
         Player.BounceDown();
+        BounceSource.Play();
     }
 
     //Once this function gets called it raises the crate destroyed event and disables the gameobject.

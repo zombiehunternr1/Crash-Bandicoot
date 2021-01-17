@@ -123,5 +123,13 @@ public class Interactable : MonoBehaviour
         {
             ActivatorCrate.ActivateCrates();
         }
+        else if (NitroDetonatorCrate)
+        {
+            NitroDetonatorCrate.DestroyAllNitroCrates();
+        }
+        else if (CheckpointCrate)
+        {
+            CheckpointCrate.SetCheckpoint();
+        }
     }
 }

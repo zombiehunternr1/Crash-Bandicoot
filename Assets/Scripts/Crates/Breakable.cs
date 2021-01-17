@@ -9,6 +9,7 @@ public class Breakable : MonoBehaviour
     public GameObject life;
     public GameObject WoompaSFX;
     public GameObject LifeSFX;
+    public GameObject CratebreakSFX;
     public PlayerInfo Player;
     [HideInInspector]
     public bool HasBounced = false;
@@ -16,8 +17,8 @@ public class Breakable : MonoBehaviour
     public int JumpAmount;
     [HideInInspector]
     public bool FallingDown = false;
-
     public bool AutoAdd = false;
+
 
     private Bounce Bouncing;
     private BreakAmount BreakOverTime;
@@ -134,14 +135,17 @@ public class Breakable : MonoBehaviour
         }
         else if (CheckpointCrate)
         {
+            Instantiate(CratebreakSFX);
             CheckpointCrate.SetCheckpoint();
         }
         else if (QuestionmarkCrate)
         {
+            Instantiate(CratebreakSFX);
             QuestionmarkCrate.DropItems();
         }
         else if (AkuAkuCrate)
         {
+            Instantiate(CratebreakSFX);
             if (AkuAkuCrate.AutoAdd)
             {
                 AkuAkuCrate.AddItem();
@@ -189,10 +193,12 @@ public class Breakable : MonoBehaviour
         }
         else if (QuestionmarkCrate)
         {
+            Instantiate(CratebreakSFX);
             QuestionmarkCrate.DropItems();
         }
         else if (AkuAkuCrate)
         {
+            Instantiate(CratebreakSFX);
             if (AkuAkuCrate.AutoAdd)
             {
                 AkuAkuCrate.AddItem();
@@ -264,14 +270,17 @@ public class Breakable : MonoBehaviour
         }
         else if (CheckpointCrate)
         {
+            Instantiate(CratebreakSFX);
             CheckpointCrate.SetCheckpoint();
         }
         else if (QuestionmarkCrate)
         {
+            Instantiate(CratebreakSFX);
             QuestionmarkCrate.DropItems();
         }
         else if (AkuAkuCrate)
         {
+            Instantiate(CratebreakSFX);
             if (AkuAkuCrate.AutoAdd)
             {
                 AkuAkuCrate.AddItem();
@@ -346,6 +355,7 @@ public class Breakable : MonoBehaviour
 
             else if (BreakOverTime)
             {
+                Instantiate(CratebreakSFX);
                 Player.Woompa++;
                 BreakOverTime.BreakCrate();
             }
@@ -356,10 +366,12 @@ public class Breakable : MonoBehaviour
             }
             else if (QuestionmarkCrate)
             {
+                Instantiate(CratebreakSFX);
                 QuestionmarkCrate.DropItems();
             }
             else if (AkuAkuCrate)
             {
+                Instantiate(CratebreakSFX);
                 AkuAkuCrate.AddItem();
             }
             else
@@ -384,7 +396,8 @@ public class Breakable : MonoBehaviour
             }
             else if (BreakOverTime)
             {
-                for(int i = 0; i < 5; i++)
+                Instantiate(CratebreakSFX);
+                for (int i = 0; i < 5; i++)
                 {
                     Instantiate(WoompaSFX);
                     Player.Woompa++;
@@ -393,17 +406,20 @@ public class Breakable : MonoBehaviour
             }
             else if (Bouncing)
             {
+                Instantiate(CratebreakSFX);
                 Instantiate(WoompaSFX);
                 Player.Woompa++;
                 Bouncing.breakCrate();
             }
             else if (QuestionmarkCrate)
             {
+                Instantiate(CratebreakSFX);
                 QuestionmarkCrate.AutoAdd = true;
                 QuestionmarkCrate.DropItems();
             }
             else if (AkuAkuCrate)
             {
+                Instantiate(CratebreakSFX);
                 if (AkuAkuCrate.AutoAdd)
                 {
                     AkuAkuCrate.AddItem();
@@ -421,6 +437,7 @@ public class Breakable : MonoBehaviour
         }
         else
         {
+            Instantiate(CratebreakSFX);
             CheckpointCrate.SetCheckpoint();
         }
     }
@@ -436,6 +453,7 @@ public class Breakable : MonoBehaviour
     //Else it just raises the crate destroyed event and disables the gameobject.
     public void breakCrate()
     {
+        Instantiate(CratebreakSFX);
         if (AutoAdd)
         {
             if (Woompa != null)

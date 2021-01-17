@@ -44,7 +44,7 @@ public class PlayerActions : MonoBehaviour
     public Animator PlayerAnimator;
 
     private Animation AnimSpinAttack;
-    public bool IsGrounded;
+    private bool IsGrounded;
     private bool HasDoubleJumped;
     private bool HoldingJump;
     private Rigidbody Rb;

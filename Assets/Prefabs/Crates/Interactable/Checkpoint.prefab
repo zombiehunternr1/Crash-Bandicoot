@@ -172,3 +172,5 @@ MonoBehaviour:
     type: 3}
   BrokenCheckpoint: {fileID: 9161319982091621344, guid: 525152be3e11c6742b1011d16b363b18,
     type: 3}
+  CheckPointSFX: {fileID: 1648791987130761805, guid: db13c236d94f6954cafdd28cf5e1ff64,
+    type: 3}

@@ -11,6 +11,7 @@ public class CheckPoint : MonoBehaviour
 
     public GameObject MetalCrate;
     public GameObject BrokenCheckpoint;
+    public GameObject CheckPointSFX;
 
     private Transform GetcurrentCratePosition;
 
@@ -31,13 +32,15 @@ public class CheckPoint : MonoBehaviour
             hasSet = true;
             if (GetComponent<Breakable>())
             {
+                Instantiate(CheckPointSFX);
                 DestroyedCrate.Raise();               
                 Instantiate(BrokenCheckpoint, transform.position, transform.rotation);
                 CheckPointReached.RaiseTransform(GetcurrentCratePosition);
                 gameObject.SetActive(false);
             }
             else if (GetComponent<Interactable>())
-            {               
+            {
+                Instantiate(CheckPointSFX);
                 Instantiate(MetalCrate, transform.position, transform.rotation);
                 GetcurrentCratePosition.position += Vector3.up * 1.5f;
                 CheckPointReached.RaiseTransform(GetcurrentCratePosition);

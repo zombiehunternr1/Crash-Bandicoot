@@ -10,6 +10,7 @@ public class BreakAmount : MonoBehaviour
     public PlayerInfo AddWoompa;
     public GameObject WoompaSFX;
     public GameObject LiveSFX;
+    public GameObject BreakCrateSFX;
     [HideInInspector]
     public bool Activated = false;
 
@@ -41,6 +42,7 @@ public class BreakAmount : MonoBehaviour
         //That means the player will bounce of the crate, the cratedestroyed event will be raised, the gameobject will be deactivated and gives the player some Woompa fruit and the TimerWoompa to 5.
         if (StartTime > MaxTime)
         {
+            Instantiate(BreakCrateSFX);
             CrateDestroyed.Raise();
             gameObject.SetActive(false);
             for(int i = 0; i < GiveWoompa; i++)
@@ -101,6 +103,7 @@ public class BreakAmount : MonoBehaviour
                 AddWoompa.Woompa++;
                 UpdateUI.Raise();
             }
+            Instantiate(BreakCrateSFX);
             StopCoroutine(Timer());
             CrateDestroyed.Raise();
             gameObject.SetActive(false);
@@ -110,6 +113,7 @@ public class BreakAmount : MonoBehaviour
     //Once this function gets called it has been hit by either an explosion or an enemy.
     public void BreakCrate()
     {
+        Instantiate(BreakCrateSFX);
         StopCoroutine(Timer());
         CrateDestroyed.Raise();
         gameObject.SetActive(false);

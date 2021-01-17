@@ -146,6 +146,8 @@ MonoBehaviour:
   WoompaSFX: {fileID: 1232083191280894805, guid: 5db83c5e88e784c4b8db1c9ec3f9ac37,
     type: 3}
   LifeSFX: {fileID: 5745964970907092165, guid: bc5b5f39011a0234da56e2fa755bbcb0, type: 3}
+  CratebreakSFX: {fileID: 2323556688231087382, guid: 9df71ced2282d064f8074ac1f6aa9b5b,
+    type: 3}
   Player: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
   HasBounced: 0
   JumpAmount: 0
@@ -181,3 +183,4 @@ MonoBehaviour:
   AkuAkuSFX: {fileID: 4617286498205736317, guid: a64658440f12c5e48b4880df36a394d7,
     type: 3}
   Player: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
+  AutoAdd: 0

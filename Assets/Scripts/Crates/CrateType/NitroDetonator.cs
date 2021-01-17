@@ -19,7 +19,7 @@ public class NitroDetonator : MonoBehaviour
         LevelCrates = GetComponentInParent<CratesInLevel>();
         NitroCrates = LevelCrates.GetComponentsInChildren<Nitro>();
 
-        foreach(Nitro crate in NitroCrates)
+        foreach (Nitro crate in NitroCrates)
         {
             NitroCrateList.Add(crate);
         }

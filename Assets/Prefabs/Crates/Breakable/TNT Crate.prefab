@@ -106,6 +106,10 @@ MonoBehaviour:
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
   Woompa: {fileID: 0}
   life: {fileID: 0}
+  WoompaSFX: {fileID: 0}
+  LifeSFX: {fileID: 0}
+  CratebreakSFX: {fileID: 2323556688231087382, guid: 9df71ced2282d064f8074ac1f6aa9b5b,
+    type: 3}
   Player: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
   HasBounced: 0
   JumpAmount: 0
@@ -142,6 +146,7 @@ MonoBehaviour:
   HasExploded: 0
   HasStarted: 0
   TntCountdown: {fileID: 0}
+  ExplosionSource: {fileID: 0}
 --- !u!111 &8934829984771198563
 Animation:
   m_ObjectHideFlags: 0

@@ -143,6 +143,10 @@ MonoBehaviour:
   DestroyedCrate: {fileID: 11400000, guid: baa6a3f36f3c980468a21dd18452fbb6, type: 2}
   Woompa: {fileID: 0}
   life: {fileID: 0}
+  WoompaSFX: {fileID: 0}
+  LifeSFX: {fileID: 0}
+  CratebreakSFX: {fileID: 2323556688231087382, guid: 9df71ced2282d064f8074ac1f6aa9b5b,
+    type: 3}
   Player: {fileID: 11400000, guid: f12d998af8e0c734989a45fc8cf431fa, type: 2}
   HasBounced: 0
   JumpAmount: 0
@@ -179,4 +183,6 @@ MonoBehaviour:
   MetalCrate: {fileID: 8848150449779710713, guid: 779e38cc8d2cb77448a9b99db159f43a,
     type: 3}
   BrokenCheckpoint: {fileID: 9161319982091621344, guid: 525152be3e11c6742b1011d16b363b18,
+    type: 3}
+  CheckPointSFX: {fileID: 1648791987130761805, guid: db13c236d94f6954cafdd28cf5e1ff64,
     type: 3}
